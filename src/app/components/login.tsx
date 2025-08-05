@@ -25,12 +25,13 @@ export default function Login ({setIslogin}: setIslogin) {
                         />
                     </div>
 
-                    <button
-                    className="w-full bg-sky-500 text-white font-bold py-3 rounded-md hover:bg-sky-600 transition active:scale-[0.98]"
-                    >
-                    Login
-                    </button>
-                </div>
+                <button
+                onClick={() => {alert("เข้าสู่ระบบสำเร็จ"); setIslogin(true);}}
+                className="w-full bg-blue-500 text-white font-semibold py-2 rounded-md hover:bg-blue-600 transition active:scale-[0.98]"
+                >
+                Login
+                </button>
+            </div>
         </div>
       </div>
     </div>
