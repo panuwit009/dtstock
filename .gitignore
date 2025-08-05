@@ -1,0 +1,33 @@
+# Node modules
+node_modules/
+
+# Build output
+.next/
+out/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Environment variables
+.env*
+!.env.example
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor/IDE settings
+.vscode/
+.idea/
+
+# Optional: Mac M1 VSCode extensions cache
+.vscode-test/
+
+# Optional: local Next.js telemetry data
+.next-tasks/
+
+# Optional: coverage reports (ถ้าใช้ Jest + coverage)
+coverage/
