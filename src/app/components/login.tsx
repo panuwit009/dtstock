@@ -1,6 +1,9 @@
-export default function Login() {
-  return (
-    <div className="bg-gradient-to-br from-sky-200 via-sky-300 to-sky-400 min-h-screen w-screen flex justify-center items-center">
+"use client";
+import { setIslogin } from "../type";
+
+export default function Login ({setIslogin}: setIslogin) {
+    return (
+<div className="bg-gradient-to-br from-sky-200 via-sky-300 to-sky-400 min-h-screen w-screen flex justify-center items-center">
       <div className="w-[90%] max-w-md bg-white rounded-xl shadow-lg p-8">
         <div className="flex flex-col items-center space-y-6">
           <div className="text-[50px] text-black">รูปภาพ</div>
@@ -30,5 +33,5 @@ export default function Login() {
         </div>
       </div>
     </div>
-  );
+    );
 }
