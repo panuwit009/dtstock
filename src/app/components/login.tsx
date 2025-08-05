@@ -1,7 +1,7 @@
 export default function Login () {
     return (
-        <div className="bg-sky-500 h-1000 w-1000">
-            <div className="bg-lime-500 h-500 w-500">
+        <div className="bg-sky-500 h-dvh w-screen flex justify-center items-center">
+            <div className="bg-white h-[80%] w-[100%] lg:h-[80%] lg:w-[50%]">
                 {/* ของมึง */}
             </div>
         </div>
