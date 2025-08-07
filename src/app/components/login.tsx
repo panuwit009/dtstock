@@ -7,14 +7,17 @@ import { useState } from "react";
 export default function Login({ setIslogin }: setIslogin) {
     const [showPassword, setShowPassword] = useState(false);
 
+    function Open () {
+      setShowPassword(prev=>!prev);
+    }
 
   return (
     <div className="bg-gradient-to-br from-sky-400 via-sky-200 to-white min-h-screen w-screen flex justify-center items-center">
       <div className="w-[90%] md:w-[40%] max-w-md max-h-md bg-white rounded-2xl shadow-2xl p-8">
         <div className="flex flex-col items-center space-y-4">
           <div className="text-3xl font-bold text-sky-600">Dtstock Login</div>
-            <div className="w-24 h-24 rounded-full bg-cover bg-center shadow-inner"
-                    style={{ backgroundImage: "url('/img/logo.jpg')" }}>
+            <div className="w-24 h-24 rounded-full bg-gray-100 bg-cover bg-center shadow-inner"
+                    style={{ backgroundImage: "url('/img/logo.webp')" }}>
             </div>
             <div className="text-gray-500 text-sm">Use your Gmail and password to sign in.</div>
             </div>
@@ -38,7 +41,8 @@ export default function Login({ setIslogin }: setIslogin) {
                             placeholder="12345678910"
                             className="placeholder-gray-400 placeholder:italic text-black mt-1 w-full pl-10 pr-10 py-2 rounded-md border border-gray-300 focus:border-sky-500 focus:ring-1 focus:ring-sky-200 outline-none transition"
                             />
-                            <button className="text-gray-600 text-md absolute right-0 top-1/2 -translate-1/2 rounded-md hover:cursor-pointer hover:text-sky-600" onClick={()=>setShowPassword(prev=>!prev)}>
+                            <button className="text-gray-600 text-md absolute right-0 top-1/2 -translate-1/2 rounded-md hover:cursor-pointer hover:text-sky-600" 
+                            onClick={Open}> 
                             <FontAwesomeIcon icon={showPassword ? faEye : faEyeSlash}/>
                              </button>
                        </div>
