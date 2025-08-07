@@ -2,7 +2,7 @@
 import { useRouter } from "next/navigation";
 import { faCheckSquare, faCoffee } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { BrowserQRCodeReader } from '@zxing/browser';
+import { BrowserMultiFormatReader } from '@zxing/browser';
 import { useState } from "react";
 
 export default function Dashboard () {
@@ -13,12 +13,13 @@ export default function Dashboard () {
             setError("เบราว์เซอร์ของคุณไม่รองรับการเข้าถึงกล้อง");
             return;
         }
-        const codeReader = new BrowserQRCodeReader();
+        const codeReader = new BrowserMultiFormatReader ();
         console.log(codeReader);
         //alert("เปิดกล้อง");
 
         codeReader.decodeOnceFromVideoDevice(undefined, 'video').then((result) => {
             console.log(result);
+            alert("test");
             // ทำสิ่งที่ต้องการหลังจากสแกน QR code เสร็จ
         }).catch((error) => {
             setError(error.message);
