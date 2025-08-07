@@ -3,6 +3,7 @@ import { setIslogin } from "../type";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faKey, faUser, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
 import { useState } from "react";
+import HeadLogin from "./headlogin";
 
 export default function Login({ setIslogin }: setIslogin) {
     const [showPassword, setShowPassword] = useState(false);
@@ -12,15 +13,9 @@ export default function Login({ setIslogin }: setIslogin) {
     }
 
   return (
-    <div className="bg-gradient-to-br from-sky-400 via-sky-200 to-white min-h-screen w-screen flex justify-center items-center">
+    <div className="bg-gradient-to-br from-sky-300 via-sky-200 to-white min-h-screen w-screen flex justify-center items-center">
       <div className="w-[90%] md:w-[40%] max-w-md max-h-md bg-white rounded-2xl shadow-2xl p-8">
-        <div className="flex flex-col items-center space-y-4">
-          <div className="text-3xl font-bold text-sky-600">Dtstock Login</div>
-            <div className="w-24 h-24 rounded-full bg-gray-100 bg-cover bg-center shadow-inner"
-                    style={{ backgroundImage: "url('/img/logo.webp')" }}>
-            </div>
-            <div className="text-gray-500 text-sm">Use your Gmail and password to sign in.</div>
-            </div>
+          <HeadLogin/>
 
             <div className="mt-4 space-y-4">
                     <label className="font-medium text-gray-700">Gmail</label>
