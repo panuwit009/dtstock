@@ -14,13 +14,13 @@ export default function Login({ setIslogin }: setIslogin) {
 
   return (
     <div className="bg-gradient-to-br from-sky-300 via-sky-200 to-white min-h-screen w-screen flex justify-center items-center">
-      <div className="border-white/30 border w-[95%] md:w-[40%] max-w-md max-h-md bg-white/70 rounded-2xl shadow-2xl p-8 transform transition duration-300 hover:scale-105">
+      <div className="border-white/30 border w-[95%] md:w-[40%] max-w-md max-h-md bg-white/80 rounded-2xl shadow-2xl p-8 transform transition duration-300 hover:scale-105">
       
           <HeadLogin/>
 
             <div className="mt-4 space-y-4">
                     <label className="font-medium text-gray-700">Gmail</label>
-                        <div className="relative">
+                        <div className="relative transition duration:500 hover:scale-105">
                             <FontAwesomeIcon icon={faUser} className="text-gray-700 text-lg absolute left-5 top-1/2 -translate-1/2 rounded-md"/>
                             <input
                             type="email"
@@ -30,7 +30,7 @@ export default function Login({ setIslogin }: setIslogin) {
                         </div>
 
                     <label className="font-medium text-gray-700">Password</label>
-                        <div className="relative">
+                        <div className="relative transition duration:500 hover:scale-105">
                             <FontAwesomeIcon icon={faKey} className="text-gray-700 text-lg absolute left-5 top-1/2 -translate-1/2 rounded-md"/>
                             <input
                             type={showPassword ? "text" : "password" }
