@@ -5,7 +5,7 @@ export default function HeadLogin () {
                 DTstock Login
             </div>
 
-             <div className="w-24 h-24 rounded-full bg-gray-100 bg-cover bg-center drop-shadow-sm/30"
+             <div className="w-24 h-24 rounded-full bg-cover bg-center drop-shadow-sm/30 transform transition duration-300 hover:rotate-6 hover:scale-110"
                     style={{ backgroundImage: "url('/img/logo.webp')" }}>
             </div>
             
