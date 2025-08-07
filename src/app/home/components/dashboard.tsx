@@ -3,12 +3,26 @@ import { useRouter } from "next/navigation";
 import { faCheckSquare, faCoffee } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { BrowserQRCodeReader } from '@zxing/browser';
+import { useState } from "react";
 
 export default function Dashboard () {
+    const [error, setError] = useState<string | null>(null);
+
     function scanBarcode () {
+        if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+            setError("เบราว์เซอร์ของคุณไม่รองรับการเข้าถึงกล้อง");
+            return;
+        }
         const codeReader = new BrowserQRCodeReader();
         console.log(codeReader);
         //alert("เปิดกล้อง");
+
+        codeReader.decodeOnceFromVideoDevice(undefined, 'video').then((result) => {
+            console.log(result);
+            // ทำสิ่งที่ต้องการหลังจากสแกน QR code เสร็จ
+        }).catch((error) => {
+            setError(error.message);
+        });
     }
     const router = useRouter();
     return (
@@ -21,6 +35,8 @@ export default function Dashboard () {
             alert("ออกจากระบบสำเร็จ"); router.push('/'); }
             }
         >Logout</button>
+        {error && <p className="text-red-500 hover:cursor-pointer" onClick={() => setError("")}>{error}</p>}
+        <video id="video" style={{ width: "100%" }}></video>
         </>
     );
 }
