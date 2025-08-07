@@ -19,7 +19,8 @@ export default function Dashboard () {
 
         codeReader.decodeOnceFromVideoDevice(undefined, 'video').then((result) => {
             console.log(result);
-            alert("test");
+            const qrText = result.getText();
+            alert("text: " + qrText);
             // ทำสิ่งที่ต้องการหลังจากสแกน QR code เสร็จ
         }).catch((error) => {
             setError(error.message);
