@@ -25,7 +25,7 @@ export default function Login({ setIslogin }: setIslogin) {
 
   return (
     <div className="bg-gradient-to-br from-sky-300 via-sky-200 to-white min-h-screen w-screen flex justify-center items-center">
-      <div className="border-white/30 border w-[95%] md:w-[40%] max-w-md max-h-md bg-white/80 rounded-2xl shadow-2xl p-8">
+      <div className="fadeInUpOnce border-white/30 border w-[95%] md:w-[40%] max-w-md max-h-md bg-white/80 rounded-2xl shadow-2xl p-8">
       
           <HeadLogin/>
 
