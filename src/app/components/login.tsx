@@ -2,19 +2,30 @@
 import { setIslogin } from "../type";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faKey, faUser, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import HeadLogin from "./headlogin";
+import LottieLoader from "./loading";
 
 export default function Login({ setIslogin }: setIslogin) {
     const [showPassword, setShowPassword] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+      const timer = setTimeout(() => {
+        setIsLoading(false);
+      }, 5000);
+      return () => clearTimeout(timer);
+    }, []);
 
     function Open () {
       setShowPassword(prev=>!prev);
     }
 
+    if (isLoading) return <LottieLoader />;
+
   return (
     <div className="bg-gradient-to-br from-sky-300 via-sky-200 to-white min-h-screen w-screen flex justify-center items-center">
-      <div className="border-white/30 border w-[95%] md:w-[40%] max-w-md max-h-md bg-white/80 rounded-2xl shadow-2xl p-8">
+      <div className="fadeInUpOnce border-white/30 border w-[95%] md:w-[40%] max-w-md max-h-md bg-white/80 rounded-2xl shadow-2xl p-8">
       
             <HeadLogin />
 
