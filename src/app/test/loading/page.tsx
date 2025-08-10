@@ -1,4 +1,4 @@
-import LottieLoader from "../components/loading";
+import LottieLoader from "../../utils/loading";
 
 function LottieLoadertest  (){
     return <LottieLoader />
