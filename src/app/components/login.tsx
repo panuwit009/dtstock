@@ -4,24 +4,24 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faKey, faUser, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
 import { useEffect, useState } from "react";
 import HeadLogin from "./headlogin";
-import LottieLoader from "./loading";
+// import LottieLoader from "./loading";
 
 export default function Login({ setIslogin }: setIslogin) {
     const [showPassword, setShowPassword] = useState(false);
-    const [isLoading, setIsLoading] = useState(true);
+    // const [isLoading, setIsLoading] = useState(true);
 
-    useEffect(() => {
-      const timer = setTimeout(() => {
-        setIsLoading(false);
-      }, 5000);
-      return () => clearTimeout(timer);
-    }, []);
+    // useEffect(() => {
+    //   const timer = setTimeout(() => {
+    //     setIsLoading(false);
+    //   }, 5000);
+    //   return () => clearTimeout(timer);
+    // }, []);
 
     function Open () {
       setShowPassword(prev=>!prev);
     }
 
-    if (isLoading) return <LottieLoader />;
+    // if (isLoading) return <LottieLoader />;
 
   return (
     <div className="bg-gradient-to-br from-sky-300 via-sky-200 to-white min-h-screen w-screen flex justify-center items-center">
