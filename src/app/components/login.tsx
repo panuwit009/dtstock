@@ -3,30 +3,43 @@ import { setIslogin } from "../type";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faKey, faUser, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
 import { useEffect, useState } from "react";
+
 import HeadLogin from "./headlogin";
-import LottieLoader from "./loading";
+import AlertPTB from "../utils/alert";
+// import LottieLoader from "../utils/loading";
 
 export default function Login({ setIslogin }: setIslogin) {
     const [showPassword, setShowPassword] = useState(false);
-    const [isLoading, setIsLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState(false);
+    const [popup, setPopup] = useState(false);
 
-    useEffect(() => {
-      const timer = setTimeout(() => {
-        setIsLoading(false);
-      }, 5000);
-      return () => clearTimeout(timer);
-    }, []);
+    // useEffect(() => {
+    //   const timer = setTimeout(() => {
+    //     setIsLoading(false);
+    //   }, 5000);
+    //   return () => clearTimeout(timer);
+    // }, []);
 
     function Open () {
       setShowPassword(prev=>!prev);
     }
 
-    if (isLoading) return <LottieLoader />;
+    //if (isLoading) return <LottieLoader />;
+
+    function clickLoginButton (): void {
+      setPopup(true);
+      // setTimeout(() => {
+      //   setIslogin(true);
+      // }, 2000);
+    }
 
   return (
-    <div className="bg-gradient-to-br from-sky-300 via-sky-200 to-white min-h-screen w-screen flex justify-center items-center">
-      <div className="fadeInUpOnce border-white/30 border w-[95%] md:w-[40%] max-w-md max-h-md bg-white/80 rounded-2xl shadow-2xl p-8">
-      
+    <>
+        {popup && <AlertPTB />}
+        
+        <div className="bg-gradient-to-br from-sky-300 via-sky-200 to-white min-h-screen w-screen flex justify-center items-center">
+          <div className="fadeInUpOnce border-white/30 border w-[95%] md:w-[40%] max-w-md max-h-md bg-white/80 rounded-2xl shadow-2xl p-8">
+
             <HeadLogin />
 
             <div className="mt-6 space-y-4">
@@ -62,7 +75,7 @@ export default function Login({ setIslogin }: setIslogin) {
 
             <div className="mt-6 space-y-4">
 
-              <button onClick={() => {alert("เข้าสู่ระบบสำเร็จ"); setIslogin(true);}}
+              <button onClick={clickLoginButton}
                   className="text-lg font-semibold w-full bg-sky-500 text-white p-2 rounded-lg shadow-lg hover:bg-sky-600 
                   transform transition active:scale-95
                   hover:scale-105 hover:cursor-pointer">
@@ -86,5 +99,8 @@ export default function Login({ setIslogin }: setIslogin) {
 
       </div>
     </div>
+
+    
+      </>
   );
 }
