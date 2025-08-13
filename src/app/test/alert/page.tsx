@@ -1,4 +1,9 @@
-import Alert from "../../utils/alert";
+"use client";
+import AlertPTB from "../../utils/alert"
+
 export default function testAlert () {
-    return <Alert />;
+    return (
+
+            <AlertPTB />
+    )
 }
