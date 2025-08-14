@@ -33,9 +33,8 @@ export default function AlertPTB ({type}: any) {
                         ✖
                      </div>
 
-                    <div className={`text-white text-3xl bg-[#b7f473] px-6 py-4 rounded-full`}>
+                    <div className={`text-white text-3xl bg-gradient-to-br from-emerald-300 to-green-400 px-6 py-4 rounded-full animate-bounce`}>
                         ✔
-                        {message}
                     </div>
 
                     <div className='text-center space-y-3 hover:cursor-default'>
