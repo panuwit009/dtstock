@@ -1,22 +1,13 @@
 "use client";
 import { useState } from "react";
-function AddOrDecreaseStock() {
-    const [stocktype, setStocktype] = useState("");
-    function selectStocktype(st: string) {
-        if(stocktype === st) {
-            setStocktype("");
-        } else {
-            setStocktype(st)
-        }
-    }
-    return (<>
-    <span onClick={()=> selectStocktype("add")}
-    className={`${stocktype === "add" && "underline text-blue-600"} select-none hover:cursor-pointer`}>เพิ่มสต๊อค</span> | <span
-    onClick={()=> selectStocktype("dec")}
-    className={`${stocktype === "dec" && "underline text-blue-600"}  select-none hover:cursor-pointer`}>ตัดสต๊อค</span>
-    </>);
-}
+import { useRouter } from "next/navigation";
+import { AddOrDecreaseStock } from "./AddOrDecreaseStock";
+import { openCamera } from "./openCamera";
+
 export default function Scanbarcode () {
+    const [error, setError] = useState<string | null>(null);
+    const router = useRouter();
+
     return (
         <div className="flex justify-center border rounded-lg">
             <div className="grid grid-rows-12 h-50">
@@ -26,7 +17,11 @@ export default function Scanbarcode () {
                     <p>เพื่อเพิ่มข้อมูลด้วยการพิมพ์</p>
                 </div>
                 <div className="row-span-4 text-center">
-                    <p>เผื่อเพิ่มไรสักอย่าง</p>
+                    <p className="hover:cursor-pointer"
+                    onClick={() => openCamera({setError})}>ปุ่มเปิดกล้อง</p>
+                    <p className="hover:cursor-pointer"
+                    onClick={() => { alert("ออกจากระบบสำเร็จ"); router.push('/'); }}>Logout</p>
+                    {error && <p className="text-red-500 hover:cursor-pointer" onClick={() => setError("")}>{error}</p>}
                 </div>
             </div>
         </div>
