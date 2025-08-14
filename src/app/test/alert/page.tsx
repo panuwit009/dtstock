@@ -4,6 +4,6 @@ import AlertPTB from "../../utils/alert"
 export default function testAlert () {
     return (
 
-            <AlertPTB />
+            <AlertPTB type="error"/>
     )
 }
