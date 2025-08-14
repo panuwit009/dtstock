@@ -3,22 +3,22 @@ import { faCheck, faXmark } from '@fortawesome/free-solid-svg-icons'
 import { useState } from 'react';
 import "./alert.css";
 
-export default function AlertPTB () {
+export default function AlertPTB ({type}: any) {
     const [show, setShow] = useState(true);
-    // const [type, setType] = useState("");
+    let message = "ทดสอบ";
 
-    // switch (type) {
-    //     case "success":
-    //         const color = "#b7f473";
-    //         break;
-    //     case "error":
-    //         const color = "";
-    //         break;
-    //     default :
-    //         const color = "";
-    //     break;
+    switch (type) {
+        case "success":
+            message = "✔";
+            break;
+        case "error":
+            message = "✖";
+            break;
+        default :
+            message = "Error";
+        break;
 
-    // }
+    }
 
     if (show) {
         return (
@@ -33,9 +33,9 @@ export default function AlertPTB () {
                         ✖
                      </div>
 
-                    <div className={`text-white text-3xl bg-gradient-to-br from-emerald-300 to-green-400 px-6 py-4 rounded-full shadow-lg animate-bounce 
-                                     hover:cursor-default`}>
+                    <div className={`text-white text-3xl bg-[#b7f473] px-6 py-4 rounded-full`}>
                         ✔
+                        {message}
                     </div>
 
                     <div className='text-center space-y-3 hover:cursor-default'>
