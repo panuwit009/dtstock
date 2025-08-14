@@ -3,7 +3,7 @@ import { faCheck, faXmark } from '@fortawesome/free-solid-svg-icons'
 import { useState } from 'react';
 import "./alert.css";
 
-export default function AlertPTB ({type}: any) {
+export default function AlertPTB ({type}: {type: string}) {
     const [show, setShow] = useState(true);
     let message = "ทดสอบ";
 
