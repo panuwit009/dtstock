@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import "@fontsource/kanit"; // Defaults to weight 400
+import "@fontsource/kanit/400.css"; // Specify weight
+import "@fontsource/kanit/400-italic.css"; // Specify weight and style
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
