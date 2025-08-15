@@ -1,9 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
 import { useRouter } from 'next/navigation';
-import "@fontsource/kanit"; // Defaults to weight 400
-import "@fontsource/kanit/400.css"; // Specify weight
-import "@fontsource/kanit/400-italic.css"; // Specify weight and style
 
 import Login from "./components/login";
 
