@@ -6,7 +6,7 @@ export default function Home () {
         <>
         <Scanbarcode />
         <video id="video" style={{ width: "100%" }}></video>
-        <Items />
+        {/* <Items /> */}
         </>
     );
 }
