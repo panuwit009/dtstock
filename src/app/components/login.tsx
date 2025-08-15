@@ -30,7 +30,7 @@ export default function Login () {
     <>
         {popup && <AlertPTB type="error" />}
         
-        <div className="bg-gradient-to-br from-sky-300 via-sky-200 to-white min-h-screen w-screen flex justify-center items-center">
+        <div className="min-h-screen w-screen flex justify-center items-center">
           <div className="border-white/30 border w-[95%] md:w-[40%] max-w-md max-h-md bg-white/80 rounded-2xl shadow-2xl p-8">
 
             <HeadLogin />

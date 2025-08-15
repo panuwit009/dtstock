@@ -9,10 +9,11 @@ export default function Scanbarcode () {
     const router = useRouter();
 
     return (
-        <div className="flex justify-center border rounded-lg">
-            <div className="grid grid-rows-12 h-50">
+        <div className="flex justify-center rounded-lg">
+            <div className="grid grid-rows-12 h-50 border border-black w-[50%]">
                 <div className="row-span-8 text-center">
-                    <span>สแกนบาร์โค๊ดเพื่อ </span><AddOrDecreaseStock /> หรือ
+                    <span>สแกนบาร์โค๊ดเพื่อ </span>
+                    <AddOrDecreaseStock /> หรือ
                     <p className="underline text-blue-600 hover:cursor-pointer">คลิกที่นี่</p>
                     <p>เพื่อเพิ่มข้อมูลด้วยการพิมพ์</p>
                 </div>
