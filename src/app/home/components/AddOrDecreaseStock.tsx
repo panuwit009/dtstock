@@ -11,9 +11,50 @@ export function AddOrDecreaseStock() {
         }
     }
     return (<>
-    <span onClick={()=> selectStocktype("add")}
-    className={`${stocktype === "add" && "underline text-blue-600"} select-none hover:cursor-pointer`}>เพิ่มสต๊อค</span> | <span
-    onClick={()=> selectStocktype("dec")}
-    className={`${stocktype === "dec" && "underline text-blue-600"}  select-none hover:cursor-pointer`}>ตัดสต๊อค</span>
+                           <div className="flex items-center justify-center pt-8 space-x-8">
+
+                                <button
+                                    onClick={() => selectStocktype("add")}
+                                    className={`${stocktype === "add" ? "text-white bg-emerald-400 focus:scale-115" : "bg-white"} 
+                                        hover:scale-110 shadow-lg text-emerald-400 px-6 py-4 rounded-2xl font-medium transition duration-300 border-2 border-emerald-400 hover:cursor-pointer flex items-center gap-2`}
+                                    >
+                                    <svg
+                                        className="w-6 h-6"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24"
+                                    >
+                                        <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        strokeWidth="2"
+                                        d="M12 4v16m8-8H4"
+                                        />
+                                    </svg>
+                                    เพิ่มสต๊อค
+                                </button>
+
+                                <button
+                                    onClick={() => selectStocktype("dec")}
+                                    className={`${stocktype === "dec" ? "text-white bg-rose-600 focus:scale-115" : "bg-white"} 
+                                        hover:scale-110 shadow-lg text-rose-400 px-6 py-4 rounded-2xl font-medium transition duration-300 border-2 border-red-200 hover:cursor-pointer flex items-center gap-2`}
+                                    >
+                                    <svg
+                                        className="w-6 h-6"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24"
+                                    >
+                                        <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        strokeWidth="2"
+                                        d="M20 12H4"
+                                        />
+                                    </svg>
+                                    ตัดสต๊อค
+                                </button>
+
+                            </div>
     </>);
 }
