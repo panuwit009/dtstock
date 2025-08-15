@@ -1,15 +1,12 @@
 "use client";
-import { setIslogin } from "../type";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faKey, faUser, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
 import { useEffect, useState } from "react";
 
 import HeadLogin from "./headlogin";
+import Bodylogin from "./formlogin";
 import AlertPTB from "../utils/alert";
 // import LottieLoader from "../utils/loading";
 
-export default function Login({ setIslogin }: setIslogin) {
-    const [showPassword, setShowPassword] = useState(false);
+export default function Login () {
     const [isLoading, setIsLoading] = useState(false);
     const [popup, setPopup] = useState(false);
 
@@ -19,10 +16,6 @@ export default function Login({ setIslogin }: setIslogin) {
     //   }, 5000);
     //   return () => clearTimeout(timer);
     // }, []);
-
-    function Open () {
-      setShowPassword(prev=>!prev);
-    }
 
     //if (isLoading) return <LottieLoader />;
 
@@ -41,38 +34,8 @@ export default function Login({ setIslogin }: setIslogin) {
           <div className="border-white/30 border w-[95%] md:w-[40%] max-w-md max-h-md bg-white/80 rounded-2xl shadow-2xl p-8">
 
             <HeadLogin />
-
-            <div className="mt-6 space-y-4">
-                        <div className="transition duration-300 focus-within:scale-105">
-                            <label className="font-medium text-gray-700">Gmail</label>
-                          <div className="relative">
-                            <FontAwesomeIcon icon={faUser} className="text-gray-700 text-lg absolute left-3 top-1/2 -translate-y-1/2 rounded-md"/>
-                            <input
-                            type="email"
-                            placeholder="example@gmail.com"
-                            className="placeholder-gray-400 placeholder:italic text-black mt-1 w-full pl-10 pr-4 py-2 rounded-md border border-gray-400 focus:border-sky-500 focus:ring-1 focus:ring-sky-200 outline-none"
-                            />
-                            </div>
-                        </div>
-
-                        <div className="transition duration-300 focus-within:scale-105">
-                          <label className="font-medium text-gray-700">Password</label>
-                          <div className="relative">
-                            <FontAwesomeIcon icon={faKey} className="text-gray-700 text-lg absolute left-3 top-1/2 -translate-y-1/2 rounded-md"/>
-                            <input
-                            type={showPassword ? "text" : "password" }
-                            placeholder="12345678910"
-                            className="placeholder-gray-400 placeholder:italic text-black mt-1 w-full pl-10 pr-10 py-2 rounded-md border border-gray-400 focus:border-sky-500 focus:ring-1 focus:ring-sky-200 outline-none"
-                            />
-                            <button className="text-gray-600 text-md absolute right-3 top-1/2 -translate-y-1/2 rounded-md hover:cursor-pointer hover:text-sky-600" 
-                            onClick={Open}> 
-                            <FontAwesomeIcon icon={showPassword ? faEye : faEyeSlash}/>
-                             </button>
-                          </div>
-                       </div>
-                    </div>
-
-
+              <Bodylogin />
+           
             <div className="mt-6 space-y-4">
 
               <button onClick={clickLoginButton}
