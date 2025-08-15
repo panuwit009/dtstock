@@ -5,8 +5,9 @@ import HeadLogin from "./headlogin";
 import Bodylogin from "./formlogin";
 import AlertPTB from "../utils/alert";
 // import LottieLoader from "../utils/loading";
+import type { setIslogin } from "../type";
 
-export default function Login () {
+export default function Login ({ setIslogin }: setIslogin) {
     const [isLoading, setIsLoading] = useState(false);
     const [popup, setPopup] = useState(false);
 
@@ -21,9 +22,9 @@ export default function Login () {
 
     function clickLoginButton (): void {
       setPopup(true);
-      // setTimeout(() => {
-      //   setIslogin(true);
-      // }, 2000);
+      setTimeout(() => {
+        setIslogin(true);
+      }, 2000);
     }
 
   return (
