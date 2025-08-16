@@ -4,18 +4,10 @@ import { useRouter } from "next/navigation";
 import { AddOrDecreaseStock } from "./AddOrDecreaseStock";
 import { openCamera } from "./openCamera";
 import { useAlert } from "@/app/utils/alertcontext";
+import Headscan  from "./็Headscan";
 
 export default function Scanbarcode () {
     const [error, setError] = useState<string | null>(null);
-
-    const [stocktype, setStocktype] = useState("");
-    function selectStocktype(st: string) {
-        if(stocktype === st) {
-            setStocktype("");
-        } else {
-            setStocktype(st)
-        }
-    }
 
     const { al } = useAlert();
     const router = useRouter();
@@ -26,25 +18,7 @@ export default function Scanbarcode () {
 
     return (
         <>
-                <div className="text-center py-6">
-
-                    <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-3xl flex items-center justify-center mx-auto mb-4">
-                        <svg className="w-10 h-10 text-white drop-shadow-lg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
-                        </svg>
-                    </div>
-   
-                    <div className="space-y-2">
-                        <div className="text-4xl font-bold text-gray-800">
-                            ระบบการจัดสินค้าสต็อค 
-                        </div>
-
-                        <div className="text-sm text-gray-700">
-                            การจัดการสินค้าอย่างมืออาชีพ 
-                        </div>
-                    </div>
-
-                </div>
+                <Headscan />
 
                 <div className="bg-white md:rounded-3xl shadow-xl border border-gray-100 max-w-3xl mx-auto">
 
@@ -98,7 +72,7 @@ export default function Scanbarcode () {
 
                     <div className="grid grid-cols-2 px-4 p-4">
 
-                        <div className="flex items-center gap-1">
+                        <div className="hover:cursor-default flex items-center gap-1">
 
                             <div className="">
                                 <svg className="w-6 h-6 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-label="system-ready"> <circle cx="12" cy="12" r="9" strokeWidth="2" />
@@ -109,19 +83,23 @@ export default function Scanbarcode () {
                             <div className="text-sm text-emerald-500">
                                 ระบบพร้อมใช้งาน
                             </div>
+                            
                         </div>
 
-                        <div className="flex justify-end gap-1">
-                  
-                            <div className="hover:cursor-pointer flex items-center gap-1 text-red-600 text-sm rounded-lg"
-                                onClick={logout}>
+                        <div className="flex items-center justify-end gap-1">
+
                                 <svg className="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-label="logout" >
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 5H7a2 2 0 00-2 2v10a2 2 0 002 2h6" />
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 16l4-4m0 0l-4-4m4 4H9" />
                                 </svg>
+                  
+                            <div className="hover:cursor-pointer gap-1 text-red-600 text-sm rounded-lg"
+                                onClick={logout}>
                                 ออกจากระบบ
                             </div>
+                            
                         </div>
+                        
                     </div>
 
                 </div>

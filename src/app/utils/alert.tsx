@@ -37,7 +37,7 @@ export default function AlertPTB () {
                         ✖
                      </div>
 
-                    <div className={`text-white text-3xl bg-gradient-to-br from-bg-emerald-400 to-green-400 px-6 py-4 rounded-full animate-bounce`}>
+                    <div className={`text-white text-3xl bg-gradient-to-br from-emerald-400 to-green-400 px-6 py-4 rounded-full animate-bounce`}>
                         {styles.icon}
                     </div>
 

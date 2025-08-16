@@ -5,7 +5,7 @@ export default function testAlert () {
     const { al } = useAlert();
     function alertfire () {
         al({
-            type: 'error',
+            type: 'success',
             headerMessage: 'สอบทด',
             message: '',
             confirmBt: true,
