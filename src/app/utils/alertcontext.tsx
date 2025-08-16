@@ -1,18 +1,18 @@
 "use client";
 import { createContext, useContext, useState, ReactNode } from 'react';
-import { popupDetail } from '../type';
+import { alertDetail } from '../type';
 
 const AlertContext = createContext<{
-  show: popupDetail | null;
-  setShow: React.Dispatch<React.SetStateAction<popupDetail | null>>;
+  show: alertDetail | null;
+  al: React.Dispatch<React.SetStateAction<alertDetail | null>>;
 } | undefined>(undefined);
 
 
 export const AlertProvider = ({ children }: { children: ReactNode }) => {
-  const [show, setShow] = useState<popupDetail | null>(null);
+  const [show, al] = useState<alertDetail | null>(null);
 
   return (
-    <AlertContext.Provider value={{ show, setShow }}>
+    <AlertContext.Provider value={{ show, al }}>
       {children}
     </AlertContext.Provider>
   );
