@@ -3,12 +3,26 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { AddOrDecreaseStock } from "./AddOrDecreaseStock";
 import { openCamera } from "./openCamera";
+import { useAlert } from "@/app/utils/alertcontext";
 
 export default function Scanbarcode () {
     const [error, setError] = useState<string | null>(null);
 
-    const router = useRouter();
+    const [stocktype, setStocktype] = useState("");
+    function selectStocktype(st: string) {
+        if(stocktype === st) {
+            setStocktype("");
+        } else {
+            setStocktype(st)
+        }
+    }
 
+    const { al } = useAlert();
+    const router = useRouter();
+    function logout (): void {
+        al({type: 'success', headerMessage: 'ออกจากระบบสำเร็จ'});
+        router.push('/');
+    }
 
     return (
         <>
@@ -100,7 +114,7 @@ export default function Scanbarcode () {
                         <div className="flex justify-end gap-1">
                   
                             <div className="hover:cursor-pointer flex items-center gap-1 text-red-600 text-sm rounded-lg"
-                                onClick={() => { alert("ออกจากระบบสำเร็จ"); router.push('/'); }}>
+                                onClick={logout}>
                                 <svg className="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-label="logout" >
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 5H7a2 2 0 00-2 2v10a2 2 0 002 2h6" />
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 16l4-4m0 0l-4-4m4 4H9" />
