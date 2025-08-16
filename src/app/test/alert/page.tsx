@@ -1,8 +1,25 @@
 "use client";
-import AlertPTB from "../../utils/alert"
+import { useAlert } from "@/app/utils/alertcontext";
 
 export default function testAlert () {
+    const { al } = useAlert();
+    function alertfire () {
+        al({
+            type: 'error',
+            headerMessage: 'สอบทด',
+            message: '',
+            confirmBt: true,
+            confirmBtText: 'ตกลง'
+        });
+    }
+
     return (
-    <AlertPTB/>
+    <>
+    <div className="h-screen flex items-center justify-center">
+        <button onClick={alertfire} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+            Test Alert
+        </button>
+    </div>
+    </>
     )
 }
