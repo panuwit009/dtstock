@@ -1,7 +1,7 @@
 "use client";
 import { useAlert } from "@/app/utils/alertcontext";
 
-export default function testAlert () {
+export default function TestAlert () {
     const { al } = useAlert();
     function alertfire () {
         al({

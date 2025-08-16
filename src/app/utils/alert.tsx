@@ -6,7 +6,7 @@ import { useAlert } from './alertcontext';
 export default function AlertPTB () {
     const { show, al } = useAlert();
 
-    let styles = {
+    const styles = {
         color: '',
         icon: ''
     };
