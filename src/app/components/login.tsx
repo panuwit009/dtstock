@@ -18,9 +18,9 @@ export default function Login ({ setIslogin }: setIslogin) {
     // }, []);
 
     //if (isLoading) return <LottieLoader />;
-    const { setShow } = useAlert();
+    const { al } = useAlert();
     function clickLoginButton (): void {
-      setShow({ type: 'success' });
+      al({ type: 'success', headerMessage: 'เข้าสู่ระบบสำเร็จ'});
       // setTimeout(() => {
         setIslogin(true);
       // }, 0);
