@@ -4,4 +4,8 @@ export interface setIslogin {
 
 export interface popupDetail {
     type?: 'success' | 'error' | null;
+    headerMessage?: string | null;
+    message?: string | null;
+    confirmBt?: boolean;
+    confirmBtText?: string;
 }
