@@ -6,105 +6,69 @@ import { openCamera } from "./openCamera";
 
 export default function Scanbarcode () {
     const [error, setError] = useState<string | null>(null);
+
     const router = useRouter();
 
-        const [stocktype, setStocktype] = useState("");
-    function selectStocktype(st: string) {
-        if(stocktype === st) {
-            setStocktype("");
-        } else {
-            setStocktype(st)
-        }
-    }
 
     return (
         <>
-                <div className="text-center p-4">
+                <div className="text-center py-6">
 
-                    <div className="w-16 h-16 bg-blue-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                        <svg
-                        className="w-8 h-8 text-white"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                        >
-                        <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth="2"
-                            d="M3 7l9-4 9 4-9 4-9-4z"
-                        />
-                        <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth="2"
-                            d="M3 7v10l9 4 9-4V7"
-                        />
+                    <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-3xl flex items-center justify-center mx-auto mb-4">
+                        <svg className="w-10 h-10 text-white drop-shadow-lg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
                         </svg>
                     </div>
    
-                    <h1 className="text-3xl font-bold text-gray-800">
-                        ระบบการจัดสินค้าสต็อค 
-                    </h1>
+                    <div className="space-y-2">
+                        <div className="text-4xl font-bold text-gray-800">
+                            ระบบการจัดสินค้าสต็อค 
+                        </div>
+
+                        <div className="text-sm text-gray-700">
+                            การจัดการสินค้าอย่างมืออาชีพ 
+                        </div>
+                    </div>
+
                 </div>
 
-                <div className="bg-white rounded-3xl shadow-xl border border-gray-100 max-w-2xl mx-auto">
+                <div className="bg-white md:rounded-3xl shadow-xl border border-gray-100 max-w-3xl mx-auto">
 
-                        <div className="space-y-8">
+                        <div className="space-y-6">
                                 <AddOrDecreaseStock />
 
-                        <div className="text-center">                  
+                        <div className="flex flex-col items-center gap-2">                  
                             <div
-                                className="hover:cursor-pointer hover:scale-110 transition duration-300 text-black bg-stone-400 inline-flex items-center gap-2 p-4 m-2 rounded-lg font-semibold"
-                                onClick={() => openCamera({ setError })}
-                                >
-                                <svg
-                                    className="w-6 h-6 text-black"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    viewBox="0 0 24 24"
-                                >
-                                    <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth="2"
-                                    d="M3 7h2l2-3h10l2 3h2a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1z"
-                                    />
-                                    <circle
-                                    cx="12"
-                                    cy="13"
-                                    r="4"
-                                    stroke="currentColor"
-                                    strokeWidth="2"
-                                    />
+                                className="flex items-center gap-2 text-white shadow-lg hover:cursor-pointer hover:scale-110 transition duration-300 bg-slate-600 p-6 m-2 rounded-xl"
+                                onClick={() => openCamera({ setError })}>
+                                    
+                                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 7h2l2-3h10l2 3h2a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1z"/> 
+                                    <circle cx="12" cy="13" r="4" stroke="currentColor" strokeWidth="2" />
                                 </svg>
-                                ปุ่มเปิดกล้อง
+                                เปิดกล้อง
                             </div>
                             {error && <div className="text-red-500 hover:cursor-pointer" onClick={() => setError("")}>{error}</div>}
                         </div>
 
-                        <div className="text-center">
-                            <div className="bg-white border-2 border-gray-200 inline-block p-6 space-y-2 hover:border-sky-400">
+                        <div className="flex items-center justify-center gap-4 px-6">
+                            <hr className="flex-1 border-gray-400"></hr>
+                            <div>หรือ</div>
+                            <hr className="flex-1 border-gray-400"></hr>
+                        </div>
+
+                        <div className="flex justify-center">
+                            <div className="border-2 border-gray-300 rounded-lg p-6 space-y-2 hover:border-sky-400">
                                     
                                     <div className="flex items-center gap-4">
 
-                                        <div>
-                                            <svg
-                                                className="w-5 h-5 text-blue-600"
-                                                fill="none"
-                                                stroke="currentColor"
-                                                viewBox="0 0 24 24"
-                                                >
-                                                <path
-                                                    strokeLinecap="round"
-                                                    strokeLinejoin="round"
-                                                    strokeWidth="2"
-                                                    d="M12 20h9M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z"
-                                                />
+                                        <div className="bg-gradient-to-br from-blue-500 to-indigo-600 p-4 rounded-2xl">
+                                            <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" >
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 20h9M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z"/>
                                             </svg>
                                         </div>
 
-                                        <div>
+                                        <div className="flex flex-col items-center">
                                             <div className="underline font-bold text-blue-600 hover:cursor-pointer">
                                                 เพิ่มข้อมูลด้วยการพิมพ์
                                             </div>
@@ -113,20 +77,41 @@ export default function Scanbarcode () {
                                                 กรอกข้อมูลด้วยตนเอง
                                             </div>
                                         </div>
+
                                     </div>
                             </div>
                         </div>
 
+                    <div className="grid grid-cols-2 px-4 p-4">
+
+                        <div className="flex items-center gap-1">
+
+                            <div className="">
+                                <svg className="w-6 h-6 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-label="system-ready"> <circle cx="12" cy="12" r="9" strokeWidth="2" />
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4" />
+                                </svg>
+                            </div>
+
+                            <div className="text-sm text-emerald-500">
+                                ระบบพร้อมใช้งาน
+                            </div>
+                        </div>
+
+                        <div className="flex justify-end gap-1">
+                  
+                            <div className="hover:cursor-pointer flex items-center gap-1 text-red-600 text-sm rounded-lg"
+                                onClick={() => { alert("ออกจากระบบสำเร็จ"); router.push('/'); }}>
+                                <svg className="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-label="logout" >
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 5H7a2 2 0 00-2 2v10a2 2 0 002 2h6" />
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 16l4-4m0 0l-4-4m4 4H9" />
+                                </svg>
+                                ออกจากระบบ
+                            </div>
+                        </div>
                     </div>
-
-                    <div className="flex justify-end p-4">
-
-                                        <p className="hover:cursor-pointer"
-                            onClick={() => { alert("ออกจากระบบสำเร็จ"); router.push('/'); }}>Logout</p>
-                    </div>
-
 
                 </div>
+         </div>
         </>
     );
 }
