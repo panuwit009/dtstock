@@ -3,18 +3,25 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { AddOrDecreaseStock } from "./AddOrDecreaseStock";
 import { openCamera } from "./openCamera";
+import { useAlert } from "@/app/utils/alertcontext";
 
 export default function Scanbarcode () {
     const [error, setError] = useState<string | null>(null);
-    const router = useRouter();
 
-        const [stocktype, setStocktype] = useState("");
+    const [stocktype, setStocktype] = useState("");
     function selectStocktype(st: string) {
         if(stocktype === st) {
             setStocktype("");
         } else {
             setStocktype(st)
         }
+    }
+
+    const { al } = useAlert();
+    const router = useRouter();
+    function logout (): void {
+        al({type: 'success', headerMessage: 'ออกจากระบบสำเร็จ'});
+        router.push('/');
     }
 
     return (
@@ -120,9 +127,7 @@ export default function Scanbarcode () {
                     </div>
 
                     <div className="flex justify-end p-4">
-
-                                        <p className="hover:cursor-pointer"
-                            onClick={() => { alert("ออกจากระบบสำเร็จ"); router.push('/'); }}>Logout</p>
+                        <p className="hover:cursor-pointer" onClick={logout}>Logout</p>
                     </div>
 
 
