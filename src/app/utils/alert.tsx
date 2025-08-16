@@ -3,11 +3,6 @@
 // import { faCheck, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { useAlert } from './alertcontext';
 
-export function runAlert() {
-  const { setShow } = useAlert();
-  setShow({ type: 'success' });
-}
-
 export default function AlertPTB () {
     const { show, setShow } = useAlert();
 
