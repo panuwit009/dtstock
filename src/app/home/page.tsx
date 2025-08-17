@@ -5,7 +5,7 @@ export default function Home () {
     return (
         <>
         <Scanbarcode />
-        <video className="border-2 border-black m-4" id="video" style={{ width: "100%" }}></video>
+        <video className="" id="video" style={{ width: "100%" }}></video>
         {/* <Items /> */}
         </>
     );
