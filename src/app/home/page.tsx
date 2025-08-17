@@ -4,9 +4,9 @@ import Items from "./components/items";
 export default function Home () {
     return (
         <>
-        <video className="fixed inset-0" id="video" style={{ width: "100%" }}></video>
         <Scanbarcode />
-        {/* <Items /> */}
+        <video className="" id="video" style={{ width: "100%" }}></video>
+        <Items />
         </>
     );
 }
