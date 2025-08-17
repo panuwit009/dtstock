@@ -17,37 +17,45 @@ export default function Items () {
         <div className="flex justify-center">
             {/* Container รอง */}
             <div className="w-[100%] md:w-[50%] md:rounded-xl">
-                <div className="bg-gradient-to-br from-blue-500 to-indigo-600 p-8 md:rounded-t-lg">
+                <div className="flex items-center justify-center bg-gradient-to-br from-sky-300 via-sky-400 to-sky-600 p-8 md:rounded-t-xl gap-4">
+                    <svg className="w-12 h-12 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-label="product-checklist">
+                        <rect x="4" y="6" width="16" height="14" rx="2" strokeWidth="2" />
+                        <path d="M9 6V5a3 3 0 0 1 6 0v1" strokeWidth="2" strokeLinecap="round" />
+                        <path d="M8 11l1.5 1.5L12 10" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                        <path d="M14 11h4" strokeWidth="2" strokeLinecap="round" />
+                        <path d="M8 16l1.5 1.5L12 15" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                        <path d="M14 16h4" strokeWidth="2" strokeLinecap="round" />
+                        </svg>
                     <p className="text-4xl font-bold text-white text-center">รายการสินค้าสต็อค</p>
                 </div>
                 
                 <div className="p-6 bg-gradient-to-br from-gray-50 to-slate-100">
 
-
-                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-6">
                         {itemList.map((item) => 
-                            <div className="bg-white p-4 rounded-2xl shadow-xl hover:shadow-xl transition duration-300 hover:-translate-y-2 border border-gray-100" key={item.id}>
+                            <div className="bg-white p-6 rounded-xl shadow-xl hover:shadow-xl transition duration-300 hover:-translate-y-2 border border-gray-100" key={item.id}>
                                 <div className="grid grid-cols-2 gap-4 flex items-center">
                                     
-                                    <div className="col-span-2">
-                                        <p className="w-12 h-12 flex justify-center items-center bg-gradient-to-br from-sky-400 to-sky-500 text-white font-bold p-4 text-2xl rounded-full">{item.id}</p>
+                                    <div className="flex items-center col-span-2 gap-4">
+                                        <p className="w-12 h-12 flex justify-center items-center bg-gradient-to-br from-sky-400 to-sky-500 
+                                        text-white font-bold p-4 text-2xl rounded-full">{item.id}</p>
+                                        <div className="text-2xl">{item.name}</div>
                                     </div>
 
-                                    <div className="col-span-2 text-2xl">
+                                    {/* <div className="col-span-2 text-2xl">
                                         <p>{item.name}</p>
-                                    </div>
+                                    </div> */}
 
-                                    <div className="text-lg text-gray-600">
+                                    <div className="flex items-center text-lg text-gray-600 gap-3">
                                         <p>จำนวน</p>
-                                    </div>
-
-                                    <div className="flex items-center justify-end text-2xl gap-2">
-                                        <p className="w-6 h-6 bg-green-400 flex items-center justify-center rounded-full p-5">{item.amount}</p>
+                                        <p className="">{item.amount}</p>
                                         <p className="">ชิ้น</p>
                                     </div>
 
                                 </div>
-                                        <hr className="border-2 border-green-400"></hr>
+
+
+                                        <hr className="border-2 border-green-400 mt-4"></hr>
                             </div>
                         )} 
                     </div>
