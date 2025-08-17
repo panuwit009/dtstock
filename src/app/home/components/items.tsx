@@ -5,10 +5,11 @@ interface Item {
     amount: number;
 }
 
+const percent: number = 1000;
 const itemList: Item[] = [
-    {id: 1, name: "ที่ขูดหินปูน", amount: 5}
-    ,{id: 2, name: "ไหมขัดฟัน", amount: 7}
-    ,{id: 3, name: "แปรงสีฟัน", amount: 12}
+    {id: 1, name: "ที่ขูดหินปูน", amount: 17,}
+    ,{id: 2, name: "ไหมขัดฟัน", amount: 74,}
+    ,{id: 3, name: "แปรงสีฟัน", amount: 92,}
 ];
 
 export default function Items () {
@@ -32,31 +33,46 @@ export default function Items () {
                 <div className="p-6 bg-gradient-to-br from-gray-50 to-slate-100">
 
                     <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-6">
-                        {itemList.map((item) => 
-                            <div className="bg-white p-6 rounded-xl shadow-xl hover:shadow-xl transition duration-300 hover:-translate-y-2 border border-gray-100" key={item.id}>
-                                <div className="grid grid-cols-2 gap-4 flex items-center">
-                                    
-                                    <div className="flex items-center col-span-2 gap-4">
-                                        <p className="w-12 h-12 flex justify-center items-center bg-gradient-to-br from-sky-400 to-sky-500 
-                                        text-white font-bold p-4 text-2xl rounded-full">{item.id}</p>
-                                        <div className="text-2xl">{item.name}</div>
+                        {itemList.map((item) => {
+                            const amountPercent = (item.amount) * 100 / 100;
+                            let color = "";
+                            
+                            switch (true) {
+                                case amountPercent >= 50 :
+                                    color = "border-green-400";
+                                    break;
+                                case amountPercent <= 50 :
+                                    color = "border-red-600";
+                                    break;
+                            }   
+                            return (
+                                <div className="bg-white p-6 rounded-xl shadow-xl hover:shadow-xl transition duration-300 hover:-translate-y-2 border border-gray-100" key={item.id}>
+                                    <div className="grid grid-cols-2 gap-4 flex items-center">
+                                        
+                                        <div className="flex items-center col-span-2 gap-4">
+                                            <p className="w-12 h-12 flex justify-center items-center bg-gradient-to-br from-sky-400 to-sky-400 
+                                            text-white font-bold p-4 text-2xl rounded-full">{item.id}</p>
+                                            <div className="text-2xl">{item.name}</div>
+                                        </div>
+
+                                        {/* <div className="col-span-2 text-2xl">
+                                            <p>{item.name}</p>
+                                        </div> */}
+
+                                        <div className="flex items-center text-lg text-gray-600 gap-2">
+                                            <p>จำนวน</p>
+                                            <p className="">{item.amount}</p>
+                                            <p className="">ชิ้น</p>
+                                        </div>
+
                                     </div>
 
-                                    {/* <div className="col-span-2 text-2xl">
-                                        <p>{item.name}</p>
-                                    </div> */}
-
-                                    <div className="flex items-center text-lg text-gray-600 gap-3">
-                                        <p>จำนวน</p>
-                                        <p className="">{item.amount}</p>
-                                        <p className="">ชิ้น</p>
+                                    <div className="mt-3 bg-gray-300 rounded-xl">
+                                        <hr className={`rounded-xl border-4 ${color}`} style={{ width: `${amountPercent}%` }}></hr>
                                     </div>
-
-                                </div>
-
-
-                                        <hr className="border-2 border-green-400 mt-4"></hr>
                             </div>
+                            );
+                        }
                         )} 
                     </div>
                 </div>
