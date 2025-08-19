@@ -1,6 +1,17 @@
 import { BrowserMultiFormatReader } from '@zxing/browser';
 
-export function openCamera ({setError}: {setError: React.Dispatch<React.SetStateAction<string | null>>;}) {
+export function closeCamera (): void {
+    const videoElement = document.getElementById('video') as HTMLVideoElement;
+    if (videoElement) {
+        const stream = videoElement.srcObject as MediaStream;
+        if (stream) {
+            const tracks = stream.getTracks();
+            tracks.forEach(track => track.stop()); videoElement.srcObject = null; // หยุดการทำงานของทุกๆ track (เช่น กล้อง)
+        }
+    }
+}
+
+export function openCamera ({setError, setOpenCamera}: {setError: React.Dispatch<React.SetStateAction<string | null>>; setOpenCamera: React.Dispatch<React.SetStateAction<boolean>>;}) {
     // if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
     //     setError("เบราว์เซอร์ของคุณไม่รองรับการเข้าถึงกล้อง");
     //     return;
@@ -12,7 +23,10 @@ export function openCamera ({setError}: {setError: React.Dispatch<React.SetState
     codeReader.decodeOnceFromVideoDevice(undefined, 'video').then((result) => {
         console.log(result);
         const qrText = result.getText();
+        closeCamera();
+        setOpenCamera(false);
         alert("text: " + qrText);
+        
         // ทำสิ่งที่ต้องการหลังจากสแกน QR code เสร็จ
     }).catch((error) => {
         setError(error.message);
