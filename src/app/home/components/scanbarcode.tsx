@@ -6,7 +6,7 @@ import { openCamera } from "./openCamera";
 import { useAlert } from "@/app/utils/alertcontext";
 import Headscan  from "./็Headscan";
 
-export default function Scanbarcode () {
+export default function Scanbarcode ({setOpenCamera}: {setOpenCamera: React.Dispatch<React.SetStateAction<boolean>>}) {
     const [error, setError] = useState<string | null>(null);
 
     const { al } = useAlert();
@@ -28,7 +28,12 @@ export default function Scanbarcode () {
                         <div className="flex flex-col items-center gap-2">                  
                             <div
                                 className="flex items-center gap-2 text-white shadow-lg hover:cursor-pointer hover:scale-110 transition duration-300 bg-slate-600 p-6 m-2 rounded-xl"
-                                onClick={() => openCamera({ setError })}>
+                                onClick={
+                                    () => {
+                                        openCamera({ setError, setOpenCamera });
+                                        setOpenCamera(true);
+                                    }
+                            }>
                                     
                                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 7h2l2-3h10l2 3h2a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1z"/> 
