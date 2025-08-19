@@ -1,12 +1,20 @@
+"use client";
 import Scanbarcode from "./components/scanbarcode";
 import Items from "./components/items";
+import CameraUi from "./components/cameraUi";
+import { useState } from "react";
 
 export default function Home () {
-    return (
-        <>
-        <Scanbarcode />
-        <video className="" id="video" style={{ width: "100%" }}></video>
-        <Items />
-        </>
-    );
+    const [openCamera, setOpenCamera] = useState<boolean>(false);
+
+    if (openCamera) {
+        return <CameraUi setOpenCamera={setOpenCamera}/>
+    } else {   
+        return (
+            <>
+            <Scanbarcode setOpenCamera={setOpenCamera}/>
+            <Items />
+            </>
+        );
+    }
 }
