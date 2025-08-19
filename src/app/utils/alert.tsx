@@ -27,7 +27,7 @@ export default function AlertPTB () {
         }
         return (
 
-            <div className="fadeInUpOnce fixed bg-black/40 inset-0 flex justify-center items-center z-10" >
+            <div className="fadeInUpOnce fixed bg-black/40 inset-0 flex justify-center items-center z-10" onClick={()=>al(null)}>
 
                 <div className={`bg-white rounded-2xl w-sm relative flex flex-col items-center space-y-7 px-10 py-6 drop-shadow-lg/20 
                                 border-t-6 border-${styles.color}`}>
