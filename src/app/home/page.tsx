@@ -14,8 +14,8 @@ export default function Home () {
     } else {   
         return (
             <>
-            <Scanbarcode setOpenCamera={setOpenCamera}/>
-            <Items />
+            {/* <Scanbarcode setOpenCamera={setOpenCamera}/>
+            <Items /> */}
             <FormInsertItem />
             </>
         );
