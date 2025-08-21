@@ -51,19 +51,20 @@ export default function Items () {
                                     break;
                             }   
                             return (
-                                <div className={`relative bg-white p-6 rounded-xl shadow-xl hover:shadow-xl transition duration-300 hover:-translate-y-2`} key={item.id}>
+                                <div className={`relative bg-white rounded-xl shadow-xl hover:shadow-xl transition duration-300 hover:-translate-y-2`} key={item.id}>
                                     
                                 {/* <p className="absolute -top-1 -left-4 w-12 h-12 flex justify-center items-center bg-gradient-to-r from-sky-700 to-sky-800
                                                                             text-white font-bold p-4 text-2xl rounded-full">{item.id}</p> */}
 
-                                        <div className="flex justify-center mb-4">
+                                        <div className="py-3 flex justify-center">
                                             <img 
                                                 src={item.image}
                                                 alt={item.name}
-                                                className="w-30 h-30 md:w-60 md:h-60 object-cover rounded-lg "/>
+                                                className="w-40 h-40 md:w-60 md:h-60 object-cover rounded-lg "/>
                                         </div>
                                 
-                                    
+                                <div className="px-4 pb-4">
+
                                     <div className="grid grid-cols-2 gap-4 flex items-center">
                                         
                                         <div className="flex items-center gap-4">
@@ -84,7 +85,7 @@ export default function Items () {
 
                                         {/* <div className="col-span-2 text-2xl">
                                             <p>{item.name}</p>
-                                        </div> */}
+                                            </div> */}
 
                                     </div>
 
@@ -104,6 +105,7 @@ export default function Items () {
                                         <div className="mt-3 bg-gray-300 rounded-xl">
                                             <hr className={`rounded-xl border-4 ${color}`} style={{ width: `${amountPercent}%` }}></hr>
                                         </div>
+                                </div>
                             </div>
                             );
                         }
