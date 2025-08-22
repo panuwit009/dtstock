@@ -8,6 +8,7 @@ import Headscan  from "./็Headscan";
 
 export default function Scanbarcode ({setOpenCamera}: {setOpenCamera: React.Dispatch<React.SetStateAction<boolean>>}) {
     const [error, setError] = useState<string | null>(null);
+    const [stocktype, setStocktype] = useState("");
 
     const { al } = useAlert();
     const router = useRouter();
@@ -23,13 +24,17 @@ export default function Scanbarcode ({setOpenCamera}: {setOpenCamera: React.Disp
                 <div className="bg-white md:rounded-3xl shadow-xl border border-gray-100 max-w-3xl mx-auto">
 
                         <div className="space-y-6">
-                                <AddOrDecreaseStock />
+                                <AddOrDecreaseStock 
+                                stocktype={stocktype}
+                                setStocktype={setStocktype}
+                                />
 
                         <div className="flex flex-col items-center gap-2">                  
                             <div
                                 className="flex items-center gap-2 text-white shadow-lg hover:cursor-pointer hover:scale-110 transition duration-300 bg-slate-600 p-6 m-2 rounded-xl"
                                 onClick={
                                     () => {
+                                        if (!stocktype) { setError("กรุณาเลือกประเภทก่อน"); return; }
                                         openCamera({ setError, setOpenCamera });
                                         setOpenCamera(true);
                                     }

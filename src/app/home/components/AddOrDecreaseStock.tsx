@@ -1,9 +1,9 @@
-"use client";
-import { useState } from "react";
+interface AddOrDecreaseStockProps {
+  stocktype: string;
+  setStocktype: React.Dispatch<React.SetStateAction<string>>;
+}
 
-export function AddOrDecreaseStock() {
-
-    const [stocktype, setStocktype] = useState("");
+export function AddOrDecreaseStock({stocktype, setStocktype}: AddOrDecreaseStockProps) {
     function selectStocktype(st: string) {
         if(stocktype === st) {
             setStocktype("");
