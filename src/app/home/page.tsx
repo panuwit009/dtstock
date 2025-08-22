@@ -3,6 +3,8 @@ import Scanbarcode from "./components/scanbarcode";
 import Items from "./components/items";
 import CameraUi from "./components/cameraUi";
 import { useState } from "react";
+import FormInsertItem from "./components/forminsertitem";
+
 
 export default function Home () {
     const [openCamera, setOpenCamera] = useState<boolean>(false);
@@ -12,8 +14,9 @@ export default function Home () {
     } else {   
         return (
             <>
-            <Scanbarcode setOpenCamera={setOpenCamera}/>
+            {/* <Scanbarcode setOpenCamera={setOpenCamera}/> */}
             <Items />
+            <FormInsertItem />
             </>
         );
     }

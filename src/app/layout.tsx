@@ -34,7 +34,7 @@ export default function RootLayout({
       >
         <AlertProvider>
           <AlertPTB />
-          <div className="bg-gradient-to-br from-sky-300 via-sky-200 to-white min-h-screen w-screen ">
+          <div className="bg-gradient-to-br from-sky-300 via-sky-200 to-white min-h-screen max-w-dvw">
             {children}
           </div>
         </AlertProvider>
