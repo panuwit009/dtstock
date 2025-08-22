@@ -30,8 +30,9 @@ export default function FormInsertItem () {
                 </div>
 
                 <div className="bg-white md:rounded-b-2xl">
-                    <div className="px-12 py-6 space-y-6">
+                    <div className="px-12 py-6 space-y-5">
 
+                            {/* ชื่อสินค้า */}
                             <div className="space-y-2">
                                     <div className="flex items-center gap-2">
                                         <svg className="w-5 h-5 text-sky-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -48,6 +49,7 @@ export default function FormInsertItem () {
                                     </div>
                             </div>
 
+                            {/* หมวดหมู่สินค้า กับ จำนวน */}
                             <div className="grid grid-cols-12 gap-x-6 gap-y-6">
                                 <div className="col-span-12 md:col-span-6 space-y-2">
                                     <div className="flex items-center gap-2">
@@ -90,6 +92,25 @@ export default function FormInsertItem () {
                                 </div>
                             </div>
 
+                            {/* สินค้ามีวันหมดอายุ */}
+                            <div className="space-y-2">
+                                <div className="flex items-center gap-2">
+                                    <input className="focus:bg-red-400" type="checkbox" name="" id="" />
+                                    <label className="block text-lg">สินค้ามีวันหมดอายุ</label>
+                                </div>
+
+                                <div>
+                                    <label className="block text-lg">วันหมดอายุ</label>
+                                    <input className="border-2 border-gray-300 w-full p-2 rounded-xl p-3
+                                                          focus:border-2 focus:border-sky-300 focus:ring-sky-300 outline-none transition-all duration-200
+                                                          placeholder:text-gray-400" 
+                                           type="text" 
+                                           name="" 
+                                           id="" />
+                                </div>
+                            </div>
+
+                            {/* หมายเหตุ */}
                             <div className="space-y-2">
                                         <div className="flex items-cente gap-2">
                                             <svg className="w-5 h-5 text-sky-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -107,6 +128,7 @@ export default function FormInsertItem () {
                                                     rows={3}></textarea>
                                         </div>
                             </div>
+
 
                                 <button className="bg-gradient-to-r from-sky-500 to-blue-600 text-xl text-white rounded-full p-4 w-full">บันทึก</button>
                     </div>
