@@ -4,9 +4,15 @@ import { useRouter } from "next/navigation";
 import { AddOrDecreaseStock } from "./AddOrDecreaseStock";
 import { openCamera } from "./openCamera";
 import { useAlert } from "@/app/utils/alertcontext";
-import Headscan  from "./็Headscan";
+import Headscan  from "./Headscan";
+import type { CameraResult } from "@/app/type";
 
-export default function Scanbarcode ({setOpenCamera}: {setOpenCamera: React.Dispatch<React.SetStateAction<boolean>>}) {
+export default function Scanbarcode (
+    {setOpenCamera, setCameraResult}:
+    { setOpenCamera: React.Dispatch<React.SetStateAction<boolean>>;
+      setCameraResult: React.Dispatch<React.SetStateAction<CameraResult>>;
+    }
+) {
     const [error, setError] = useState<string | null>(null);
     const [stocktype, setStocktype] = useState("");
 
@@ -35,7 +41,7 @@ export default function Scanbarcode ({setOpenCamera}: {setOpenCamera: React.Disp
                                 onClick={
                                     () => {
                                         if (!stocktype) { setError("กรุณาเลือกประเภทก่อน"); return; }
-                                        openCamera({ setError, setOpenCamera });
+                                        openCamera({ setCameraResult });
                                         setOpenCamera(true);
                                     }
                             }>

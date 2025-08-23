@@ -1,5 +1,5 @@
 export interface CameraResultItem {
-  id: number;
+  barcode: string;
 }
 export type CameraResult = CameraResultItem[];
 

@@ -8,25 +8,17 @@ import type { CameraResult } from "../type";
 
 export default function Home () {
     const [openCamera, setOpenCamera] = useState<boolean>(false);
-    const [cameraResult, setCameraResult] = useState<CameraResult>(
-        [
-            {
-                id: 1
-            },
-            {
-                id: 2
-            }
-        ]
-    );
+    const [cameraResult, setCameraResult] = useState<CameraResult>([]);
 
     if (openCamera) {
         return <CameraUi
                 setOpenCamera={setOpenCamera}
-                cameraResult={cameraResult}/>
+                cameraResult={cameraResult}
+                setCameraResult={setCameraResult}/>
     } else {   
         return (
             <>
-            <Scanbarcode setOpenCamera={setOpenCamera}/>
+            <Scanbarcode setOpenCamera={setOpenCamera} setCameraResult={setCameraResult}/>
             <Items />
             <FormInsertItem />
             </>

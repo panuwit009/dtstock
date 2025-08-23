@@ -1,4 +1,5 @@
 import { BrowserMultiFormatReader } from '@zxing/browser';
+import type { CameraResult } from '@/app/type';
 
 export function closeCamera (): void {
     const videoElement = document.getElementById('video') as HTMLVideoElement;
@@ -12,9 +13,9 @@ export function closeCamera (): void {
 }
 
 export function openCamera (
-    { setError, setOpenCamera }:
-    { setError: React.Dispatch<React.SetStateAction<string | null>>;
-    setOpenCamera: React.Dispatch<React.SetStateAction<boolean>>; }
+    { setCameraResult }:
+    { 
+    setCameraResult: React.Dispatch<React.SetStateAction<CameraResult>>; }
     ) {
     // if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
     //     setError("เบราว์เซอร์ของคุณไม่รองรับการเข้าถึงกล้อง");
@@ -25,13 +26,15 @@ export function openCamera (
     //alert("เปิดกล้อง");
     
     codeReader.decodeOnceFromVideoDevice(undefined, 'video').then((result) => {
-        console.log(result);
+        // console.log(result);
+        const qrText = result.getText();
+        const testVar = { barcode: qrText };
         closeCamera();
+        setCameraResult(p => [...p, testVar]);
         // setOpenCamera(false);
-        // const qrText = result.getText();
         // alert("text: " + qrText);
         
     }).catch((error) => {
-        setError(error.message);
+        alert(error.message);
     });
 }
