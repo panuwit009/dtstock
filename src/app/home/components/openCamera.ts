@@ -11,23 +11,26 @@ export function closeCamera (): void {
     }
 }
 
-export function openCamera ({setError, setOpenCamera}: {setError: React.Dispatch<React.SetStateAction<string | null>>; setOpenCamera: React.Dispatch<React.SetStateAction<boolean>>;}) {
+export function openCamera (
+    { setError, setOpenCamera }:
+    { setError: React.Dispatch<React.SetStateAction<string | null>>;
+    setOpenCamera: React.Dispatch<React.SetStateAction<boolean>>; }
+    ) {
     // if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
     //     setError("เบราว์เซอร์ของคุณไม่รองรับการเข้าถึงกล้อง");
     //     return;
     // }
     const codeReader = new BrowserMultiFormatReader ();
-    console.log(codeReader);
+    // console.log(codeReader);
     //alert("เปิดกล้อง");
     
     codeReader.decodeOnceFromVideoDevice(undefined, 'video').then((result) => {
         console.log(result);
-        const qrText = result.getText();
         closeCamera();
-        setOpenCamera(false);
-        alert("text: " + qrText);
+        // setOpenCamera(false);
+        // const qrText = result.getText();
+        // alert("text: " + qrText);
         
-        // ทำสิ่งที่ต้องการหลังจากสแกน QR code เสร็จ
     }).catch((error) => {
         setError(error.message);
     });
