@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import Cards from "./cards";
-import { mockupdata } from "./mockupdata";
+import { mockupdata } from "../mockupdata";
 
 export default function Items () {
     const [itemList, setItemList] = useState(mockupdata);

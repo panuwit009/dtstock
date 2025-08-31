@@ -1,18 +1,12 @@
-import type { Item } from "./mockupdata";
+import type { Item } from "../mockupdata";
 import { cardsClick } from "./cardsClick";
+import { cardsSwitchPercentColor } from "./cardsSwitchPercentColor";
 
 export default function Cards ({item}: {item: Item}) {
-const amountPercent = (item.amount) * 100 / 100;
-let color = "";
+const max: number = 100;
+const amountPercent: number = (item.amount * 100) / max;
 
-switch (true) {
-    case amountPercent >= 50 :
-        color = "border-green-400";
-        break;
-    case amountPercent <= 50 :
-        color = "border-red-600";
-    break;
-}
+const color = cardsSwitchPercentColor(amountPercent);
 
 return (
 <div className={`relative bg-white rounded-xl shadow-xl hover:shadow-xl transition duration-300 hover:-translate-y-2 hover:cursor-pointer`}
