@@ -7,6 +7,7 @@ const max: number = 100;
 const amountPercent: number = (item.amount * 100) / max;
 
 const color = cardsSwitchPercentColor(amountPercent);
+const borderWithColor = "border-" + color;
 
 return (
 <div className={`relative bg-white rounded-xl shadow-xl hover:shadow-xl transition duration-300 hover:-translate-y-2 hover:cursor-pointer`}
@@ -53,7 +54,7 @@ onClick={()=> cardsClick(item) }
         </div>
             
         <div className="mt-3 bg-gray-300 rounded-xl">
-            <hr className={`rounded-xl border-4 ${color}`} style={{ width: `${amountPercent}%` }}></hr>
+            <hr className={`rounded-xl border-4 ${borderWithColor}`} style={{ width: `${amountPercent}%` }}></hr>
         </div>
     </div>
 </div>
