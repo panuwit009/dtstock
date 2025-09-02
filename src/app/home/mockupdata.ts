@@ -16,5 +16,5 @@ export const mockupdata: Item[] = [
     ,{ id: 7, name: "โทรไปไม่รับ You miss call, Oh I really miss you", amount: 69, image:"https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/21/06/3a/21063af3-af02-c1c1-3f9b-39c23218944c/0.jpg/592x592bb.webp" }
     ,{ id: 8, name: "ดาบพิฆาตอสูร เล่ม 3 ปลุกใจตนเอง", amount: 74, image:"https://storage.naiin.com/system/application/bookstore/resource/product/201908/485398/1000223349_front_XXXL.jpg?imgname=%E0%B8%94%E0%B8%B2%E0%B8%9A%E0%B8%9E%E0%B8%B4%E0%B8%86%E0%B8%B2%E0%B8%95%E0%B8%AD%E0%B8%AA%E0%B8%B9%E0%B8%A3-%E0%B9%80%E0%B8%A5%E0%B9%88%E0%B8%A1-3-%E0%B8%9B%E0%B8%A5%E0%B8%B8%E0%B8%81%E0%B9%83%E0%B8%88%E0%B8%95%E0%B8%99%E0%B9%80%E0%B8%AD%E0%B8%87" }
     ,{ id: 9, name: "Bleach เทพมรณะ เล่ม 1", amount: 83, image:"https://cdn-local.mebmarket.com/meb/server1/103242/Thumbnail/book_detail_large.gif?3" }
-    ,{ id: 10, name: "ไดโนพาร์ค ขนมทอดกรอบไดโนเสาร์ รสซีฟู้ด ขนาด 10 กรัม บรรจุ 12 ซอง", amount: 99, image:"https://th-live-01.slatic.net/p/9dabe50f482d16e84c04f17f034b325d.png" }
+    ,{ id: 10, name: "ไดโนพาร์ค ขนมทอดกรอบไดโนเสาร์ รสซีฟู้ด ขนาด 10 กรัม บรรจุ 12 ซอง", amount: 100, image:"https://th-live-01.slatic.net/p/9dabe50f482d16e84c04f17f034b325d.png" }
 ];

@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 interface Item {
     id: number;
     name: string;
@@ -13,6 +15,14 @@ const itemList : Item[] = [
 
 
 export default function FormInsertItem () {
+    const [exp, setExp] = useState(false);
+
+    const open = (e : React.ChangeEvent<HTMLInputElement>) => {
+        setExp(e.target.checked)
+        console.log("asdas")
+    }
+
+
     return (
         <div className="flex justify-center">
 
@@ -41,7 +51,7 @@ export default function FormInsertItem () {
                                         <label htmlFor="username" className="block text-lg">ชื่อสินค้า</label> 
                                     </div>
                                     <div>
-                                        <input className="border-2 border-gray-300 w-full p-2 rounded-xl p-3
+                                        <input className="border-2 border-gray-300 w-full rounded-xl p-3
                                                           focus:border-2 focus:border-sky-300 focus:ring-sky-300 outline-none transition-all duration-200
                                                           placeholder:text-gray-400" 
                                                type="text" 
@@ -60,7 +70,7 @@ export default function FormInsertItem () {
                                     </div>
 
                                     <div className="">
-                                        <select className="border-2 border-gray-300 w-full p-2 rounded-xl p-3
+                                        <select className="border-2 border-gray-300 w-full rounded-xl p-3
                                                           focus:border-2 focus:border-sky-300 focus:ring-sky-300 outline-none transition-all duration-200
                                                           placeholder:text-gray-400">
                                             <option value="">ครุภัณฑ์</option>
@@ -95,19 +105,25 @@ export default function FormInsertItem () {
                             {/* สินค้ามีวันหมดอายุ */}
                             <div className="space-y-2">
                                 <div className="flex items-center gap-2">
-                                    <input className="focus:bg-red-400" type="checkbox" name="" id="" />
+                                    <input className="focus:bg-red-400" 
+                                    type="checkbox"
+                                    checked={exp}
+                                    onChange={open}                                    
+                                    id="" />
                                     <label className="block text-lg">สินค้ามีวันหมดอายุ</label>
                                 </div>
 
+                            { exp &&
                                 <div>
                                     <label className="block text-lg">วันหมดอายุ</label>
-                                    <input className="border-2 border-gray-300 w-full p-2 rounded-xl p-3
+                                    <input className="border-2 border-gray-300 w-full rounded-xl p-3
                                                           focus:border-2 focus:border-sky-300 focus:ring-sky-300 outline-none transition-all duration-200
                                                           placeholder:text-gray-400" 
-                                           type="text" 
-                                           name="" 
-                                           id="" />
+                                                          type="text" 
+                                                          name="" 
+                                                          id="" />
                                 </div>
+                            }
                             </div>
 
                             {/* หมายเหตุ */}
@@ -120,7 +136,7 @@ export default function FormInsertItem () {
                                         </div>
                                             
                                         <div>
-                                            <textarea className="border-2 border-gray-300 w-full p-2 rounded-xl p-3
+                                            <textarea className="border-2 border-gray-300 w-full rounded-xl p-3
                                                             focus:border-2 focus:border-sky-300 focus:ring-sky-300 outline-none transition-all duration-200
                                                             placeholder:text-gray-400"
                                                     name="" 
