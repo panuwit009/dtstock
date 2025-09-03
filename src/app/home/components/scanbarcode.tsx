@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { AddOrDecreaseStock } from "./AddOrDecreaseStock";
 import { openCamera } from "./openCamera";
-import { useAlert } from "@/app/utils/alertcontext";
+import { useShow } from "@/app/utils/showcontext";
 import Headscan  from "./Headscan";
 import type { CameraResult } from "@/app/type";
 
@@ -16,10 +16,15 @@ export default function Scanbarcode (
     const [error, setError] = useState<string | null>(null);
     const [stocktype, setStocktype] = useState("");
 
-    const { al } = useAlert();
+    const { setShow } = useShow();
     const router = useRouter();
     function logout (): void {
-        al({type: 'success', headerMessage: 'ออกจากระบบสำเร็จ'});
+        setShow(
+            { type: 'alert', 
+                detail: {
+                    status: 'success', headerMessage: 'ออกจากระบบสำเร็จ'
+                }
+            });
         router.push('/');
     }
 

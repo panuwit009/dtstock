@@ -1,18 +1,17 @@
-"use client";
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import { faCheck, faXmark } from '@fortawesome/free-solid-svg-icons';
-import { useAlert } from './alertcontext';
+import { useShow } from './showcontext';
 
 export default function AlertPTB () {
-    const { show, al } = useAlert();
+    const { show, setShow } = useShow();
 
     const styles = {
         color: '',
         icon: ''
     };
 
-    if (show) {
-        switch (show.type) {
+    if (show && show.type === 'alert') {
+        switch (show.detail.status) {
             case 'success' :
                 styles.color = 'emerald-400';
                 styles.icon = '✔';
@@ -27,13 +26,13 @@ export default function AlertPTB () {
         }
         return (
 
-            <div className="fadeInUpOnce fixed bg-black/40 inset-0 flex justify-center items-center z-10" onClick={()=>al(null)}>
+            <div className="fadeInUpOnce fixed bg-black/40 inset-0 flex justify-center items-center z-10" onClick={()=>setShow(null)}>
 
                 <div className={`bg-white rounded-2xl w-sm relative flex flex-col items-center space-y-7 px-10 py-6 drop-shadow-lg/20 
                                 border-t-6 border-${styles.color}`}>
 
                     <div className='text-black absolute top-2 right-3 rounded-full hover:cursor-pointer'
-                    onClick={()=>al(null)}>
+                    onClick={()=>setShow(null)}>
                         ✖
                      </div>
 
@@ -42,22 +41,22 @@ export default function AlertPTB () {
                     </div>
 
                     <div className='text-center space-y-3 hover:cursor-default'>
-                        {show.headerMessage &&
+                        {show.detail.headerMessage &&
                         <div className="text-black text-2xl font-semibold">
-                            {show.headerMessage}
+                            {show.detail.headerMessage}
                         </div>
                         }
 
                         <div className="text-gray-500 text-sm">
-                            {show.message && <>{show.message}<br /></>}
+                            {show.detail.message && <>{show.detail.message}<br /></>}
                         </div>
                     </div>
 
-                    {show.confirmBt && 
+                    {show.detail.confirmBt && 
                     <div className="w-full text-center bg-gradient-to-br from-emerald-400 to-green-500 text-white rounded-2xl shadow-lg p-4 font-semibold 
                                     translate duration-300 hover:cursor-pointer hover:scale-110 active:scale-95"
-                    onClick={()=>al(null)}>
-                       {show.confirmBtText ? show.confirmBtText : 'Confirm'}
+                    onClick={()=>setShow(null)}>
+                       {show.detail.confirmBtText ? show.detail.confirmBtText : 'Confirm'}
                     </div>}
 
                 </div>

@@ -3,7 +3,7 @@
 
 import HeadLogin from "./headlogin";
 import Bodylogin from "./formlogin";
-import { useAlert } from "../utils/alertcontext";
+import { useShow } from "../utils/showcontext";
 // import LottieLoader from "../utils/loading";
 import type { setIslogin } from "../type";
 
@@ -18,9 +18,15 @@ export default function Login ({ setIslogin }: setIslogin) {
     // }, []);
 
     //if (isLoading) return <LottieLoader />;
-    const { al } = useAlert();
+    const { setShow } = useShow();
     function clickLoginButton (): void {
-      al({ type: 'success', headerMessage: 'เข้าสู่ระบบสำเร็จ'});
+      setShow(
+        { type: 'alert',
+          detail:
+          { status: 'success',
+            headerMessage: 'เข้าสู่ระบบสำเร็จ'
+          }
+        });
       // setTimeout(() => {
         setIslogin(true);
       // }, 0);
