@@ -8,8 +8,10 @@ export interface setIslogin {
 };
 
 export type ShowType =
-  | { type: 'alert'; detail: alertDetail }
-  | { type: 'tooltip'; detail: tooltipDetail }
+  | { type: 'alert'; detail?: alertDetail }
+  | { type: 'tooltip'; detail?: tooltipDetail }
+  | { type: 'modal'; detail?: modalDetail }
+
   // | { type: null; detail?: null };
 
 interface alertDetail {
@@ -21,5 +23,9 @@ interface alertDetail {
 };
 
 interface tooltipDetail {
+    message?: string | null;
+};
+
+interface modalDetail {
     message?: string | null;
 };

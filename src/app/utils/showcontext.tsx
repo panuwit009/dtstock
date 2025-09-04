@@ -3,6 +3,7 @@ import { createContext, useContext, useState, ReactNode } from 'react';
 import { ShowType } from '../type';
 import AlertPTB from './alert';
 import Tooltip from './tooltip';
+import OpenModal from './modal';
 
 const ShowContext = createContext<{
   show: ShowType | null;
@@ -23,6 +24,8 @@ export const ShowProvider = (
             return <AlertPTB />;
           case "tooltip":
             return <Tooltip />;
+          case "modal":
+            return <OpenModal />;
           default:
             return null;
         }

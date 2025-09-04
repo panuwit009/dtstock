@@ -1,16 +1,24 @@
 import type { Item } from "../mockupdata";
 import { cardsClick } from "./cardsClick";
 import { cardsSwitchPercentColor } from "./cardsSwitchPercentColor";
+import { useShow } from "@/app/utils/showcontext";
 
 export default function Cards ({item}: {item: Item}) {
 const max: number = 100;
 const amountPercent: number = (item.amount * 100) / max;
 
 const color = cardsSwitchPercentColor(amountPercent);
+const { setShow } = useShow();
+    
+function Click () {
+    setShow({
+        type: 'modal',
+        detail: {message: (item.name + '  ' + item.amount)}}) 
+    }
 
 return (
 <div className={`relative bg-white rounded-xl shadow-xl hover:shadow-xl transition duration-300 hover:-translate-y-2 hover:cursor-pointer`}
-onClick={()=> cardsClick(item) }
+onClick={Click}
 >
     {/* <p className="absolute -top-1 -left-4 w-12 h-12 flex justify-center items-center bg-gradient-to-r from-sky-700 to-sky-800
     text-white font-bold p-4 text-2xl rounded-full">{item.id}</p> */}

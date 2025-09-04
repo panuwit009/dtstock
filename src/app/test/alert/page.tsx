@@ -5,13 +5,13 @@ export default function TestAlert () {
     const { setShow } = useShow();
     function alertfire () {
         setShow({
-            type: 'alert',
+            type: 'modal',
             detail: {
-                status: 'success',
-                headerMessage: 'สอบทด',
-                message: '',
-                confirmBt: true,
-                confirmBtText: 'ตกลง'
+                // status: 'success',
+                // headerMessage: 'สอบทด',
+                // message: '',
+                // confirmBt: true,
+                // confirmBtText: 'ตกลง'
             }
         });
     }

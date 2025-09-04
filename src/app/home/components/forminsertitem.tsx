@@ -118,8 +118,8 @@ export default function FormInsertItem () {
                                     <label className="block text-lg">วันหมดอายุ</label>
                                     <input className="border-2 border-gray-300 w-full rounded-xl p-3
                                                           focus:border-2 focus:border-sky-300 focus:ring-sky-300 outline-none transition-all duration-200
-                                                          placeholder:text-gray-400" 
-                                                          type="text" 
+                                                          placeholder:text-gray-400"
+                                                          type="date" 
                                                           name="" 
                                                           id="" />
                                 </div>
