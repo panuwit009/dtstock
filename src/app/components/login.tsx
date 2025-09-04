@@ -6,8 +6,21 @@ import Bodylogin from "./formlogin";
 import { useShow } from "../utils/showcontext";
 // import LottieLoader from "../utils/loading";
 import type { setIslogin } from "../type";
+import { useState } from "react";
+import './loading.css';
 
 export default function Login ({ setIslogin }: setIslogin) {
+const [isLoading, setIsLoading] = useState(false);
+
+const handleChanage = () => {
+    setIsLoading(true);
+
+    setTimeout(() => {
+      setIsLoading(false);
+      setIslogin(true)
+    }, 2000);
+  };
+
     // const [isLoading, setIsLoading] = useState(false);
 
     // useEffect(() => {
@@ -38,11 +51,21 @@ export default function Login ({ setIslogin }: setIslogin) {
               <HeadLogin />
               <Bodylogin />
               <div className="mt-6 space-y-4">
-                <button onClick={clickLoginButton}
-                className="text-lg font-semibold w-full bg-sky-500 text-white p-2 rounded-lg shadow-lg hover:bg-sky-600 
-                transform transition active:scale-95
-                hover:scale-105 hover:cursor-pointer">
-                  Login
+                <button 
+                        onClick={handleChanage}
+                        className={`flex justify-center items-center h-12 text-lg font-semibold w-full text-white p-2 rounded-lg shadow-lg
+                        transform transition active:scale-95
+                ${isLoading
+                  ? 'bg-sky-500 cursor-not-allowed'
+                  : 'bg-sky-400'
+                }
+                  `}>
+                    {isLoading 
+                      ? 
+                        <div className="w-6 h-6 border-[5px] inline-block border-white border-b-transparent rounded-full box-border animate-spin"></div>
+                      : 'Login'
+                    }
+                    
                 </button>
                 
                 <button 
