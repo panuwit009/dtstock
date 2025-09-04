@@ -56,7 +56,7 @@ const handleChanage = () => {
                         className={`flex justify-center items-center h-12 text-lg font-semibold w-full text-white p-2 rounded-lg shadow-lg
                         transform transition active:scale-95
                 ${isLoading
-                  ? 'bg-sky-500 cursor-not-allowed'
+                  ? 'bg-sky-600 cursor-not-allowed'
                   : 'bg-sky-400'
                 }
                   `}>
