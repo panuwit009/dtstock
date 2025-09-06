@@ -1,10 +1,24 @@
 "use client";
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import Cards from "./cards";
+import ItemsSort from "./itemsSort.";
 import { mockupdata } from "../mockupdata";
 
 export default function Items () {
     const [itemList, setItemList] = useState(mockupdata);
+    const [sort, setSort] = useState<"asc" | "desc" | null>(null);
+
+    const displayList = useMemo(() => {
+        if (sort === "asc") {
+            return [...itemList].sort((a, b) => a.amount - b.amount);
+        } else if (sort === "desc") {
+            return [...itemList].sort((a, b) => b.amount - a.amount);
+        } else {
+            return itemList;
+        }
+    }, [itemList, sort]);
+
+    console.log(itemList);
 
     return (
         // Container หลัก
@@ -23,10 +37,12 @@ export default function Items () {
                     <p className="text-3xl md:text-4xl font-bold text-white text-center">รายการสินค้าสต็อค</p>
                 </div>
 
+                <ItemsSort sort={sort} setSort={setSort}/>
+
                 <div className="p-4 md:p-6 bg-gradient-to-br from-gray-50 to-slate-100 md:rounded-b-xl">
 
                     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-4 md:gap-6">
-                        {itemList.map((item) => <Cards item={item} key={item.id}/> )}
+                        {displayList.map((item) => <Cards item={item} key={item.id}/> )}
                     </div>
                 </div>
             </div>
