@@ -13,16 +13,13 @@ const LottieLoader = () => {
   return (
     <div
       style={{
-        width: "100vw",
-        height: "100vh",
+        width: "100dvw",
+        height: "100dvh",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
         background: "#fff",
-        zIndex: 9999,
-        position: "fixed",
-        top: 0,
-        left: 0,
+        zIndex: 9999
       }}
     >
       <Player
@@ -30,7 +27,7 @@ const LottieLoader = () => {
         loop
         speed={1.5}
         src={animationData}
-        style={{ height: "600px", width: "600px" }}
+        style={{ height: "50%", width: "50%" }}
       />
     </div>
   );
