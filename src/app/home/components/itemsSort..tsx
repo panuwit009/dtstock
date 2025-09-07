@@ -18,13 +18,13 @@ export default function ItemsSort (
             <button
             className={`p-2 cursor-pointer ${sort === "desc" ? 'underline' : null}`}
             onClick={()=> toggleSort("desc")}>
-                มากไปน้อย
+                มาก
             </button>
 
             <button
             className={`p-2 cursor-pointer ${sort === "asc" ? 'underline' : null}`}
             onClick={()=> toggleSort("asc")}>
-                น้อยไปมาก
+                น้อย
             </button>
         </>
     );

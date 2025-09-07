@@ -7,18 +7,31 @@ import { mockupdata } from "../mockupdata";
 export default function Items () {
     const [itemList, setItemList] = useState(mockupdata);
     const [sort, setSort] = useState<"asc" | "desc" | null>(null);
+    const [searchValue, setSearchValue] = useState<string | null>(null);
 
     const displayList = useMemo(() => {
-        if (sort === "asc") {
-            return [...itemList].sort((a, b) => a.amount - b.amount);
-        } else if (sort === "desc") {
-            return [...itemList].sort((a, b) => b.amount - a.amount);
-        } else {
-            return itemList;
-        }
-    }, [itemList, sort]);
+        let filteredList = [...itemList];
 
-    console.log(itemList);
+        if (searchValue){
+            filteredList = filteredList.filter(itemList =>
+                itemList.name.toLowerCase().includes(searchValue.toLowerCase())
+            );
+        }
+
+        if (sort === "asc") {
+            return [...filteredList].sort((a, b) => a.amount - b.amount);
+        } else if (sort === "desc") {
+            return [...filteredList].sort((a, b) => b.amount - a.amount);
+        } else {
+            return filteredList;
+        }
+        
+    }, [itemList, sort, searchValue]);
+
+    const searchInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const value = e.target.value;
+        setSearchValue(value);
+    } 
 
     return (
         // Container หลัก
@@ -33,19 +46,31 @@ export default function Items () {
                         <path d="M14 11h4" strokeWidth="2" strokeLinecap="round" />
                         <path d="M8 16l1.5 1.5L12 15" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                         <path d="M14 16h4" strokeWidth="2" strokeLinecap="round" />
-                        </svg>
+                    </svg>
                     <p className="text-3xl md:text-4xl font-bold text-white text-center">รายการสินค้าสต็อค</p>
                 </div>
+
+                <input type="text" onChange={searchInput} placeholder="ค้นหาด้วยชื่อหรือเลขบาร์โค๊ด"/>
 
                 <ItemsSort sort={sort} setSort={setSort}/>
 
                 <div className="p-4 md:p-6 bg-gradient-to-br from-gray-50 to-slate-100 md:rounded-b-xl">
 
                     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-4 md:gap-6">
-                        {displayList.map((item) => <Cards item={item} key={item.id}/> )}
+                        {
+                            displayList && displayList.length > 0
+                            ? displayList.map((item) => <Cards item={item} key={item.id}/>)
+                            : <NotFoundDisplayList />
+                        }
                     </div>
                 </div>
             </div>
         </div>
+    );
+}
+
+function NotFoundDisplayList () {
+    return (
+        "ไม่พบข้อมูล"
     );
 }
