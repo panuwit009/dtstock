@@ -1,5 +1,5 @@
-import Header from "./Header";
-import Body from "./Body";
+import Header from "./forminsertitem/Header";
+import Body from "./forminsertitem/Body";
 
 export default function FormInsertItem ({onClose}: {onClose: ()=> void} ) {
 

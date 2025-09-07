@@ -3,7 +3,7 @@ import Scanbarcode from "./components/scanbarcode";
 import Items from "./components/items";
 import CameraUi from "./components/cameraUi";
 import { useState } from "react";
-import FormInsertItem from "./components/forminsertitem/forminsertitem";
+import FormInsertItem from "./components/forminsertitem";
 import type { CameraResult } from "../type";
 
 export default function Home () {
