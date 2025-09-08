@@ -9,7 +9,7 @@ const Player = dynamic(
   { ssr: false }
 );
 
-const LottieLoader = () => {
+export const FullScreenLoading = () => {
   return (
     <div
       style={{
@@ -33,4 +33,14 @@ const LottieLoader = () => {
   );
 };
 
-export default LottieLoader;
+export const LoadingAnimation = () => {
+  return (
+    <Player
+    autoplay
+    loop
+    speed={1.5}
+    src={animationData}
+    style={{ height: "150px", width: "150px" }}
+    />
+  );
+}

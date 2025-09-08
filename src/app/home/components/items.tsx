@@ -60,7 +60,7 @@ export default function Items () {
                         {
                             displayList && displayList.length > 0
                             ? displayList.map((item) => <Cards item={item} key={item.id}/>)
-                            : <NotFoundDisplayList />
+                            : <NotFoundDisplayList searchValue={searchValue}/>
                         }
                     </div>
                 </div>
@@ -69,8 +69,8 @@ export default function Items () {
     );
 }
 
-function NotFoundDisplayList () {
+function NotFoundDisplayList ({searchValue}: {searchValue: string | null}) {
     return (
-        "ไม่พบข้อมูล"
+        "ไม่พบรายการสินค้าที่ชื่อ: " + searchValue
     );
 }
