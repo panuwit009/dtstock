@@ -5,6 +5,7 @@ import CameraUi from "./components/cameraUi";
 import { useState } from "react";
 import FormInsertItem from "./components/forminsertitem";
 import type { CameraResult } from "../type";
+import Board from "./components/pond";
 
 export default function Home () {
     const [openCamera, setOpenCamera] = useState<boolean>(false);
@@ -23,14 +24,15 @@ const handleClick = () => {
     } else {   
         return (
             <>
-            <Scanbarcode setOpenCamera={setOpenCamera} setCameraResult={setCameraResult}/>
+            {/* <Scanbarcode setOpenCamera={setOpenCamera} setCameraResult={setCameraResult}/>
             <Items />
             <button
                 onClick={handleClick}
                 className="bg-sky-400 p-4 rounded-2xl font-semibold text-white">Button</button>
             {modal &&
                 <FormInsertItem onClose={handleClick} />
-            }
+            } */}
+            <Board />
             </>
         );
     }

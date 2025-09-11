@@ -17,6 +17,7 @@ export default function Body ({
                       bg="bg-red-400"
                     />
                     
+
                    <Category/>
 
                   <div className="lg:col-span-4 grid grid-cols-1 lg:grid-cols-4 gap-4">
