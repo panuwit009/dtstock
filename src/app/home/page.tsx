@@ -24,15 +24,15 @@ const handleClick = () => {
     } else {   
         return (
             <>
-            {/* <Scanbarcode setOpenCamera={setOpenCamera} setCameraResult={setCameraResult}/>
+            <Scanbarcode setOpenCamera={setOpenCamera} setCameraResult={setCameraResult}/>
             <Items />
             <button
                 onClick={handleClick}
                 className="bg-sky-400 p-4 rounded-2xl font-semibold text-white">Button</button>
             {modal &&
                 <FormInsertItem onClose={handleClick} />
-            } */}
-            <Board />
+            }
+            {/* <Board /> */}
             </>
         );
     }
