@@ -7,6 +7,7 @@ import { useShow } from "@/app/utils/showcontext";
 import Headscan  from "./Headscan";
 import type { CameraResult } from "@/app/type";
 import { LoadingAnimation } from "@/app/utils/loading";
+import { logoutSuccess } from "@/app/utils/alertInstant";
 
 export default function Scanbarcode (
     {setOpenCamera, setCameraResult}:
@@ -20,12 +21,7 @@ export default function Scanbarcode (
     const { setShow } = useShow();
     const router = useRouter();
     function logout (): void {
-        setShow(
-            { type: 'alert', 
-                detail: {
-                    status: 'success', headerMessage: 'ออกจากระบบสำเร็จ'
-                }
-            });
+        setShow(logoutSuccess);
         router.push('/');
     }
 
