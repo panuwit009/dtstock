@@ -2,6 +2,7 @@ import type { Item } from "../mockupdata";
 import { cardsClick } from "./cardsClick";
 import { cardsSwitchPercentColor } from "./cardsSwitchPercentColor";
 import { useShow } from "@/app/utils/showcontext";
+import Modal from "@/app/utils/modal";
 
 export default function Cards ({item}: {item: Item}) {
 const max: number = 100;
@@ -11,10 +12,8 @@ const color = cardsSwitchPercentColor(amountPercent);
 const { setShow } = useShow();
     
 function Click () {
-    setShow({
-        type: 'modal',
-        detail: {message: (item.name + '  ' + item.amount)}}) 
-    }
+    setShow(<Modal />) 
+}
 
 return (
 <div className={`relative bg-white rounded-xl shadow-xl hover:shadow-xl transition duration-300 hover:-translate-y-2 hover:cursor-pointer`}

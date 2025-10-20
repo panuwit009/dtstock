@@ -1,35 +1,20 @@
 "use client";
-import { createContext, useContext, useState, ReactNode } from 'react';
-import { ShowType } from '../type';
-import AlertPTB from './alert';
-import Tooltip from './tooltip';
-import OpenModal from './modal';
+import { createContext, useContext, useState, ReactNode, JSX } from 'react';
 
 const ShowContext = createContext<{
-  show: ShowType | null;
-  setShow: React.Dispatch<React.SetStateAction<ShowType | null>>;
+  show: JSX.Element  | null;
+  setShow: React.Dispatch<React.SetStateAction<JSX.Element  | null>>;
 } | undefined>(undefined);
 
 
 export const ShowProvider = (
   { children }: { children: ReactNode }
 ) => {
-  const [show, setShow] = useState<ShowType | null>(null);
+  const [show, setShow] = useState<JSX.Element  | null>(null);
 
   return (
     <ShowContext.Provider value={{ show, setShow }}>
-      {show && (() => {
-        switch (show.type) {
-          case "alert":
-            return <AlertPTB />;
-          case "tooltip":
-            return <Tooltip />;
-          case "modal":
-            return <OpenModal />;
-          default:
-            return null;
-        }
-      })()}
+      {show}
       {children}
     </ShowContext.Provider>
   );

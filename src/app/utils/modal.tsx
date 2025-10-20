@@ -1,8 +1,7 @@
 import { useShow } from "./showcontext"
 
 export default function Modal () {
-    const { show, setShow } = useShow();
-
+    const { setShow } = useShow();
 
     return (
         <>
@@ -11,7 +10,7 @@ export default function Modal () {
                     <div className="bg-white p-2 rounded-xl gap-2 flex flex-col">
                         <div className="flex items-center justify-center">
                             <div>
-                                <div className="text-2xl">{show?.detail?.message}</div>
+                                <div className="text-2xl">show?.detail?.message</div>
                             </div>
                             <div className="flex justify-end">
                                 <button onClick={() => setShow(null)} className="">ssss</button>
