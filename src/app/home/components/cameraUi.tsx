@@ -14,15 +14,9 @@ export default function CameraUi (
         closeCamera();
     }
     return (
-    <div className="relative w-screen h-screen overflow-hidden
-                portrait:rotate-90 portrait:origin-center portrait:w-[100vh] portrait:h-[100vw]">
-  <video 
-    id="video"
-    autoPlay 
-    muted 
-    playsInline
-    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full object-cover"
-/>
+    <div className="relative w-full">
+        {/* id ของ video ต้องเท่ากับ video เพราะในฟังก์ชันเปิดกล้องน่าจะ getelementbyid*/}
+        <video id="video" className="w-full max-h-[100vh] object-cover"/>
         {/* เส้นแนวนอน */}
         <div onClick={()=>openCamera({setCameraResult})}
         className="absolute top-1/2 left-0 w-full h-[2px] bg-red-500" />
