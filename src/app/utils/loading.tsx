@@ -40,7 +40,7 @@ export const LoadingAnimation = () => {
     loop
     speed={1.5}
     src={animationData}
-    style={{ height: "150px", width: "150px" }}
+    style={{ height: "250px", width: "250px" }}
     />
   );
 }

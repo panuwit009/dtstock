@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { AddOrDecreaseStock } from "./AddOrDecreaseStock";
+// import { AddOrDecreaseStock } from "./AddOrDecreaseStock";
 import { openCamera } from "./openCamera";
 import { useShow } from "@/app/utils/showcontext";
 import Headscan  from "./Headscan";
@@ -16,7 +16,6 @@ export default function Scanbarcode (
     }
 ) {
     const [error, setError] = useState<string | null>(null);
-    const [stocktype, setStocktype] = useState("");
 
     const { setShow } = useShow();
     const router = useRouter();
@@ -29,38 +28,24 @@ export default function Scanbarcode (
     <>
         <Headscan />
         <div className="bg-white md:rounded-3xl shadow-xl border border-gray-100 max-w-3xl mx-auto">
-            <div className="space-y-6">
-                {stocktype && <><LoadingAnimation /> กรุณาสแกนบาร์โค๊ดเพื่อจัดการสต๊อค</>}
-                <AddOrDecreaseStock 
+            <div className="">
+                <LoadingAnimation />
+                {/* <AddOrDecreaseStock 
                 stocktype={stocktype}
                 setStocktype={setStocktype}
-                />
+                /> */}
                 <div className="flex flex-col items-center gap-2">                  
-                    <div
-                    className="flex items-center gap-2 text-white shadow-lg hover:cursor-pointer hover:scale-110 transition duration-300 bg-slate-600 p-6 m-2 rounded-xl"
-                    onClick={() => {
-                        if (!stocktype) { setError("กรุณาเลือกประเภทก่อน"); return; }
-                        openCamera({ setCameraResult });
-                        setOpenCamera(true); }
-                    }>
-                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 7h2l2-3h10l2 3h2a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1z"/> 
-                            <circle cx="12" cy="13" r="4" stroke="currentColor" strokeWidth="2" />
-                        </svg>
-                        เปิดกล้อง
-                    </div>
-                    
                     {error && <div className="text-red-500 hover:cursor-pointer" onClick={() => setError("")}>{error}</div>}
                 </div>
                 
                 <div className="flex items-center justify-center gap-4 px-6">
                     <hr className="flex-1 border-gray-400"></hr>
-                    <div>หรือ</div>
+                    <div>หากเครื่องสแกน barcode ใช้งานไม่ได้</div>
                     <hr className="flex-1 border-gray-400"></hr>
                 </div>
                 
-                <div className="flex justify-center">
-                    <div className="border-2 border-gray-300 rounded-lg p-6 space-y-2 hover:border-sky-400">
+                <div className="flex items-center justify-center mt-4">
+                    <div className="border-2 border-gray-300 rounded-lg p-6 space-y-2 mr-2 hover:border-sky-400">
                         <div className="flex items-center gap-4">
                             <div className="bg-gradient-to-br from-blue-500 to-indigo-600 p-4 rounded-2xl">
                                 <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" >
@@ -78,6 +63,21 @@ export default function Scanbarcode (
                                 </div>
                             </div>
                         </div>
+                    </div>
+
+                    <span>หรือ</span>
+                    
+                    <div
+                    className="flex items-center gap-2 text-white shadow-lg hover:cursor-pointer hover:scale-110 transition duration-300 bg-slate-600 p-6 m-2 rounded-xl"
+                    onClick={() => {
+                        openCamera({ setCameraResult });
+                        setOpenCamera(true); }
+                    }>
+                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 7h2l2-3h10l2 3h2a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1z"/> 
+                            <circle cx="12" cy="13" r="4" stroke="currentColor" strokeWidth="2" />
+                        </svg>
+                        เปิดกล้อง
                     </div>
                 </div>
                 
