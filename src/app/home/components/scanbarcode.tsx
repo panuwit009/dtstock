@@ -8,6 +8,7 @@ import Headscan  from "./Headscan";
 import type { CameraResult } from "@/app/type";
 import { LoadingAnimation } from "@/app/utils/loading";
 import { logoutSuccess } from "@/app/utils/alertInstant";
+import FormInsertItem from "././forminsertitem";
 
 export default function Scanbarcode (
     {setOpenCamera, setCameraResult}:
@@ -54,7 +55,10 @@ export default function Scanbarcode (
                             </div>
                             
                             <div className="flex flex-col items-center">
-                                <div className="underline font-bold text-blue-600 hover:cursor-pointer">
+                                <div 
+                                    className="underline font-bold text-blue-600 hover:cursor-pointer"
+                                    onClick={()=> setShow(<FormInsertItem />)}
+                                >
                                     เพิ่มข้อมูลด้วยการพิมพ์
                                 </div>
                                 
