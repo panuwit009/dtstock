@@ -27,13 +27,6 @@ export default function CameraUi (
         </button>
         
         <CameraUiResultButton cameraResult={cameraResult}/>
-        <div> {/* ทดสอบ เอาผลลัพธ์มาแสดงให้ดู */}
-            <pre>{JSON.stringify(cameraResult, null, 2)}</pre>
-        </div>
-
-        
-        {/* เส้นแนวตั้ง */}
-        {/* <div className="absolute left-1/2 top-0 h-full w-[2px] bg-red-500"></div> */}
     </div>
     );
 }
