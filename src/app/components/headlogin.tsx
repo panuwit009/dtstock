@@ -9,7 +9,7 @@ export default function HeadLogin () {
                              bg-[url('/img/logo.webp')]">
             </div>
             
-            <div className="text-gray-600 text-sm">Use your Gmail and password to sign in.</div>
+            <div className="text-gray-600 text-sm">Use your Email and password to sign in.</div>
           </div>
     )
 }

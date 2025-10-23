@@ -1,21 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { faKey, faUser, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export default function Bodylogin () {
-  const [FontAwesomeLoading, setFontAwesomeLoading] = useState(true);
-  useEffect(() => {
-    const checkFontAwesome = () => {
-      if (faKey && faUser && faEye && faEyeSlash) {
-        setFontAwesomeLoading(false);
-      }
-    };
-    
-    checkFontAwesome();
-  }, []);
-
   const [showPassword, setShowPassword] = useState(false);
-  
   function Open () {
     setShowPassword(prev=>!prev);
   }
@@ -23,11 +11,9 @@ export default function Bodylogin () {
   return(
   <div className="mt-6 space-y-4">
     <div className="transition duration-300 focus-within:scale-105">
-      <label className="font-medium text-gray-700">Gmail</label>
+      <label className="font-medium text-gray-700">Email</label>
       <div className="relative">
-        {!FontAwesomeLoading &&
         <FontAwesomeIcon icon={faUser} className="text-gray-700 text-lg absolute left-3 top-1/2 -translate-y-1/2 rounded-md"/>
-        }
         <input
         type="email"
         placeholder="example@gmail.com"
@@ -39,9 +25,7 @@ export default function Bodylogin () {
     <div className="transition duration-300 focus-within:scale-105">
       <label className="font-medium text-gray-700">Password</label>
       <div className="relative">
-        {!FontAwesomeLoading &&
         <FontAwesomeIcon icon={faKey} className="text-gray-700 text-lg absolute left-3 top-1/2 -translate-y-1/2 rounded-md"/>
-        }
         <input
         type={showPassword ? "text" : "password" }
         placeholder="12345678910"
@@ -50,9 +34,7 @@ export default function Bodylogin () {
         
         <button className="text-gray-600 text-md absolute right-3 top-1/2 -translate-y-1/2 rounded-md hover:cursor-pointer hover:text-sky-600" 
         onClick={Open}>
-          {!FontAwesomeLoading &&
           <FontAwesomeIcon icon={showPassword ? faEye : faEyeSlash}/>
-          }
         </button>
       </div>
     </div>

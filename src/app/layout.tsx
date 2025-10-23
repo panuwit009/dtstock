@@ -5,6 +5,7 @@ import "@fontsource/kanit"; // Defaults to weight 400
 import "@fontsource/kanit/400.css"; // Specify weight
 import "@fontsource/kanit/400-italic.css"; // Specify weight and style
 import { ShowProvider } from "./utils/showcontext";
+import Preload from "./preload";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,11 +32,13 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <ShowProvider>
-          <div className="bg-gradient-to-br from-sky-300 via-sky-200 to-white min-h-screen max-w-dvw">
-            {children}
-          </div>
-        </ShowProvider>
+        <Preload>  
+          <ShowProvider>
+            <div className="bg-gradient-to-br from-sky-300 via-sky-200 to-white min-h-screen max-w-dvw">
+              {children}
+            </div>
+          </ShowProvider>
+        </Preload>
       </body>
     </html>
   );
