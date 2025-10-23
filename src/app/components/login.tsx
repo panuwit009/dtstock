@@ -14,7 +14,8 @@ const clickLoginButton = () => {
 };
 
 return (
-<div className="min-h-screen w-screen flex justify-center items-center">
+<div className="min-h-screen w-screen flex justify-center items-center
+bg-gradient-to-br from-sky-300 via-sky-200 to-white">
   <div className="border-white/30 border w-[95%] md:w-[40%] max-w-md max-h-md bg-white/80 rounded-2xl shadow-2xl p-8">
     <HeadLogin />
     <Bodylogin />

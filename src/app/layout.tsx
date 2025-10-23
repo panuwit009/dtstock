@@ -34,9 +34,7 @@ export default function RootLayout({
       >
         <Preload>  
           <ShowProvider>
-            <div className="bg-gradient-to-br from-sky-300 via-sky-200 to-white min-h-screen max-w-dvw">
-              {children}
-            </div>
+            {children}
           </ShowProvider>
         </Preload>
       </body>
