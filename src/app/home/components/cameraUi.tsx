@@ -20,20 +20,21 @@ export default function CameraUi (
     }
     // if (isMobile) 
     return (
-        <div className="inline-block relative">
+        <div className="inline-block relative w-full h-[100dvh] bg-white">
+            {/* <div className="absolute inset-0 bg-gray-300 animate-pulse"></div> */}
+            
             <video id="video" className="h-[100dvh] object-cover" />
             <div className="absolute top-0 left-0 w-full h-[20vh] bg-black/30 flex flex-col justify-center items-center gap-2">
                 <div className="px-4 py-2 bg-white rounded-lg font-medium font-semibold w-[70%] text-center">
                     Barcode Scanner
                 </div>
                 <div className="relative w-[70%] bg-gray-300 rounded-lg flex">
-                {/* Highlight สีฟ้า */}
-                <div
-                    className="absolute top-0 left-0 h-full w-1/2 bg-blue-500 rounded-lg transition-all duration-300"
-                    style={{
-                    transform: selected === "gray" ? "translateX(0%)" : "translateX(100%)",
-                    }}
-                />
+                    <div
+                        className="absolute top-0 left-0 h-full w-1/2 bg-blue-500 rounded-lg transition-all duration-300"
+                        style={{
+                        transform: selected === "gray" ? "translateX(0%)" : "translateX(100%)",
+                        }}
+                    />
                     <label
                         className="flex-1 py-2 text-center cursor-pointer z-10 font-medium"
                         onClick={() => setSelected("gray")}
@@ -65,8 +66,12 @@ export default function CameraUi (
                 </div>
             </div>
 
-            <div className="absolute bottom-0 left-0 w-full h-[16vh] bg-black/30 flex justify-between items-center px-4">
-                <button className="flex items-center justify-center w-12 h-12 rounded-full bg-gray-700 text-white text-lg font-bold">
+            <div className="absolute bottom-0 left-0 w-full h-[13vh] bg-black/30 flex justify-between items-center px-4">
+                <button
+                    className="flex items-center justify-center w-12 h-12 rounded-full bg-gray-700 text-white
+                    text-lg font-bold hover:cursor-pointer"
+                    onClick={stopCamera}
+                >
                     ←
                 </button>
 
@@ -77,13 +82,7 @@ export default function CameraUi (
                     </span>
                 </button>
             </div>
-
-
-            {/* เส้นแนวนอน */}
-            <div
-                onClick={() => openCamera({ setCameraResult })}
-                className="absolute top-1/2 left-1/2 w-[92%] h-[2px] bg-red-500 -translate-x-1/2"
-            />
+            <div className="absolute top-1/2 left-1/2 w-[92%] h-[2px] bg-red-500 -translate-x-1/2" />
         </div>
     );
     return (

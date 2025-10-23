@@ -22,18 +22,12 @@ export function openCamera (
     //     return;
     // }
     const codeReader = new BrowserMultiFormatReader ();
-    // console.log(codeReader);
-    //alert("เปิดกล้อง");
     
     codeReader.decodeOnceFromVideoDevice(undefined, 'video').then((result) => {
         // console.log(result);
         const qrText = result.getText();
         const testVar = { barcode: qrText };
-        closeCamera();
         setCameraResult(p => [...p, testVar]);
-        // setOpenCamera(false);
-        // alert("text: " + qrText);
-        
     }).catch((error) => {
         alert(error.message);
     });
