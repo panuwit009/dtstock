@@ -19,7 +19,7 @@ export default function Home () {
     } else {   
         return (
             <>
-            <Scanbarcode setOpenCamera={setOpenCamera} setCameraResult={setCameraResult}/>
+            <Scanbarcode setOpenCamera={setOpenCamera} />
             <Items />
             </>
         );

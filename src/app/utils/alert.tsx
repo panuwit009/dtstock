@@ -2,23 +2,17 @@ import { useShow } from './showcontext';
 
 export function AlertPTB ( { children }: { children: React.ReactNode; } ) {
     const { setShow } = useShow();
-
-    const overlay = <div className="fixed bg-black/40 inset-0 z-10" onClick={()=>setShow(null)} />;
     
     return (
-        <>
-            {overlay}
-
-            <div className={`fadeInUpOnce fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2  z-11
-            bg-white rounded-2xl w-sm flex flex-col items-center space-y-7 px-10 py-6 drop-shadow-lg/20 
-            border-t-6 border-emerald-400`}>   
-                <div className='text-black absolute top-2 right-3 rounded-full hover:cursor-pointer'
-                onClick={()=>setShow(null)}>
-                    ✖
-                </div>
-                { children }
+        <div className={`fadeInUpOnce fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2  z-11
+        bg-white rounded-2xl w-sm flex flex-col items-center space-y-7 px-10 py-6 drop-shadow-lg/20 
+        border-t-6 border-emerald-400`}>   
+            <div className='text-black absolute top-2 right-3 rounded-full hover:cursor-pointer'
+            onClick={()=>setShow(null)}>
+                ✖
             </div>
-        </>
+            { children }
+        </div>
     );
 }
 

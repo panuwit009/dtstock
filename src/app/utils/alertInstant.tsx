@@ -4,6 +4,7 @@ import {
     AlertPTBMessageSection, AlertPTBHeaderMessage, AlertPTBMessage,
     AlertPTBConfirmButton
 } from "@/app/utils/alert";
+import { overlayDismiss } from "./overlay";
 
 export const example =
     <AlertPTB>
@@ -20,6 +21,8 @@ export const example =
     </AlertPTB>;
 
 export const logoutSuccess =
+    <>
+    { overlayDismiss }
     <AlertPTB>
         <AlertPTBIcon className = "bg-gradient-to-br from-emerald-400 to-green-400">
             ✔
@@ -27,4 +30,5 @@ export const logoutSuccess =
         <AlertPTBMessageSection>
             <AlertPTBHeaderMessage>ออกจากระบบสำเร็จ</AlertPTBHeaderMessage>
         </AlertPTBMessageSection>
-    </AlertPTB>;
+    </AlertPTB>
+    </>;

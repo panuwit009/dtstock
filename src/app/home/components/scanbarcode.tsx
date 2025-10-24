@@ -2,19 +2,15 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 // import { AddOrDecreaseStock } from "./AddOrDecreaseStock";
-import { openCamera } from "./openCamera";
 import { useShow } from "@/app/utils/showcontext";
 import Headscan  from "./Headscan";
-import type { CameraResult } from "@/app/type";
 import { LoadingAnimation } from "@/app/utils/loading";
 import { logoutSuccess } from "@/app/utils/alertInstant";
 import FormInsertItem from "././forminsertitem";
 
 export default function Scanbarcode (
-    {setOpenCamera, setCameraResult}:
-    { setOpenCamera: React.Dispatch<React.SetStateAction<boolean>>;
-      setCameraResult: React.Dispatch<React.SetStateAction<CameraResult>>;
-    }
+    { setOpenCamera }:
+    { setOpenCamera: React.Dispatch<React.SetStateAction<boolean>>; }
 ) {
     const [error, setError] = useState<string | null>(null);
 
@@ -73,10 +69,7 @@ export default function Scanbarcode (
                     
                     <div
                     className="flex items-center gap-2 text-white shadow-lg hover:cursor-pointer hover:scale-110 transition duration-300 bg-slate-600 p-6 m-2 rounded-xl"
-                    onClick={() => {
-                        openCamera({ setCameraResult });
-                        setOpenCamera(true); }
-                    }>
+                    onClick={() => { setOpenCamera(true); }}>
                         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 7h2l2-3h10l2 3h2a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1z"/> 
                             <circle cx="12" cy="13" r="4" stroke="currentColor" strokeWidth="2" />
