@@ -3,6 +3,7 @@ import { useState, useEffect } from "react"
 import { openCamera, closeCamera } from "./openCamera";
 import type { CameraResult } from "@/app/type";
 import { useShow } from "@/app/utils/showcontext";
+import { overlayBlur } from "@/app/utils/overlay";
 // import { isMobile } from "react-device-detect";
 
 export const Afterscan = (
@@ -20,23 +21,35 @@ export const Afterscan = (
     }
 ) => {
     return (
-    <div className="fixed inset-0 flex justify-center items-center z-50">
-        <div className="bg-white p-6 rounded-2xl shadow-xl">
-            <h2 className="text-lg font-semibold mb-4">Title</h2>
-            <p>Barcode: {data}</p>
+    <>
+    {overlayBlur}
+    <div className="fixed inset-0 flex justify-center items-center border border-white/40 z-50">
+        <div className="bg-white p-6 rounded-2xl shadow-xl max-h-[90%] w-87 overflow-y-auto no-scrollbar">
+            <img 
+                className="h-50 mx-auto rounded-2xl mb-4"
+                src="https://webtntlprd.blob.core.windows.net/content/1671768873047-2555.webp"
+            />
+            <h2 className="text-lg font-semibold mb-2">น้ำทิพย์ น้ำดื่ม 1500 มล.</h2>
+            <p>น้ำทิพย์ น้ำดื่มคุณภาพที่ได้รับการรับรองในระดับสากล ให้คุณมั่นใจในคุณภาพจากทุกขวดที่ดื่ม โดยบรรจุมาในขวด Eco ที่คิดมาเพื่อโลก</p>
+            <p className="text-gray-400">Barcode: {data}</p>
+            <p className="mt-4 text-center">เพิ่มสินค้านี้ลงในรายการ ?</p>
 
-            <button className="mt-4 bg-sky-500 text-white px-4 py-2 rounded-lg"
-                onClick={() => { setShow(null); waitScanbarcode(); setCameraResult( p => [ ...p, { barcode: data ?? "" }]);}}
-            >
-                asd
-            </button>
-            <button className="mt-4 bg-sky-500 text-white px-4 py-2 rounded-lg"
-                onClick={() => { setShow(null); waitScanbarcode(); }}
-            >
-                Close
-            </button>
+            <div className=" flex justify-between">
+                <button className="w-35 bg-red-500 text-white px-4 py-2 rounded-lg hover:cursor-pointer"
+                    onClick={() => { setShow(null); waitScanbarcode(); }}
+                >
+                    ยกเลิก
+                </button>
+                <button className="w-35 bg-blue-500 text-white px-4 py-2 rounded-lg hover:cursor-pointer"
+                    onClick={() => { setShow(null); waitScanbarcode(); setCameraResult( p => [ ...p, { barcode: data ?? "" }]);}}
+                >
+                    ตกลง
+                </button>
+            </div>
+            
         </div>
     </div>
+    </>
     );
 };
 
@@ -71,9 +84,10 @@ export default function CameraUi (
     }
     // if (isMobile) 
     return (
-        <div className="inline-block relative w-full h-[100dvh] bg-white">            
+        // <div className="inline-block relative w-full h-[100dvh] bg-white">
+        <div className="flex justify-center items-center w-full h-[100dvh] bg-gray-200">          
             <video id="video" className="h-[100dvh] object-cover" />
-            <div className="absolute top-0 left-0 w-full h-[20vh] bg-black/30 flex flex-col justify-center items-center gap-2">
+            <div className="z-9 absolute top-0 left-0 w-full h-[20vh] bg-[#4D4846]/89 flex flex-col justify-center items-center gap-2">
                 <div className="px-4 py-2 bg-white rounded-lg font-medium font-semibold w-[70%] text-center">
                     Barcode Scanner
                 </div>
@@ -85,7 +99,7 @@ export default function CameraUi (
                         }}
                     />
                     <label
-                        className="flex-1 py-2 text-center cursor-pointer z-10 font-medium"
+                        className={`flex-1 py-2 text-center ${selected === "gray" && "text-white"} hover:text-white cursor-pointer z-12 font-medium`}
                         onClick={() => setSelected("gray")}
                     >
                         <input
@@ -99,7 +113,7 @@ export default function CameraUi (
                         กำลังสแกน
                     </label>
                     <label
-                        className="flex-1 py-2 text-center cursor-pointer z-10 font-medium"
+                        className={`flex-1 py-2 text-center ${selected === "blue" && "text-white"} hover:text-white cursor-pointer z-12 font-medium`}
                         onClick={() => setSelected("blue")}
                     >
                         <input
@@ -115,13 +129,12 @@ export default function CameraUi (
                 </div>
             </div>
 
-            <div className="absolute bottom-0 left-0 w-full h-[13vh] bg-black/30 flex justify-between items-center px-4">
+            <div className="absolute bottom-0 left-0 w-full h-[13vh] bg-[#4D4846]/89 flex justify-between items-center px-4">
                 <button
-                    className="flex items-center justify-center w-12 h-12 rounded-full bg-gray-700 text-white
-                    text-lg font-bold hover:cursor-pointer"
+                    className="w-12 h-12 rounded-full bg-white text-[#73ACF6] text-lg font-bold hover:cursor-pointer"
                     onClick={stopCamera}
                 >
-                    ←
+                    ↩
                 </button>
 
                 <button className="relative bg-blue-500 text-white px-4 py-2 rounded-lg font-medium">
