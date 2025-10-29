@@ -60,7 +60,7 @@ export default function CameraUi (
       setCameraResult: React.Dispatch<React.SetStateAction<CameraResult>>;
     }
 ) {
-    const [selected, setSelected] = useState<"scanning" | "manual">("scanning");
+    const [selected, setSelected] = useState<"scanning" | "manual" | "manage">("scanning");
     const { setShow } = useShow();
 
     useEffect( () => {
@@ -92,11 +92,17 @@ export default function CameraUi (
                 <div className="px-4 py-2 bg-white rounded-lg font-medium font-semibold w-[70%] text-center">
                     Barcode Scanner
                 </div>
+
+                { selected !== "manage" &&
                 <div className="relative w-[70%] bg-gray-300 rounded-lg flex">
                     <div
                         className="absolute top-0 left-0 h-full w-1/2 bg-blue-500 rounded-lg transition-all duration-300"
                         style={{
-                        transform: selected === "scanning" ? "translateX(0%)" : "translateX(100%)",
+                        transform: selected === "scanning" 
+                                    ? "translateX(0%)" 
+                                    : selected === "manual" 
+                                    ? "translateX(100%)" 
+                                    : undefined, // default fallback
                         }}
                     />
                     <label
@@ -128,6 +134,7 @@ export default function CameraUi (
                         คู่มือ
                     </label>
                 </div>
+                }
             </div>
 
             <div className="z-2 absolute bottom-0 left-0 w-full h-[13vh] bg-[#4D4846]/89 flex justify-between items-center px-4">
@@ -138,7 +145,11 @@ export default function CameraUi (
                     ↩
                 </button>
 
-                <button className="relative bg-blue-500 text-white px-4 py-2 rounded-lg font-medium">
+                <button 
+                    className="relative bg-blue-500 text-white px-4 py-2 rounded-lg font-medium
+                    hover:cursor-pointer hover:bg-blue-600"
+                    onClick={() => setSelected("manage")}
+                >
                     ทำรายการ
                     <span className="absolute -top-2 -right-2 w-6 h-6 bg-red-500 text-white text-xs font-bold rounded-full flex items-center justify-center">
                         { cameraResult.length }
