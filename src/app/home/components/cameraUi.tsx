@@ -4,6 +4,7 @@ import { openCamera, closeCamera } from "./openCamera";
 import type { CameraResult } from "@/app/type";
 import { useShow } from "@/app/utils/showcontext";
 import { overlayBlur } from "@/app/utils/overlay";
+import { CameraManual } from "./cameraManual";
 // import { isMobile } from "react-device-detect";
 
 export const Afterscan = (
@@ -31,7 +32,7 @@ export const Afterscan = (
             />
             <h2 className="text-lg font-semibold mb-2">น้ำทิพย์ น้ำดื่ม 1500 มล.</h2>
             <p>น้ำทิพย์ น้ำดื่มคุณภาพที่ได้รับการรับรองในระดับสากล ให้คุณมั่นใจในคุณภาพจากทุกขวดที่ดื่ม โดยบรรจุมาในขวด Eco ที่คิดมาเพื่อโลก</p>
-            <p className="text-gray-400">Barcode: {data}</p>
+            <p className="text-gray-400 break-all">Barcode: {data}</p>
             <p className="mt-4 text-center">เพิ่มสินค้านี้ลงในรายการ ?</p>
 
             <div className=" flex justify-between">
@@ -46,7 +47,6 @@ export const Afterscan = (
                     ตกลง
                 </button>
             </div>
-            
         </div>
     </div>
     </>
@@ -60,7 +60,7 @@ export default function CameraUi (
       setCameraResult: React.Dispatch<React.SetStateAction<CameraResult>>;
     }
 ) {
-    const [selected, setSelected] = useState<"gray" | "blue">("gray");
+    const [selected, setSelected] = useState<"scanning" | "manual">("scanning");
     const { setShow } = useShow();
 
     useEffect( () => {
@@ -86,7 +86,8 @@ export default function CameraUi (
     return (
         // <div className="inline-block relative w-full h-[100dvh] bg-white">
         <div className="flex justify-center items-center w-full h-[100dvh] bg-gray-200">          
-            <video id="video" className="h-[100dvh] object-cover" />
+            <video id="video" className={`h-[100dvh] object-cover`} />
+            <CameraManual selected={selected}/> 
             <div className="z-9 absolute top-0 left-0 w-full h-[20vh] bg-[#4D4846]/89 flex flex-col justify-center items-center gap-2">
                 <div className="px-4 py-2 bg-white rounded-lg font-medium font-semibold w-[70%] text-center">
                     Barcode Scanner
@@ -95,41 +96,41 @@ export default function CameraUi (
                     <div
                         className="absolute top-0 left-0 h-full w-1/2 bg-blue-500 rounded-lg transition-all duration-300"
                         style={{
-                        transform: selected === "gray" ? "translateX(0%)" : "translateX(100%)",
+                        transform: selected === "scanning" ? "translateX(0%)" : "translateX(100%)",
                         }}
                     />
                     <label
-                        className={`flex-1 py-2 text-center ${selected === "gray" && "text-white"} hover:text-white cursor-pointer z-12 font-medium`}
-                        onClick={() => setSelected("gray")}
+                        className={`flex-1 py-2 text-center ${selected === "scanning" && "text-white"} hover:text-white cursor-pointer z-12 font-medium`}
+                        onClick={() => setSelected("scanning")}
                     >
                         <input
                         type="radio"
                         name="color"
                         value="gray"
                         className="hidden"
-                        checked={selected === "gray"}
-                        onChange={() => setSelected("gray")}
+                        checked={selected === "scanning"}
+                        onChange={() => setSelected("scanning")}
                         />
                         กำลังสแกน
                     </label>
                     <label
-                        className={`flex-1 py-2 text-center ${selected === "blue" && "text-white"} hover:text-white cursor-pointer z-12 font-medium`}
-                        onClick={() => setSelected("blue")}
+                        className={`flex-1 py-2 text-center ${selected === "manual" && "text-white"} hover:text-white cursor-pointer z-12 font-medium`}
+                        onClick={() => setSelected("manual")}
                     >
                         <input
                         type="radio"
                         name="color"
-                        value="blue"
+                        value="manual"
                         className="hidden"
-                        checked={selected === "blue"}
-                        onChange={() => setSelected("blue")}
+                        checked={selected === "manual"}
+                        onChange={() => setSelected("manual")}
                         />
                         คู่มือ
                     </label>
                 </div>
             </div>
 
-            <div className="absolute bottom-0 left-0 w-full h-[13vh] bg-[#4D4846]/89 flex justify-between items-center px-4">
+            <div className="z-2 absolute bottom-0 left-0 w-full h-[13vh] bg-[#4D4846]/89 flex justify-between items-center px-4">
                 <button
                     className="w-12 h-12 rounded-full bg-white text-[#73ACF6] text-lg font-bold hover:cursor-pointer"
                     onClick={stopCamera}
@@ -145,6 +146,7 @@ export default function CameraUi (
                 </button>
             </div>
             <div className="absolute top-1/2 left-1/2 w-[92%] h-[2px] bg-red-500 -translate-x-1/2" />
+            
         </div>
     );
 }
