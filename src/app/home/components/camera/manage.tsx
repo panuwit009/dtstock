@@ -22,7 +22,9 @@ export function Manage({ cameraResult }: { cameraResult: CameraResult; }) {
 
                 { mockUp.length > 0
                 ? mockUp.map((result, index) =>
-                <div className="mt-2 bg-red-100 h-10 w-full">
+                <div className="mt-2 bg-red-100 h-10 w-full"
+                    key={index}
+                >
                     {index + 1}. {result.barcode}
                 </div>)
                 :
