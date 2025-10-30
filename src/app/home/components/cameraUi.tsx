@@ -1,10 +1,12 @@
 "use client";
 import { useState, useEffect } from "react"
-import { openCamera, closeCamera } from "./openCamera";
+import { openCamera, closeCamera } from "./camera/openCamera";
 import type { CameraResult } from "@/app/type";
 import { useShow } from "@/app/utils/showcontext";
 import { overlayBlur } from "@/app/utils/overlay";
-import { CameraManual } from "./cameraManual";
+import { Manual } from "./camera/manual";
+import { Manage } from "./camera/manage";
+import { qrCode, leftArrow } from "./camera/svg";
 // import { isMobile } from "react-device-detect";
 
 export const Afterscan = (
@@ -84,10 +86,11 @@ export default function CameraUi (
     }
     // if (isMobile) 
     return (
-        // <div className="inline-block relative w-full h-[100dvh] bg-white">
         <div className="flex justify-center items-center w-full h-[100dvh] bg-gray-200">          
-            <video id="video" className={`h-[100dvh] object-cover`} />
-            <CameraManual selected={selected}/> 
+            <video id="video" className="h-[100dvh] object-cover" />
+            <Manual selected={selected}/>
+            { selected === "manage" &&
+            <Manage cameraResult={cameraResult}/>}
             <div className="z-9 absolute top-0 left-0 w-full h-[20vh] bg-[#4D4846]/89 flex flex-col justify-center items-center gap-2">
                 <div className="px-4 py-2 bg-white rounded-lg font-medium font-semibold w-[70%] text-center">
                     Barcode Scanner
@@ -138,13 +141,21 @@ export default function CameraUi (
             </div>
 
             <div className="z-2 absolute bottom-0 left-0 w-full h-[13vh] bg-[#4D4846]/89 flex justify-between items-center px-4">
+                { selected === "manage" ?
                 <button
-                    className="w-12 h-12 rounded-full bg-white text-[#73ACF6] text-lg font-bold hover:cursor-pointer"
+                    className="w-12 h-12 rounded-full bg-white text-[#73ACF6] flex items-center justify-center text-lg font-bold hover:cursor-pointer"
+                    onClick={() => setSelected("scanning")}
+                >
+                    {qrCode}
+                </button> :
+                <>
+                <button
+                    className="w-12 h-12 rounded-full bg-white flex items-center justify-center hover:cursor-pointer"
                     onClick={stopCamera}
                 >
-                    ↩
+                    {leftArrow}
                 </button>
-
+                
                 <button 
                     className="relative bg-blue-500 text-white px-4 py-2 rounded-lg font-medium
                     hover:cursor-pointer hover:bg-blue-600"
@@ -155,6 +166,8 @@ export default function CameraUi (
                         { cameraResult.length }
                     </span>
                 </button>
+                </>
+                }
             </div>
             <div className="absolute top-1/2 left-1/2 w-[92%] h-[2px] bg-red-500 -translate-x-1/2" />
             

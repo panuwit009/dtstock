@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 
-export function CameraManual({ selected }: { selected: "scanning" | "manual" | "manage" }) {
+export function Manual({ selected }: { selected: "scanning" | "manual" | "manage" }) {
     const audioRef = useRef<HTMLAudioElement | null>(null);
 
     useEffect(() => {
