@@ -77,7 +77,7 @@ export default function CameraUi (
                 );
             }
         }
-        waitScanbarcode();          
+        // waitScanbarcode();          
     }, []);
 
     const stopCamera = (): void => {
