@@ -2,10 +2,8 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 // import { AddOrDecreaseStock } from "./AddOrDecreaseStock";
-import { useShow } from "@/app/utils/showcontext";
+import { useShow, LoadingAnimation, logoutSuccess } from "@/app/utils";
 import Headscan  from "./Headscan";
-import { LoadingAnimation } from "@/app/utils/loading";
-import { logoutSuccess } from "@/app/utils/alertInstant";
 import FormInsertItem from "././forminsertitem";
 
 export default function Scanbarcode (

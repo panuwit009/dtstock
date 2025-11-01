@@ -1,4 +1,4 @@
-import { useShow } from './showcontext';
+import { useShow } from './';
 
 export function AlertPTB ( { children }: { children: React.ReactNode; } ) {
     const { setShow } = useShow();

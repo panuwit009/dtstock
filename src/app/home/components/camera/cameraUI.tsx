@@ -1,15 +1,11 @@
 "use client";
 import { useState, useEffect } from "react"
-import { openCamera, closeCamera } from "./camera/openCamera";
+import { openCamera, closeCamera, qrCode, leftArrow, Manual, Manage } from "./";
 import type { CameraResult } from "@/app/type";
-import { useShow } from "@/app/utils/showcontext";
-import { overlayBlur } from "@/app/utils/overlay";
-import { Manual } from "./camera/manual";
-import { Manage } from "./camera/manage";
-import { qrCode, leftArrow } from "./camera/svg";
+import { useShow, overlayBlur } from "@/app/utils";
 // import { isMobile } from "react-device-detect";
 
-import "./camera/animation.css";
+import "./animation.css";
 
 export const Afterscan = (
     {
