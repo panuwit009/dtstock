@@ -9,6 +9,8 @@ import { Manage } from "./camera/manage";
 import { qrCode, leftArrow } from "./camera/svg";
 // import { isMobile } from "react-device-detect";
 
+import "./camera/animation.css";
+
 export const Afterscan = (
     {
         data,
@@ -63,6 +65,7 @@ export default function CameraUi (
     }
 ) {
     const [selected, setSelected] = useState<"scanning" | "manual" | "manage">("scanning");
+    const [shake, setShake] = useState(false);
     const { setShow } = useShow();
 
     useEffect( () => {
@@ -77,7 +80,7 @@ export default function CameraUi (
                 );
             }
         }
-        // waitScanbarcode();          
+        waitScanbarcode();          
     }, []);
 
     const stopCamera = (): void => {
@@ -91,7 +94,11 @@ export default function CameraUi (
             <Manual selected={selected}/>
             { selected === "manage" &&
             <Manage cameraResult={cameraResult}/>}
-            <div className="z-9 absolute top-0 left-0 w-full h-[20vh] bg-[#4D4846]/89 flex flex-col justify-center items-center gap-2">
+            <div 
+                className={`z-9 absolute top-0 left-0 w-full bg-[#4D4846]/89
+                ${ selected === "manage" ? "h-[15vh]" : "h-[20vh]"}
+                flex flex-col justify-center items-center gap-2`}
+            >
                 <div className="px-4 py-2 bg-white rounded-lg font-medium font-semibold w-[70%] text-center">
                     Barcode Scanner
                 </div>
@@ -159,10 +166,20 @@ export default function CameraUi (
                 <button 
                     className="relative bg-blue-500 text-white px-4 py-2 rounded-lg font-medium
                     hover:cursor-pointer hover:bg-blue-600"
-                    onClick={() => setSelected("manage")}
+                    onClick={() => {
+                        if (cameraResult.length < 1) {
+                            setShake(true);
+                            setTimeout(() => setShake(false), 500);
+                        } else {
+                            setSelected("manage");
+                        }
+                    }}
                 >
                     ทำรายการ
-                    <span className="absolute -top-2 -right-2 w-6 h-6 bg-red-500 text-white text-xs font-bold rounded-full flex items-center justify-center">
+                    <span 
+                        className={`absolute -top-2 -right-2 w-6 h-6 bg-red-500 text-white text-xs font-bold
+                        rounded-full flex items-center justify-center ${shake ? "animate-shake" : ""}`}
+                    >
                         { cameraResult.length }
                     </span>
                 </button>

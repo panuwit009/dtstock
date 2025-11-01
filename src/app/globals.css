@@ -26,6 +26,7 @@ body {
   font-family: "Kanit";
 }
 
+/* ใช้ตรง @/app/home/components/cameraUi.tsx */
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
@@ -34,7 +35,7 @@ body {
   scrollbar-width: none;
 }
 
-
+/* ใช้ตรง alert */
 @keyframes fadeInUp {
   0% {
     opacity: 0;
