@@ -1,5 +1,6 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useMediaQuery } from "react-responsive";
 import { Scanbarcode, Items, Sidebar, CameraUi } from "./components";
 import type { CameraResult } from "../type";
 
@@ -7,6 +8,15 @@ export default function Home () {
     const [openCamera, setOpenCamera] = useState<boolean>(false);
     const [cameraResult, setCameraResult] = useState<CameraResult>([]);
     const [sidebarOpen, setSidebarOpen] = useState<boolean>(true);
+    const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1024px)' });
+
+    useEffect(() => {
+        if (isTabletOrMobile) {
+            setSidebarOpen(false);
+        } else {
+            setSidebarOpen(true);
+        }
+    }, [isTabletOrMobile]);
 
     if (openCamera) {
         return (
