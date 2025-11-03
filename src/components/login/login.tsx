@@ -1,7 +1,7 @@
 "use client";
 import HeadLogin from "./headlogin";
 import Bodylogin from "./formlogin";
-import type { setIslogin } from "../type";
+import type { setIslogin } from "@/type";
 import { useState } from "react";
 import './loading.css';
 

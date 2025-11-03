@@ -1,8 +1,8 @@
 "use client";
 import { useEffect, useState } from "react";
-import { FullScreenLoading } from "./components";
+import { FullScreenLoading } from "@/components";
 // ---------------- assets --------------------
-import { loadIcons } from "./preload/loadIcons";
+import { loadIcons } from "@/preload/loadIcons";
 // ---------------- assets --------------------
 
 export default function Preload ({ children }: { children: React.ReactNode }) {
@@ -13,7 +13,7 @@ export default function Preload ({ children }: { children: React.ReactNode }) {
         try {
             await loadIcons();
             await new Promise((res) => setTimeout(res, 300));
-            // หน่วงนิดเพื่อให้แน่ใจว่า font/css โหลดครบ จริงๆหน่วงแค่ 300 ms ก็พออันนี้แค่เทส
+            // หน่วงนิดเพื่อให้แน่ใจว่า font/css โหลดครบ
         } catch (error) {
             console.error(error);
         } finally {

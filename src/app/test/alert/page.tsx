@@ -1,7 +1,7 @@
 "use client";
 import { useRouter } from "next/navigation";
-import { example } from "@/app/components";
-import { useShow } from "@/app/utils";
+import { example } from "@/components";
+import { useShow } from "@/utils";
 
 export default function TestAlert () {
     const { setShow } = useShow();

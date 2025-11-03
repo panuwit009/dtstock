@@ -1,5 +1,5 @@
-import { categorys } from "../../insertdata"
-import type { List } from "../../insertdata";
+import { categorys } from "@/utils";
+import type { List } from "@/utils";
 import React, { useState } from "react"
 
 function Buttoncategory ({category, item, setItem}: {category: List; item: number | null; setItem: React.Dispatch<React.SetStateAction<number | null>>; }) {

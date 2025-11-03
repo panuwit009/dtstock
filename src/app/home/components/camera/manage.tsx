@@ -1,5 +1,5 @@
 import React from "react";
-import type { CameraResult } from "@/app/type";
+import type { CameraResult } from "@/type";
 export function Manage({ cameraResult }: { cameraResult: CameraResult; }) {
     // const mockUp = [
     //     {

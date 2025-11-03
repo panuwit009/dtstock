@@ -8,8 +8,7 @@ export default function HeadLogin () {
              <div className="w-24 h-24 rounded-full bg-cover bg-center transform transition duration-300 hover:rotate-6 hover:scale-110
                              bg-[url('/img/logo.webp')]">
             </div>
-            
             <div className="text-gray-600 text-sm">Use your Email and password to sign in.</div>
-          </div>
+        </div>
     )
 }

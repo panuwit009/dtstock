@@ -1,8 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { useRouter } from 'next/navigation';
-
-import Login from "./components/login";
+import { Login } from "@/components";
 
 export default function Main() {
   const [isLogin, setIslogin] = useState<boolean>(false);

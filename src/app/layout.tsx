@@ -4,8 +4,8 @@ import "./globals.css";
 import "@fontsource/kanit"; // Defaults to weight 400
 import "@fontsource/kanit/400.css"; // Specify weight
 import "@fontsource/kanit/400-italic.css"; // Specify weight and style
-import { ShowProvider } from "./utils";
-import Preload from "./preload";
+import { ShowProvider } from "@/utils";
+import Preload from "@/preload";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
