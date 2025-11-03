@@ -1,8 +1,8 @@
 import type { Item } from "../mockupdata";
 import { cardsClick } from "./cardsClick";
 import { cardsSwitchPercentColor } from "./cardsSwitchPercentColor";
-import { useShow } from "@/app/utils/showcontext";
-import Modal from "@/app/utils/modal";
+import { useShow } from "@/app/utils";
+import { Modal } from "@/app/components";
 
 export default function Cards ({item}: {item: Item}) {
 const max: number = 100;

@@ -1,4 +1,4 @@
-import { FullScreenLoading } from "../../utils/loading";
+import { FullScreenLoading } from "@/app/components";
 
 function LottieLoadertest () {
     const fs = <FullScreenLoading />;

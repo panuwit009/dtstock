@@ -1,4 +1,4 @@
-import { Dashboard, Kanban, Inbox, Users, Products, SignIn, SignUp } from "@/app/utils/svg";
+import { Dashboard, Kanban, Inbox, Users, Products, SignIn, SignUp } from "@/app/components";
 
 const iconClass1 = "w-5 h-5 text-blue-500 transition duration-75 dark:text-blue-400 group-hover:text-blue-900 dark:group-hover:text-white";
 const iconClass2 = "shrink-0 w-5 h-5 text-blue-500 transition duration-75 dark:text-blue-400 group-hover:text-blue-900 dark:group-hover:text-white";

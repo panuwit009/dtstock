@@ -8,15 +8,16 @@ export default function Home () {
     const [openCamera, setOpenCamera] = useState<boolean>(false);
     const [cameraResult, setCameraResult] = useState<CameraResult>([]);
     const [sidebarOpen, setSidebarOpen] = useState<boolean>(true);
-    const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1024px)' });
+    // const isMobile = useMediaQuery({ query: "(max-width: 640px)" });
+    const isTablet = useMediaQuery({ query: '(max-width: 1024px)' });
 
     useEffect(() => {
-        if (isTabletOrMobile) {
+        if (isTablet) {
             setSidebarOpen(false);
         } else {
             setSidebarOpen(true);
         }
-    }, [isTabletOrMobile]);
+    }, [isTablet]);
 
     if (openCamera) {
         return (

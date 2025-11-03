@@ -1,4 +1,4 @@
-import { useShow } from './';
+import { useShow } from '../../utils';
 
 export function AlertPTB ( { children }: { children: React.ReactNode; } ) {
     const { setShow } = useShow();
