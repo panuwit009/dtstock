@@ -1,9 +1,9 @@
 "use client";
 import { useState, useEffect } from "react";
-import { openCamera, closeCamera, qrCode, leftArrow, Manual, Manage } from "./";
-import type { CameraResult } from "@/app/type";
-import { useShow } from "@/app/utils";
-import { overlayBlur } from "@/app/components";
+import { openCamera, closeCamera, Manual, Manage } from "./";
+import type { CameraResult } from "@/type";
+import { useShow } from "@/utils";
+import { overlayBlur, qrCode, leftArrow } from "@/components";
 import "./animation.css";
 
 export const Afterscan = (

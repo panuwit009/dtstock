@@ -3,7 +3,7 @@ import {
     AlertPTBIcon,
     AlertPTBMessageSection, AlertPTBHeaderMessage, AlertPTBMessage,
     AlertPTBConfirmButton
-} from "./";
+} from ".";
 import { overlayDismiss } from "../overlay";
 
 export const example =

@@ -1,4 +1,4 @@
-import { Circle } from "@/app/components";
+import { Circle } from "@/components";
 
 // const iconClass2 = "shrink-0 w-5 h-5 text-blue-500 transition duration-75 dark:text-blue-400 group-hover:text-blue-900 dark:group-hover:text-white";
 const circleClass = "shrink-0 w-4 h-4 text-transparent group-hover:text-blue-500";

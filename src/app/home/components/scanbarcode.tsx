@@ -1,8 +1,8 @@
 "use client";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { LoadingAnimation, logoutSuccess } from "@/app/components";
-import { useShow } from "@/app/utils"
+import { LoadingAnimation, logoutSuccess } from "@/components";
+import { useShow } from "@/utils"
 import Headscan  from "./Headscan";
 import FormInsertItem from "././forminsertitem";
 

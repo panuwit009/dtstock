@@ -2,7 +2,7 @@
 import { useState, useMemo } from "react";
 import Cards from "./cards";
 import ItemsSort from "./itemsSort.";
-import { mockupdata } from "../mockupdata";
+import { mockupdata } from "@/utils";
 
 export default function Items () {
     const [itemList, setItemList] = useState(mockupdata);

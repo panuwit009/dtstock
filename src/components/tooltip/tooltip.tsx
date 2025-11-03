@@ -1,4 +1,4 @@
-import { useShow } from "@/app/utils";
+import { useShow } from "@/utils";
 
 export default function Tooltip () {
     const { setShow } = useShow();

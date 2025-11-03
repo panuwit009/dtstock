@@ -1,8 +1,9 @@
 "use client";
 import { useState, useEffect } from "react";
 import { useMediaQuery } from "react-responsive";
-import { Scanbarcode, Items, Sidebar, CameraUi } from "./components";
-import type { CameraResult } from "../type";
+import { Scanbarcode, Items, CameraUi } from "./components";
+import { Sidebar } from "@/components";
+import type { CameraResult } from "@/type";
 
 export default function Home () {
     const [openCamera, setOpenCamera] = useState<boolean>(false);

@@ -1,8 +1,8 @@
 "use client";
 import { useEffect, useState } from "react";
-import { FullScreenLoading } from "./components";
+import { FullScreenLoading } from "@/components";
 // ---------------- assets --------------------
-import { loadIcons } from "./preload/loadIcons";
+import { loadIcons } from "@/preload/loadIcons";
 // ---------------- assets --------------------
 
 export default function Preload ({ children }: { children: React.ReactNode }) {
