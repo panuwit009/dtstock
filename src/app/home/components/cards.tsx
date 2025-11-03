@@ -15,8 +15,10 @@ function Click () {
 }
 
 return (
-<div className={`relative bg-white rounded-xl shadow-xl hover:shadow-xl transition duration-300 hover:-translate-y-2 hover:cursor-pointer`}
-onClick={Click}
+<div
+    className={`relative bg-green-100 rounded-xl shadow-xl
+        hover:shadow-xl transition duration-300 hover:-translate-y-2 hover:cursor-pointer`}
+    onClick={Click}
 >
     {/* <p className="absolute -top-1 -left-4 w-12 h-12 flex justify-center items-center bg-gradient-to-r from-sky-700 to-sky-800
     text-white font-bold p-4 text-2xl rounded-full">{item.id}</p> */}
@@ -31,7 +33,7 @@ onClick={Click}
     <div className="px-4 pb-4">
         <div className="grid grid-cols gap-4">
             <div className="relative flex items-center gap-4">
-                <div className="group w-40 md:w-65"> 
+                <div className="group w-40 md:w-65 bg-red-100"> 
                     <div className="truncate text-lg md:text-xl">
                         {item.name}
                     </div>
