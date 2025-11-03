@@ -3,8 +3,8 @@ import {
     AlertPTBIcon,
     AlertPTBMessageSection, AlertPTBHeaderMessage, AlertPTBMessage,
     AlertPTBConfirmButton
-} from "@/app/components/alert";
-import { overlayDismiss } from "../overlay/overlay";
+} from "./";
+import { overlayDismiss } from "../overlay";
 
 export const example =
     <AlertPTB>
@@ -19,6 +19,7 @@ export const example =
             ตกลง
         </AlertPTBConfirmButton>
     </AlertPTB>;
+
 
 export const logoutSuccess =
     <>

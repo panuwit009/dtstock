@@ -30,7 +30,7 @@ export default function Home () {
         return (
             <>
             <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen}/>
-            <div className={`p-4 ${sidebarOpen ? "ml-64" : "ml-6"}`}>
+            <div className={`p-4 ${sidebarOpen ? "ml-64" : "ml-3"}`}>
                 <div className="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700">
                     <Scanbarcode setOpenCamera={setOpenCamera} />
                     <Items />

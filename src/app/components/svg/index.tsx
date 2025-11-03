@@ -83,3 +83,11 @@ export const SignUp = ( { className }: { className?: string;}) => {
     </svg>
     )
 };
+
+export const Circle = ( { className }: { className?: string;}) => {
+    return (
+    <svg className={className} fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="12" />
+    </svg>
+    );
+};

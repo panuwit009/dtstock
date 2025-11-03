@@ -1,1 +1,1 @@
-export { useShow, ShowProvider } from "./showcontext";
+export * from "./showcontext";
