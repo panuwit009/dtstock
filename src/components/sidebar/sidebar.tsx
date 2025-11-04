@@ -8,7 +8,7 @@ import { useShow } from "@/utils";
 // const iconClass2 = "shrink-0 w-5 h-5 text-blue-500 transition duration-75 dark:text-blue-400 group-hover:text-blue-900 dark:group-hover:text-white";
 const circleClass = "shrink-0 w-4 h-4 text-transparent";
 const circleActive = "shrink-0 w-4 h-4 text-blue-500";
-const sidebarListClass = "flex items-center p-2 text-black rounded-lg dark:text-white hover:bg-white dark:hover:bg-blue-700 group";
+const sidebarListClass = "flex items-center p-2 text-black rounded-lg dark:text-black hover:bg-white dark:hover:bg-blue-700 group";
 const sidebarListActive = "flex items-center p-2 text-black rounded-lg dark:text-white bg-white dark:bg-blue-700 group";
 
 export default function Sidebar (

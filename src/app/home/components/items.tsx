@@ -56,7 +56,7 @@ export default function Items () {
 
                 <div className="p-4 md:p-6 bg-gradient-to-br from-gray-50 to-slate-100 md:rounded-b-xl">
 
-                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-4 md:gap-6">
+                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-3 gap-4 md:gap-6">
                         {
                             displayList && displayList.length > 0
                             ? displayList.map((item) => <Cards item={item} key={item.id}/>)

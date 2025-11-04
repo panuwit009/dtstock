@@ -37,10 +37,27 @@ export default function Home () {
                     className={`flex-1 p-4 ml-3 ${sidebarOpen && "md:ml-64"}`}
                 >
                     <div
-                        className="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700
-                        h-full overflow-y-auto overflow-x-hidden">
-                        <Scanbarcode setOpenCamera={setOpenCamera} />
-                        <Items />
+                        className="grid grid-rows-20 gap-y-6 p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700
+                        h-full">
+
+                            <header className="row-span-3">
+                                <span className="font-bold text-3xl">Dashboard</span>
+                            </header>
+
+                            {/* <hr className="flex self-center"/> */}
+
+                            <div className="row-span-17 flex flex-row gap-15">
+
+                                <div className="h-full flex-70 overflow-y-auto">
+                                     <Items />
+                                </div>
+
+                                <div className="flex-30 overflow-y-auto">
+                                    <Scanbarcode setOpenCamera={setOpenCamera} />
+                                </div>
+
+                            </div>
+             
                     </div>
                 </main>
             </div>
