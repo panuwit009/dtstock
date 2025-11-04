@@ -31,12 +31,14 @@ export default function Home () {
         );
     } else {   
         return (
-            <div className="w-screen h-screen overflow-x-hidden">
+            <div className="flex w-dvw h-dvh">
                 <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
                 <main 
-                    className={`p-4 ml-3 ${sidebarOpen && "md:ml-64"}`}
+                    className={`flex-1 p-4 ml-3 ${sidebarOpen && "md:ml-64"}`}
                 >
-                    <div className="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700">
+                    <div
+                        className="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700
+                        h-full overflow-y-auto overflow-x-hidden">
                         <Scanbarcode setOpenCamera={setOpenCamera} />
                         <Items />
                     </div>
