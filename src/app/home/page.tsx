@@ -22,22 +22,24 @@ export default function Home () {
 
     if (openCamera) {
         return (
-            <CameraUi
-            setOpenCamera={setOpenCamera}
-            cameraResult={cameraResult}
-            setCameraResult={setCameraResult}/>
+            <main>     
+                <CameraUi
+                setOpenCamera={setOpenCamera}
+                cameraResult={cameraResult}
+                setCameraResult={setCameraResult}/>
+            </main>
         );
     } else {   
         return (
-            <>
-            <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen}/>
-            <div className={`p-4 ${sidebarOpen ? "ml-64" : "ml-3"}`}>
-                <div className="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700">
-                    <Scanbarcode setOpenCamera={setOpenCamera} />
-                    <Items />
-                </div>
+            <div className="w-screen h-screen overflow-x-hidden">
+                <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
+                <main className={`p-4 ${sidebarOpen ? "ml-64" : "ml-3"}`}>
+                    <div className="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700">
+                        <Scanbarcode setOpenCamera={setOpenCamera} />
+                        <Items />
+                    </div>
+                </main>
             </div>
-            </>
         );
     }
 }

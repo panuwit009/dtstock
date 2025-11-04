@@ -1,4 +1,8 @@
-import { Circle } from "@/components";
+import { useRouter } from "next/navigation";
+import { Circle, logoutSuccess } from "@/components";
+import "./sidebar.css";
+import { useShow } from "@/utils";
+
 
 // const iconClass2 = "shrink-0 w-5 h-5 text-blue-500 transition duration-75 dark:text-blue-400 group-hover:text-blue-900 dark:group-hover:text-white";
 const circleClass = "shrink-0 w-4 h-4 text-transparent group-hover:text-blue-500";
@@ -8,6 +12,12 @@ export default function Sidebar (
     { sidebarOpen, setSidebarOpen }:
     { sidebarOpen: boolean; setSidebarOpen: React.Dispatch<React.SetStateAction<boolean>>; }
 ) {
+    const { setShow } = useShow();
+    const router = useRouter();
+    function logout (): void {
+        setShow(logoutSuccess);
+        router.push('/');
+    }
     return (
         <>       
             {/* <button
@@ -26,7 +36,7 @@ export default function Sidebar (
                     transition-transform ${sidebarOpen ? "translate-x-0" : "-translate-x-[95%]"}`}
             >
                 <div className="flex flex-col h-full bg-blue-100 dark:bg-blue-800">
-                    <div className="flex-1 px-3 py-4 overflow-y-auto">
+                    <div className="flex-1 px-3 py-4 scroll-area">
                         <ul className="space-y-2 font-medium">
                             <SidebarList>
                                 <Circle className={circleClass} />
@@ -67,9 +77,14 @@ export default function Sidebar (
                         </ul>
                     </div>
 
-                    <div className="p-6 border-t border-blue-300 dark:border-blue-700 text-center text-sm text-gray-700 dark:text-gray-300">
-                        Footer (test)
-                    </div>
+                    <footer
+                        className="p-6 border-t border-blue-300 dark:border-blue-700
+                        text-center text-sm text-gray-700 dark:text-gray-300 
+                        cursor-pointer"
+                        onClick={logout}
+                    >
+                        ออกจากระบบ
+                    </footer>
                     
                     <button
                         onClick={() => setSidebarOpen(!sidebarOpen)}
@@ -82,7 +97,7 @@ export default function Sidebar (
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"
                             viewBox="0 0 24 24"
-                            strokeWidth={2}
+                            strokeWidth={4}
                             stroke="currentColor"
                             className="w-6 h-6"
                         >

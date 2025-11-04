@@ -1,7 +1,6 @@
 "use client";
 import { useState } from "react";
-import { useRouter } from "next/navigation";
-import { LoadingAnimation, logoutSuccess } from "@/components";
+import { LoadingAnimation } from "@/components";
 import { useShow } from "@/utils"
 import FormInsertItem from "././forminsertitem";
 
@@ -12,11 +11,6 @@ export default function Scanbarcode (
     const [error, setError] = useState<string | null>(null);
 
     const { setShow } = useShow();
-    const router = useRouter();
-    function logout (): void {
-        setShow(logoutSuccess);
-        router.push('/');
-    }
 
     return (
     <>
