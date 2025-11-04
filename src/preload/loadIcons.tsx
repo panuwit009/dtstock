@@ -10,5 +10,5 @@ import { config } from "@fortawesome/fontawesome-svg-core";
 config.autoAddCss = false;
 
 export async function loadIcons() {
-    library.add(faUser, faKey, faEye, faEyeSlash);
+  library.add(faUser, faKey, faEye, faEyeSlash);
 }
