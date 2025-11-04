@@ -122,7 +122,7 @@ function HeaderSubtitle ({children}: {children: React.ReactNode}) {
 
 function Body ({children}: {children: React.ReactNode}) {
     return (
-        <div className="bg-sky-200/30 md:rounded-3xl shadow-xl border border-gray-100 max-w-lg mx-auto">
+        <div className="md:rounded-3xl max-w-lg mx-auto">
             {children}
         </div>
     )

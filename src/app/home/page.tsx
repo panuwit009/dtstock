@@ -40,8 +40,29 @@ export default function Home () {
                         className="grid grid-rows-20 gap-y-6 p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700
                         h-full">
 
-                            <header className="row-span-3">
-                                <span className="font-bold text-3xl">Dashboard</span>
+                            <header className="row-span-3 p-4 border-b-2 border-b-[#538AAD]">
+                                <div className="grid grid-cols-2">
+
+                                    <div className="bg-purple-400">
+                                        <span className="font-bold text-3xl">Dashboard</span>
+                                        <div className="text-lg text-gray-700 font-thin">การจัดการสินค้าอย่างมืออาชีพ</div>
+                                    </div>
+
+                                    <div className="grid grid-cols-3">
+                                        <div className="bg-green-400">
+                                          1
+                                        </div>
+
+                                        <div className="bg-blue-400">
+                                            2
+                                        </div>
+
+                                        <div className="bg-red-400">
+                                           3
+                                        </div>
+                                    </div>
+                                </div>
+
                             </header>
 
                             {/* <hr className="flex self-center"/> */}
@@ -52,7 +73,7 @@ export default function Home () {
                                      <Items />
                                 </div>
 
-                                <div className="flex-30 overflow-y-auto">
+                                <div className="bg-sky-200/40 flex-30 overflow-y-auto rounded-2xl">
                                     <Scanbarcode setOpenCamera={setOpenCamera} />
                                 </div>
 
