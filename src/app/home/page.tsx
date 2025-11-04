@@ -33,7 +33,9 @@ export default function Home () {
         return (
             <div className="w-screen h-screen overflow-x-hidden">
                 <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
-                <main className={`p-4 ${sidebarOpen ? "ml-64" : "ml-3"}`}>
+                <main 
+                    className={`p-4 ml-3 ${sidebarOpen && "md:ml-64"}`}
+                >
                     <div className="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700">
                         <Scanbarcode setOpenCamera={setOpenCamera} />
                         <Items />

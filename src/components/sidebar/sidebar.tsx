@@ -33,7 +33,7 @@ export default function Sidebar (
             </button> */}
 
             <aside id="default-sidebar"
-                className={`fixed top-0 left-0 z-9 w-64 h-screen
+                className={`fixed top-0 left-0 z-9 w-64 h-dvh
                     transition-transform ${sidebarOpen ? "translate-x-0" : "-translate-x-[95%]"}`}
             >
                 <div className="flex flex-col h-full bg-blue-100 dark:bg-blue-800">
