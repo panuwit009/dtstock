@@ -1,17 +1,21 @@
 "use client";
+import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Circle, logoutSuccess } from "@/components";
 import "./sidebar.css";
 import { useShow } from "@/utils";
 
 // const iconClass2 = "shrink-0 w-5 h-5 text-blue-500 transition duration-75 dark:text-blue-400 group-hover:text-blue-900 dark:group-hover:text-white";
-const circleClass = "shrink-0 w-4 h-4 text-transparent group-hover:text-blue-500";
+const circleClass = "shrink-0 w-4 h-4 text-transparent";
+const circleActive = "shrink-0 w-4 h-4 text-blue-500";
 const sidebarListClass = "flex items-center p-2 text-black rounded-lg dark:text-white hover:bg-white dark:hover:bg-blue-700 group";
+const sidebarListActive = "flex items-center p-2 text-black rounded-lg dark:text-white bg-white dark:bg-blue-700 group";
 
 export default function Sidebar (
-    { sidebarOpen, setSidebarOpen }:
-    { sidebarOpen: boolean; setSidebarOpen: React.Dispatch<React.SetStateAction<boolean>>; }
+    { sidebarOpen, setSidebarOpen, Page }:
+    { sidebarOpen: boolean; setSidebarOpen: React.Dispatch<React.SetStateAction<boolean>>; Page: string; }
 ) {
+    const [currentPage, setCurrentPage] = useState<string | null>(Page);
     const { setShow } = useShow();
     const router = useRouter();
     function logout (): void {
@@ -29,19 +33,32 @@ export default function Sidebar (
                 </header>
                 <nav className="flex-1 px-3 py-4 scroll-area bg-green-100">
                     <ul className="space-y-2 font-medium">
-                        <SidebarList>
-                            <Circle className={circleClass} />
-                            <span className="ms-3">Dashboard</span>
+                        <SidebarList className={currentPage === "Home" ? sidebarListActive : sidebarListClass } 
+                            onClick={()=> setCurrentPage("Home")}
+                        >
+                            <Circle className={currentPage === "Home" ? circleActive : circleClass} />
+                            <span className="ms-3">Home</span>
                         </SidebarList>
 
-                        <SidebarList>
-                            <Circle className={circleClass} />
+                        <SidebarList className={currentPage === "Dashboard" ? sidebarListActive : sidebarListClass } 
+                            onClick={()=> setCurrentPage("Dashboard")}
+                        >
+                            <Circle className={currentPage === "Dashboard" ? circleActive : circleClass} />
+                            <span className="flex-1 ms-3 whitespace-nowrap">Dashboard</span>
+                        </SidebarList>
+
+                        <SidebarList className={currentPage === "หน้าอะไรสักอย่าง" ? sidebarListActive : sidebarListClass } 
+                            onClick={()=> setCurrentPage("หน้าอะไรสักอย่าง")}
+                        >
+                            <Circle className={currentPage === "หน้าอะไรสักอย่าง" ? circleActive : circleClass} />
                             <span className="flex-1 ms-3 whitespace-nowrap">หน้าอะไรสักอย่าง</span>
                         </SidebarList>
 
-                        <SidebarList>
-                            <Circle className={circleClass} />
-                            <span className="flex-1 ms-3 whitespace-nowrap">หน้าอะไรสักอย่าง</span>
+                        <SidebarList className={currentPage === "หน้าอะไรสักอย่าง2" ? sidebarListActive : sidebarListClass } 
+                            onClick={()=> setCurrentPage("หน้าอะไรสักอย่าง2")}
+                        >
+                            <Circle className={currentPage === "หน้าอะไรสักอย่าง2" ? circleActive : circleClass} />
+                            <span className="flex-1 ms-3 whitespace-nowrap">หน้าอะไรสักอย่าง2</span>
                         </SidebarList>
                     </ul>
                 </nav>
@@ -82,10 +99,10 @@ export default function Sidebar (
     );
 }
 
-function SidebarList ( { children }: { children: React.ReactNode;}) {
+function SidebarList ( { children, className, onClick }: { children: React.ReactNode; className?: string; onClick: () => void;}) {
     return (
-        <li> 
-            <a href="#" className={sidebarListClass}>
+        <li onClick={onClick}> 
+            <a href="#" className={className}>
                 { children }
             </a>
         </li>

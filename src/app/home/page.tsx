@@ -32,7 +32,7 @@ export default function Home () {
     } else {   
         return (
             <div className="flex w-dvw h-dvh">
-                <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
+                <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} Page="Home"/>
                 <main 
                     className={`flex-1 p-4 ml-3 ${sidebarOpen && "md:ml-64"}`}
                 >
