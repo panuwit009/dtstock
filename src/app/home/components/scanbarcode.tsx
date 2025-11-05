@@ -76,14 +76,14 @@ export default function Scanbarcode (
             
             <div className="mt-6 flex flex-row justify-end items-center gap-2">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="26" height="26">
-                    <circle cx="12" cy="12" r="11" fill="none" stroke="#16a34a" stroke-width="1"/>
+                    <circle cx="12" cy="12" r="11" fill="none" stroke="#16a34a" strokeWidth="1"/>
                     
                     <path d="M7 12.5 L10.5 16 L17 9" 
                             fill="none" 
                             stroke="#16a34a" 
-                            stroke-width="2.5" 
-                            stroke-linecap="round" 
-                            stroke-linejoin="round"/>
+                            strokeWidth="2.5" 
+                            strokeLinecap="round" 
+                            strokeLinejoin="round"/>
                     </svg>
                 <div className="text-[#16a34a]">ระบบพร้อมใช้งาน</div>
             </div>
