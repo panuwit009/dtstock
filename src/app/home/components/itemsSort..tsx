@@ -13,19 +13,20 @@ export default function ItemsSort (
     }
     return (
         <>
-            เรียงลำดับจากจำนวน:
+        <div className="flex gap-2">
+            <div>เรียงลำดับจากจำนวน :</div>
+                <button
+                    className={`cursor-pointer ${sort === "desc" ? 'text-gray-900 underline font-semibold' : null}`}
+                    onClick={()=> toggleSort("desc")}>
+                        มาก
+                </button>
 
-            <button
-            className={`p-2 cursor-pointer ${sort === "desc" ? 'underline' : null}`}
-            onClick={()=> toggleSort("desc")}>
-                มาก
-            </button>
-
-            <button
-            className={`p-2 cursor-pointer ${sort === "asc" ? 'underline' : null}`}
-            onClick={()=> toggleSort("asc")}>
-                น้อย
-            </button>
+                <button
+                    className={`cursor-pointer ${sort === "asc" ? 'text-gray-900 underline font-semibold' : null}`}
+                    onClick={()=> toggleSort("asc")}>
+                        น้อย
+                </button>
+        </div>
         </>
     );
 }
