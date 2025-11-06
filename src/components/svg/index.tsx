@@ -1,4 +1,4 @@
-export const qrCode = <svg viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg"
+export const qrCode = ( <svg viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg"
 className="w-10 h-10">
     <rect fill="none" height="256" width="256"/><rect fill="none" height="64" rx="8" stroke="#000"
     strokeLinecap="round" strokeLinejoin="round" strokeWidth="16" width="64" x="48" y="48"/>
@@ -11,14 +11,14 @@ className="w-10 h-10">
     stroke="#000" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16" x1="176" x2="208"
     y1="160" y2="160"/><line fill="none" stroke="#000" strokeLinecap="round" strokeLinejoin="round"
     strokeWidth="16" x1="208" x2="208" y1="192" y2="208"/>
-</svg>;
+</svg> );
 
-export const leftArrow = <svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"
+export const leftArrow = ( <svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"
 className="w-8 h-8 fill-[#73ACF6]">
     <path d="M257.5 445.1l-22.2 22.2c-9.4 9.4-24.6 9.4-33.9 0L7 273c-9.4-9.4-9.4-24.6 0-33.9L201.4
     44.7c9.4-9.4 24.6-9.4 33.9 0l22.2 22.2c9.5 9.5 9.3 25-.4 34.3L136.6 216H424c13.3 0 24 10.7
     24 24v32c0 13.3-10.7 24-24 24H136.6l120.5 114.8c9.8 9.3 10 24.8.4 34.3z"/>
-</svg>;
+</svg> );
 
 export const Dashboard = ( { className }: { className?: string;}) => { 
     return (
@@ -91,3 +91,10 @@ export const Circle = ( { className }: { className?: string;}) => {
     </svg>
     );
 };
+
+export const logoutIcon = (
+<svg fill="none" height="24" viewBox="0 0 24 24" width="24"xmlns="http://www.w3.org/2000/svg">
+    <path d="M17 16L21 12M21 12L17 8M21 12L7 12M13 16V17C13 18.6569 11.6569 20 10 20H6C4.34315
+    20 3 18.6569 3 17V7C3 5.34315 4.34315 4 6 4H10C11.6569 4 13 5.34315 13 7V8"
+    stroke="#374151" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"/>
+</svg> );

@@ -2,16 +2,17 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import { Circle, logoutSuccess } from "@/components";
+import { Circle, logoutSuccess, logoutIcon } from "@/components";
 import "./sidebar.css";
 import { useShow } from "@/utils";
 import dtstockIcon from "./dtstockIcon.png";
+import popSiam from "../../../public/img/logo.jpg"
 
 // const iconClass2 = "shrink-0 w-5 h-5 text-blue-500 transition duration-75 dark:text-blue-400 group-hover:text-blue-900 dark:group-hover:text-white";
 const circleClass = "shrink-0 w-4 h-4 text-transparent";
 const circleActive = "shrink-0 w-4 h-4 text-blue-500";
-const sidebarListClass = "flex items-center p-2 text-black rounded-lg dark:text-black hover:bg-white dark:hover:bg-blue-700 group";
-const sidebarListActive = "flex items-center p-2 text-black rounded-lg dark:text-white bg-white dark:bg-blue-700 group";
+const sidebarListClass = "flex items-center p-2 text-black rounded-lg dark:text-black hover:bg-white dark:hover:bg-blue-700 group hover:shadow-[inset_0_2px_6px_rgba(0,0,0,0.3)]";
+const sidebarListActive = "shadow-[inset_0_2px_6px_rgba(0,0,0,0.3)] flex items-center p-2 text-black rounded-lg dark:text-white bg-white dark:bg-blue-700 group";
 
 export default function Sidebar (
     { sidebarOpen, setSidebarOpen, Page }:
@@ -30,8 +31,8 @@ export default function Sidebar (
                 transition-transform ${sidebarOpen ? "translate-x-0" : "-translate-x-[95%]"}`}
         >
             <div className="flex flex-col h-full bg-blue-100 dark:bg-blue-800">
-                <header className="flex shrink-0 justify-center items-start">
-                    <div className="w-64 flex flex-row justify-center mt-6">
+                <header className="flex flex-col shrink-0 justify-center items-start">
+                    <div className="w-full flex flex-row justify-center mt-6">
                         <div className="relative w-14 h-14 rounded-full overflow-hidden">
                             <Image
                                 src={dtstockIcon}
@@ -42,6 +43,19 @@ export default function Sidebar (
                         </div>
                         <p className="ml-4 self-center text-blue-600 font-semibold text-lg">DT|</p>
                         <span className="self-center text-gray-800 text-lg font-medium tracking-wide">STOCK</span>
+                    </div>
+
+                    <div className="w-full flex flex-col items-center mt-4">
+                        <div className="relative w-18 h-18 rounded-full overflow-hidden p-4 bg-white">
+                            <Image
+                                src={popSiam}
+                                alt="profile picture"
+                                fill
+                                className="object-cover scale-90 rounded-full"
+                            />
+                        </div>
+                        <h1 className="font-bold mt-2">ป็อป สยาม</h1>
+                        <h1 className="mt-2 mb-4">หนุ่มหล่อที่สุดของไทย</h1>
                     </div>
                     
                 </header>
@@ -80,10 +94,18 @@ export default function Sidebar (
                 <footer
                     className="p-4
                     text-center text-sm text-gray-700 dark:text-gray-300 
-                    cursor-pointer"
+                    cursor-pointer flex flex-row items-center justify-center gap-2
+                    hover:text-blue-600 hover:-translate-y-0.5 transition-all duration-200 
+                    group"
                     onClick={logout}
                 >
-                    ออกจากระบบ
+                    <div
+                        className="w-10 h-10 bg-gray-100 flex items-center justify-center rounded-full
+                        group-hover:bg-red-300 transition-colors duration-200"
+                    >
+                        {logoutIcon}
+                    </div>   
+                    <span>ออกจากระบบ</span>
                 </footer>
                 <button
                     onClick={() => setSidebarOpen(!sidebarOpen)}
