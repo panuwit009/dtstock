@@ -24,6 +24,7 @@ export default function TestResponsive () {
             <br />
             <p>ตำแหน่งเมาส์</p>
             <p>X: {position.x} | Y: {position.y}</p>
+            <a href="/" className="mt-5 text-blue-500 underline cursor-pointer">กลับหน้าหลัก</a>
             <p className="absolute left-100 top-5 cursor-pointer"
                 onMouseEnter={() => setShow(<Tooltip message="ทดสอบ"/>)}
                 onMouseLeave={() => setShow(null)}

@@ -17,7 +17,7 @@ export function Form ({ setIslogin }: { setIslogin: React.Dispatch<React.SetStat
     }
     
     return (
-        <form className="mt-6 space-y-4" onSubmit={submitForm}>
+        <form className="mt-4 xl:mt-6 space-y-2 xl:space-y-4" onSubmit={submitForm}>
             <div className="transition duration-300 focus-within:scale-105">
                 <label className="font-medium text-gray-700">Email</label>
                 <div className="relative">
@@ -46,12 +46,13 @@ export function Form ({ setIslogin }: { setIslogin: React.Dispatch<React.SetStat
                 </div>
             </div>
 
-            <div className="mt-6 space-y-4">
+            <div className="mt-4 xl:mt-6 space-y-3 2xl:space-y-4">
                 <button 
                     type="submit"
-                    className={`flex justify-center items-center h-12 text-lg font-semibold
-                        w-full text-white p-2 rounded-lg shadow-lg 
-                        transform transition active:scale-95
+                    className={`flex justify-center items-center w-full h-10 xl:h-12
+                        text-lg font-semibold
+                        text-white rounded-lg shadow-lg 
+                        transform transition hover:scale-105 active:scale-95
                         ${isLoading
                             ? 'bg-sky-600 cursor-not-allowed'
                             : 'bg-sky-400 cursor-pointer'
@@ -63,8 +64,8 @@ export function Form ({ setIslogin }: { setIslogin: React.Dispatch<React.SetStat
                     }
                 </button>
                 <button 
-                    className="text-lg font-semibold w-full bg-yellow-500 text-white
-                    p-2 rounded-lg shadow-lg hover:bg-yellow-600 
+                    className="text-lg font-semibold w-full h-10 xl:h-12 bg-yellow-500 text-white
+                    rounded-lg shadow-lg hover:bg-yellow-600 
                     transform transition active:scale-95
                     hover:scale-105 hover:cursor-pointer"
                 >
