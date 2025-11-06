@@ -1,9 +1,11 @@
 "use client";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 import { Circle, logoutSuccess } from "@/components";
 import "./sidebar.css";
 import { useShow } from "@/utils";
+import dtstockIcon from "./dtstockIcon.png";
 
 // const iconClass2 = "shrink-0 w-5 h-5 text-blue-500 transition duration-75 dark:text-blue-400 group-hover:text-blue-900 dark:group-hover:text-white";
 const circleClass = "shrink-0 w-4 h-4 text-transparent";
@@ -27,11 +29,23 @@ export default function Sidebar (
             className={`fixed top-0 left-0 z-9 w-64 h-dvh
                 transition-transform ${sidebarOpen ? "translate-x-0" : "-translate-x-[95%]"}`}
         >
-            <div className="flex flex-col h-full bg-yellow-100 dark:bg-yellow-800">
-                <header className="flex shrink-0 bg-red-100 justify-center items-center h-40">
-                    Sidebar Header
+            <div className="flex flex-col h-full bg-blue-100 dark:bg-blue-800">
+                <header className="flex shrink-0 justify-center items-start">
+                    <div className="w-64 flex flex-row justify-center mt-6">
+                        <div className="relative w-14 h-14 rounded-full overflow-hidden">
+                            <Image
+                                src={dtstockIcon}
+                                alt="logo"
+                                fill
+                                className="object-cover"
+                            />
+                        </div>
+                        <p className="ml-4 self-center text-blue-600 font-semibold text-lg">DT|</p>
+                        <span className="self-center text-gray-800 text-lg font-medium tracking-wide">STOCK</span>
+                    </div>
+                    
                 </header>
-                <nav className="flex-1 px-3 py-4 scroll-area bg-green-100">
+                <nav className="flex-1 px-3 py-4 scroll-area">
                     <ul className="space-y-2 font-medium">
                         <SidebarList className={currentPage === "Home" ? sidebarListActive : sidebarListClass } 
                             onClick={()=> setCurrentPage("Home")}
@@ -62,8 +76,9 @@ export default function Sidebar (
                         </SidebarList>
                     </ul>
                 </nav>
+                <hr className="text-blue-300 w-56 border-1 self-center" />
                 <footer
-                    className="p-4 border-t border-blue-300 dark:border-blue-700
+                    className="p-4
                     text-center text-sm text-gray-700 dark:text-gray-300 
                     cursor-pointer"
                     onClick={logout}
