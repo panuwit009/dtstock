@@ -1,4 +1,5 @@
 "use client";
+import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 import { Tooltip } from "@/components";
 import { useCheckScreen, useShow } from "@/utils";
@@ -7,6 +8,7 @@ export default function TestResponsive () {
     const { current } = useCheckScreen();
     const [position, setPosition] = useState({ x: 0, y: 0 });
     const { setShow } = useShow();
+    const router = useRouter();
 
     useEffect(() => {
         const handleMouseMove = (e: MouseEvent) => {
@@ -24,6 +26,7 @@ export default function TestResponsive () {
             <br />
             <p>ตำแหน่งเมาส์</p>
             <p>X: {position.x} | Y: {position.y}</p>
+            <a onClick={()=>router.push("/")} className="mt-5 text-blue-500 underline cursor-pointer">กลับหน้าหลัก</a>
             <p className="absolute left-100 top-5 cursor-pointer"
                 onMouseEnter={() => setShow(<Tooltip message="ทดสอบ"/>)}
                 onMouseLeave={() => setShow(null)}
