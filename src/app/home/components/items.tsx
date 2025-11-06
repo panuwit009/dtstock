@@ -38,7 +38,7 @@ export default function Items () {
         <div className="bg-gray-100 px-8 py-6 rounded-2xl">
             {/* Container รอง */}
             <div className="w-[100%]">
-                <div className="flex justify-between items-start p-2">
+                <header className="flex justify-between items-start p-2">
                     <div className="flex flex-col space-y-2">
                         {/* <svg className="w-10 h-10 md:w-12 md:h-12 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-label="product-checklist">
                             <rect x="4" y="6" width="16" height="14" rx="2" strokeWidth="2" />
@@ -71,13 +71,13 @@ export default function Items () {
                         </div>                        
                         <ItemsSort sort={sort} setSort={setSort}/>
                     </div>
-                </div>
+                </header>
 
 
 
                 <div className="md:rounded-b-xl">
 
-                    <div className="p-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-3 gap-4 md:gap-10">
+                    <div className="p-4 grid grid-cols-2 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-3 gap-4 md:gap-10">
                         {
                             displayList && displayList.length > 0
                             ? displayList.map((item) => <Cards item={item} key={item.id}/>)
