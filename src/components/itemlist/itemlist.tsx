@@ -1,10 +1,10 @@
 "use client";
 import { useState, useMemo } from "react";
-import Cards from "./cards";
-import ItemsSort from "./itemsSort.";
+import { Card } from "@/components";
+import ItemSort from "./components/itemsort";
 import { mockupdata } from "@/utils";
 
-export default function Items () {
+export default function ItemList () {
     const [itemList, setItemList] = useState(mockupdata);
     const [sort, setSort] = useState<"asc" | "desc" | null>(null);
     const [searchValue, setSearchValue] = useState<string | null>(null);
@@ -69,7 +69,7 @@ export default function Items () {
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 1010.5 3a7.5 7.5 0 006.15 13.65z" />
                             </svg>
                         </div>                        
-                        <ItemsSort sort={sort} setSort={setSort}/>
+                        <ItemSort sort={sort} setSort={setSort}/>
                     </div>
                 </header>
 
@@ -80,7 +80,7 @@ export default function Items () {
                     <div className="p-4 grid grid-cols-2 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-3 gap-4 md:gap-10">
                         {
                             displayList && displayList.length > 0
-                            ? displayList.map((item) => <Cards item={item} key={item.id}/>)
+                            ? displayList.map((item) => <Card item={item} key={item.id}/>)
                             : <NotFoundDisplayList searchValue={searchValue}/>
                         }
                     </div>

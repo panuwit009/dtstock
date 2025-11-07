@@ -3,10 +3,10 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { Circle, logoutSuccess, logoutIcon } from "@/components";
-import "./sidebar.css";
 import { useShow } from "@/utils";
 import dtstockIcon from "./dtstockIcon.png";
-import popSiam from "../../../public/img/logo.jpg"
+import popSiam from "../../../public/img/logo.jpg";
+import "./sidebar.css";
 
 // const iconClass2 = "shrink-0 w-5 h-5 text-blue-500 transition duration-75 dark:text-blue-400 group-hover:text-blue-900 dark:group-hover:text-white";
 const circleClass = "shrink-0 w-4 h-4 text-transparent";

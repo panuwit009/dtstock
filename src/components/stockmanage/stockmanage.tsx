@@ -1,10 +1,9 @@
 "use client";
 import { useState } from "react";
-import { LoadingAnimation } from "@/components";
+import { LoadingAnimation, FormInsertItem } from "@/components";
 import { useShow } from "@/utils"
-import FormInsertItem from "././forminsertitem";
 
-export default function Scanbarcode (
+export default function StockManage (
     { setOpenCamera }:
     { setOpenCamera: React.Dispatch<React.SetStateAction<boolean>>; }
 ) {
@@ -53,7 +52,7 @@ export default function Scanbarcode (
                     
                     <div className="absolute bottom-0 left-0 w-full p-4">
                         <div className="flex items-center justify-between mt-auto">
-                            <div className="bg-sky-200 p-4 rounded-2xl shadow-lg hover:scale-110 transition-transform cursor-pointer">
+                            <div className="bg-sky-200 p-4 rounded-2xl shadow-lg hover:scale-110 transition-transform cursor-pointer" onClick={()=> setShow(<FormInsertItem />)}>
                                 <svg className="w-7 h-7 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 20h9M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z"/>
                                 </svg>

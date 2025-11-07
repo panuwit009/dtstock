@@ -1,13 +1,13 @@
-import { cardsSwitchPercentColor } from "./cardsSwitchPercentColor";
+import { switchcolorbypercent } from "./function/switchcolorbypercent";
 import { useShow } from "@/utils";
 import type { Item } from "@/utils";
 import { Modal } from "@/components";
 
-export default function Cards ({item}: {item: Item}) {
+export default function Card ({item}: {item: Item}) {
 const max: number = 100;
 const amountPercent: number = (item.amount * 100) / max;
 
-const color = cardsSwitchPercentColor(amountPercent);
+const color = switchcolorbypercent(amountPercent);
 const { setShow } = useShow();
     
 function Click () {

@@ -1,8 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { useMediaQuery } from "react-responsive";
-import { Scanbarcode, Items, CameraUi } from "./components";
-import { Sidebar } from "@/components";
+import { Sidebar, StockManage, BarcodeScanner, ItemList } from "@/components";
 import type { CameraResult } from "@/type";
 
 export default function Home () {
@@ -23,7 +22,7 @@ export default function Home () {
     if (openCamera) {
         return (
             <main>     
-                <CameraUi
+                <BarcodeScanner
                 setOpenCamera={setOpenCamera}
                 cameraResult={cameraResult}
                 setCameraResult={setCameraResult}/>
@@ -111,11 +110,11 @@ export default function Home () {
                             <div className="row-span-17 flex flex-row gap-10">
 
                                 <div className="h-full flex-70 overflow-hidden hover:overflow-y-auto [scrollbar-gutter:stable]">
-                                     <Items />
+                                     <ItemList />
                                 </div>
 
                                 <div className="bg-sky-200/40 flex-30 overflow-y-auto rounded-2xl">
-                                    <Scanbarcode setOpenCamera={setOpenCamera} />
+                                    <StockManage setOpenCamera={setOpenCamera} />
                                 </div>
 
                             </div>

@@ -1,4 +1,4 @@
-export const cardsSwitchPercentColor = (amountPercent: number) => {
+export const switchcolorbypercent = (amountPercent: number) => {
     switch (true) {
         case amountPercent <= 25 :
             return "border-red-600";

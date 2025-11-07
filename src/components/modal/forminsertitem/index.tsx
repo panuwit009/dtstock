@@ -1,5 +1,5 @@
-import Header from "./forminsertitem/Header";
-import Body from "./forminsertitem/Body";
+import Header from "./components/Header";
+import Body from "./components/Body";
 import { useShow } from "@/utils";
 
 export default function FormInsertItem () {
