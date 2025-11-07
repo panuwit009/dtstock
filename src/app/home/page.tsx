@@ -1,6 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
-import { useMediaQuery } from "react-responsive";
+import { useState } from "react";
 import { Sidebar, StockManage, BarcodeScanner, ItemList } from "@/components";
 import type { CameraResult } from "@/type";
 
@@ -8,16 +7,6 @@ export default function Home () {
     const [openCamera, setOpenCamera] = useState<boolean>(false);
     const [cameraResult, setCameraResult] = useState<CameraResult>([]);
     const [sidebarOpen, setSidebarOpen] = useState<boolean>(true);
-    // const isMobile = useMediaQuery({ query: "(max-width: 640px)" });
-    const isTablet = useMediaQuery({ query: '(max-width: 1024px)' });
-
-    useEffect(() => {
-        if (isTablet) {
-            setSidebarOpen(false);
-        } else {
-            setSidebarOpen(true);
-        }
-    }, [isTablet]);
 
     if (openCamera) {
         return (
@@ -31,7 +20,7 @@ export default function Home () {
     } else {   
         return (
             <div className="flex w-dvw h-dvh">
-                <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} Page="Home"/>
+                <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
                 <main 
                     className={`flex-1 p-4 ml-3 ${sidebarOpen && "md:ml-64"}`}
                 >

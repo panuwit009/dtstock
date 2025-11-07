@@ -1,7 +1,10 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import { useMediaQuery } from "react-responsive";
 import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Circle, logoutSuccess, logoutIcon } from "@/components";
 import { useShow } from "@/utils";
 import dtstockIcon from "./dtstockIcon.png";
@@ -12,15 +15,30 @@ import "./sidebar.css";
 const circleClass = "shrink-0 w-4 h-4 text-transparent";
 const circleActive = "shrink-0 w-4 h-4 text-blue-500";
 const sidebarListClass = "flex items-center p-2 text-black rounded-lg dark:text-black hover:bg-white dark:hover:bg-blue-700 group hover:shadow-[inset_0_2px_6px_rgba(0,0,0,0.3)]";
-const sidebarListActive = "shadow-[inset_0_2px_6px_rgba(0,0,0,0.3)] flex items-center p-2 text-black rounded-lg dark:text-white bg-white dark:bg-blue-700 group";
+const sidebarListActive = "cursor-default shadow-[inset_0_2px_6px_rgba(0,0,0,0.3)] flex items-center p-2 text-black rounded-lg dark:text-white bg-white dark:bg-blue-700 group";
 
-export default function Sidebar (
-    { sidebarOpen, setSidebarOpen, Page }:
-    { sidebarOpen: boolean; setSidebarOpen: React.Dispatch<React.SetStateAction<boolean>>; Page: string; }
-) {
-    const [currentPage, setCurrentPage] = useState<string | null>(Page);
+const menu = [
+    { name: "หน้าแรก", path: "/home" },
+    { name: "ทดสอบ Alert", path: "/test/alert" },
+    { name: "ทดสอบ Fullscreen Loading", path: "/test/loading" },
+    { name: "ทดสอบหน้าจอ", path: "/test/responsive" },
+];
+
+export default function Sidebar ({ sidebarOpen, setSidebarOpen}: { sidebarOpen: boolean; setSidebarOpen: React.Dispatch<React.SetStateAction<boolean>>;}) {
+    // const [sidebarOpen, setSidebarOpen] = useState<boolean>(true);
     const { setShow } = useShow();
     const router = useRouter();
+    const pathname = usePathname();
+
+    const isTablet = useMediaQuery({ query: '(max-width: 1024px)' });
+    useEffect(() => {
+        if (isTablet) {
+            setSidebarOpen(false);
+        } else {
+            setSidebarOpen(true);
+        }
+    }, [isTablet]);
+
     function logout (): void {
         setShow(logoutSuccess);
         router.push('/');
@@ -61,33 +79,23 @@ export default function Sidebar (
                 </header>
                 <nav className="flex-1 px-3 py-4 scroll-area">
                     <ul className="space-y-2 font-medium">
-                        <SidebarList className={currentPage === "Home" ? sidebarListActive : sidebarListClass } 
-                            onClick={()=> setCurrentPage("Home")}
-                        >
-                            <Circle className={currentPage === "Home" ? circleActive : circleClass} />
-                            <span className="ms-3">Home</span>
-                        </SidebarList>
-
-                        <SidebarList className={currentPage === "Dashboard" ? sidebarListActive : sidebarListClass } 
-                            onClick={()=> setCurrentPage("Dashboard")}
-                        >
-                            <Circle className={currentPage === "Dashboard" ? circleActive : circleClass} />
-                            <span className="flex-1 ms-3 whitespace-nowrap">Dashboard</span>
-                        </SidebarList>
-
-                        <SidebarList className={currentPage === "หน้าอะไรสักอย่าง" ? sidebarListActive : sidebarListClass } 
-                            onClick={()=> setCurrentPage("หน้าอะไรสักอย่าง")}
-                        >
-                            <Circle className={currentPage === "หน้าอะไรสักอย่าง" ? circleActive : circleClass} />
-                            <span className="flex-1 ms-3 whitespace-nowrap">หน้าอะไรสักอย่าง</span>
-                        </SidebarList>
-
-                        <SidebarList className={currentPage === "หน้าอะไรสักอย่าง2" ? sidebarListActive : sidebarListClass } 
-                            onClick={()=> setCurrentPage("หน้าอะไรสักอย่าง2")}
-                        >
-                            <Circle className={currentPage === "หน้าอะไรสักอย่าง2" ? circleActive : circleClass} />
-                            <span className="flex-1 ms-3 whitespace-nowrap">หน้าอะไรสักอย่าง2</span>
-                        </SidebarList>
+                        {menu.map((item) => {
+                            const isActive = pathname === item.path;
+                            return (
+                            <SidebarList
+                                key={item.path}
+                                href={item.path}
+                                className={`${
+                                isActive
+                                    ? sidebarListActive
+                                    : sidebarListClass
+                                }`}
+                            >
+                                <Circle className={isActive ? circleActive : circleClass} />
+                                <span className="flex-1 ms-3 whitespace-nowrap">{item.name}</span>
+                            </SidebarList>
+                            );
+                        })}
                     </ul>
                 </nav>
                 <hr className="text-blue-300 w-56 border-1 self-center" />
@@ -112,7 +120,7 @@ export default function Sidebar (
                     className="group absolute top-1/2 right-0 -translate-y-1/2 translate-x-1/2
                     bg-white text-black rounded-full w-4 h-16 shadow-md 
                     flex items-center justify-center transition
-                    hover:bg-blue-300 hover:text-white hover:cursor-pointer"
+                    hover:bg-blue-300 hover:text-white cursor-pointer"
                 >
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -136,12 +144,19 @@ export default function Sidebar (
     );
 }
 
-function SidebarList ( { children, className, onClick }: { children: React.ReactNode; className?: string; onClick: () => void;}) {
-    return (
-        <li onClick={onClick}> 
-            <a href="#" className={className}>
-                { children }
-            </a>
-        </li>
-    );
+type SidebarListProps = {
+  href: string;
+  children: React.ReactNode;
+  className?: string;
+  onClick?: () => void;
+};
+
+function SidebarList({ href, children, className, onClick }: SidebarListProps) {
+  return (
+    <li onClick={onClick}>
+      <Link href={href} className={className}>
+        {children}
+      </Link>
+    </li>
+  );
 }
