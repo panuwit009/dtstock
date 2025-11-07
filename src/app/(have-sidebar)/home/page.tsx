@@ -25,14 +25,14 @@ export default function Home () {
                     <div
                         className="grid grid-rows-20 px-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700
                         h-full">
-                            <header className="bg-rose-400 row-span-3 px-4 flex items-center justify-between border-b border-b-gray-400">
+                            <header className="row-span-3 px-4 flex items-center justify-between border-b border-b-gray-400">
                                 
-                                    <div className="bg-blue-200">
+                                    <div className="">
                                         <span className="font-bold text-sm xl:text-2xl 2xl:text-3xl">Test</span>
                                         <div className="text-lg text-gray-700 font-thin">การจัดการสินค้าอย่างมืออาชีพ</div>
                                     </div>
 
-                                    <div className="bg-green-200">
+                                    <div className="">
                                         <div className="grid grid-cols-3 gap-6">
                                             <div className="flex items-center justify-center gap-4">
                                                 <div className="rounded-2xl shadow-[0_0_15px_rgba(0,0,0,0.2)]">
