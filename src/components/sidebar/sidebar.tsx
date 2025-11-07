@@ -14,8 +14,8 @@ import "./sidebar.css";
 // const iconClass2 = "shrink-0 w-5 h-5 text-blue-500 transition duration-75 dark:text-blue-400 group-hover:text-blue-900 dark:group-hover:text-white";
 const circleClass = "shrink-0 w-4 h-4 text-transparent";
 const circleActive = "shrink-0 w-4 h-4 text-blue-500";
-const sidebarListClass = "flex items-center p-2 text-black rounded-lg dark:text-black hover:bg-white dark:hover:bg-blue-700 group hover:shadow-[inset_0_2px_6px_rgba(0,0,0,0.3)]";
-const sidebarListActive = "cursor-default shadow-[inset_0_2px_6px_rgba(0,0,0,0.3)] flex items-center p-2 text-black rounded-lg dark:text-white bg-white dark:bg-blue-700 group";
+const sidebarListClass = "flex items-center p-2 text-black rounded-lg hover:bg-white group hover:shadow-[inset_0_2px_6px_rgba(0,0,0,0.3)]";
+const sidebarListActive = "cursor-default shadow-[inset_0_2px_6px_rgba(0,0,0,0.3)] flex items-center p-2 text-black rounded-lg bg-white group";
 
 const menu = [
     { name: "หน้าแรก", path: "/home" },
@@ -58,7 +58,7 @@ export default function Sidebar (
             className={`fixed top-0 left-0 z-9 w-64 h-dvh
                 transition-transform ${sidebarOpen ? "translate-x-0" : "-translate-x-[95%]"}`}
         >
-            <div className="flex flex-col h-full bg-blue-100 dark:bg-blue-800">
+            <div className="flex flex-col h-full bg-blue-100">
                 <header className="flex flex-col shrink-0 justify-center items-start">
                     <div className="w-full flex flex-row justify-center mt-6">
                         <div className="relative w-14 h-14 rounded-full overflow-hidden">
@@ -113,7 +113,7 @@ export default function Sidebar (
                 <hr className="text-blue-300 w-56 border-1 self-center" />
                 <footer
                     className="p-4
-                    text-center text-sm text-gray-700 dark:text-gray-300 
+                    text-center text-sm text-gray-700 
                     cursor-pointer flex flex-row items-center justify-center gap-2
                     hover:text-blue-600 hover:-translate-y-0.5 transition-all duration-200 
                     group"

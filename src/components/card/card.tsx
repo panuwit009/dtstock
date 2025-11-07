@@ -1,3 +1,4 @@
+"use client"
 import { switchcolorbypercent } from "./function/switchcolorbypercent";
 import { useShow } from "@/utils";
 import type { Item } from "@/utils";
