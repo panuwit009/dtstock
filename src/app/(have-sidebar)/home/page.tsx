@@ -1,12 +1,11 @@
 "use client";
 import { useState } from "react";
-import { Sidebar, StockManage, BarcodeScanner, ItemList } from "@/components";
+import { StockManage, BarcodeScanner, ItemList } from "@/components";
 import type { CameraResult } from "@/type";
 
 export default function Home () {
     const [openCamera, setOpenCamera] = useState<boolean>(false);
     const [cameraResult, setCameraResult] = useState<CameraResult>([]);
-    const [sidebarOpen, setSidebarOpen] = useState<boolean>(true);
 
     if (openCamera) {
         return (
@@ -20,9 +19,8 @@ export default function Home () {
     } else {   
         return (
             <div className="flex w-dvw h-dvh">
-                <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
                 <main 
-                    className={`flex-1 p-4 ml-3 ${sidebarOpen && "md:ml-64"}`}
+                    className={`flex-1 p-4 ml-3`}
                 >
                     <div
                         className="grid grid-rows-20 px-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700

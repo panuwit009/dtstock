@@ -24,11 +24,14 @@ const menu = [
     { name: "ทดสอบหน้าจอ", path: "/test/responsive" },
 ];
 
-export default function Sidebar ({ sidebarOpen, setSidebarOpen}: { sidebarOpen: boolean; setSidebarOpen: React.Dispatch<React.SetStateAction<boolean>>;}) {
+export default function Sidebar (
+    { sidebarOpen, setSidebarOpen, setLoading }: 
+    { sidebarOpen: boolean; setSidebarOpen: React.Dispatch<React.SetStateAction<boolean>>; setLoading: React.Dispatch<React.SetStateAction<boolean>>;}) {
     // const [sidebarOpen, setSidebarOpen] = useState<boolean>(true);
     const { setShow } = useShow();
     const router = useRouter();
     const pathname = usePathname();
+    const [activePath, setActiveClass] = useState(pathname);
 
     const isTablet = useMediaQuery({ query: '(max-width: 1024px)' });
     useEffect(() => {
@@ -38,6 +41,12 @@ export default function Sidebar ({ sidebarOpen, setSidebarOpen}: { sidebarOpen: 
             setSidebarOpen(true);
         }
     }, [isTablet]);
+
+    const handleClick = (path: string) => {
+        setActiveClass(path);
+        setLoading(true);
+        router.push(path);
+    };
 
     function logout (): void {
         setShow(logoutSuccess);
@@ -80,11 +89,12 @@ export default function Sidebar ({ sidebarOpen, setSidebarOpen}: { sidebarOpen: 
                 <nav className="flex-1 px-3 py-4 scroll-area">
                     <ul className="space-y-2 font-medium">
                         {menu.map((item) => {
-                            const isActive = pathname === item.path;
+                            const isActive = activePath === item.path;
                             return (
                             <SidebarList
                                 key={item.path}
                                 href={item.path}
+                                onClick={() => handleClick(item.path)}
                                 className={`${
                                 isActive
                                     ? sidebarListActive
