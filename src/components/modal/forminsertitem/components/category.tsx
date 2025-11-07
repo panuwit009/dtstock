@@ -1,3 +1,4 @@
+"use client";
 import { categorys } from "@/utils";
 import type { List } from "@/utils";
 import React, { useState } from "react"
