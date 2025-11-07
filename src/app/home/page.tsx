@@ -36,20 +36,19 @@ export default function Home () {
                     className={`flex-1 p-4 ml-3 ${sidebarOpen && "md:ml-64"}`}
                 >
                     <div
-                        className="grid grid-rows-20 gap-y-6 p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700
+                        className="grid grid-rows-20 px-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700
                         h-full">
-                            <header className="row-span-3 p-4 border-b border-b-gray-400">
+                            <header className="bg-rose-400 row-span-3 px-4 flex items-center justify-between border-b border-b-gray-400">
                                 
-                                <div className="flex items-center justify-between">
-                                    <div className="bg">
-                                        <span className="font-bold text-3xl">Dashboard</span>
+                                    <div className="bg-blue-200">
+                                        <span className="font-bold text-sm xl:text-2xl 2xl:text-3xl">Test</span>
                                         <div className="text-lg text-gray-700 font-thin">การจัดการสินค้าอย่างมืออาชีพ</div>
                                     </div>
 
-                                    <div className="">
+                                    <div className="bg-green-200">
                                         <div className="grid grid-cols-3 gap-6">
                                             <div className="flex items-center justify-center gap-4">
-                                                <div className="shadow-lg">
+                                                <div className="rounded-2xl shadow-[0_0_15px_rgba(0,0,0,0.2)]">
                                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="50" height="50">
                                                         <rect width="100" height="100" fill="#f5f5f5" rx="15"/>
                                                         <path d="M 30 35 L 70 35 L 50 60 Z" fill="#e74c3c"/>
@@ -63,12 +62,11 @@ export default function Home () {
                                             </div>
 
                                             <div className="flex items-center justify-center gap-4">
-                                                <div className="shadow-lg">
+                                                <div className="rounded-2xl shadow-[0_0_15px_rgba(0,0,0,0.2)]">
                                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="50" height="50">
                                                         <rect width="100" height="100" fill="#f5f5f5" rx="15"/>
                                                         <path d="M 50 35 L 70 60 L 30 60 Z" fill="#27ae60"/>
-                                                    </svg>
-                                           
+                                                    </svg>      
                                                 </div>
 
                                                 <div className="flex flex-col">
@@ -102,12 +100,11 @@ export default function Home () {
                                         </div>
                                     </div>
 
-                                </div>
 
                             </header>
                             {/* <hr className="flex self-center"/> */}
 
-                            <div className="row-span-17 flex flex-row gap-10">
+                            <div className="mt-6    row-span-17 flex flex-row gap-10">
 
                                 <div className="h-full flex-70 overflow-hidden hover:overflow-y-auto [scrollbar-gutter:stable]">
                                      <ItemList />

@@ -16,7 +16,7 @@ function Click () {
 
 return (
 <div
-    className={`relative bg-green-100 rounded-xl shadow-xl
+    className={`relative rounded-xl shadow-xl
         hover:shadow-xl transition duration-300 hover:-translate-y-2 hover:cursor-pointer`}
     onClick={Click}
 >
@@ -31,41 +31,50 @@ return (
     </div>
         
     <div className="px-4 pb-4">
-        <div className="grid grid-cols gap-4">
-            <div className="relative flex items-center gap-4">
-                <div className="group w-40 md:w-65 bg-red-100"> 
-                    <div className="truncate text-lg md:text-xl">
-                        {item.name}
-                    </div>
-                    <div className="absolute left-0 top-full mt-1 hidden group-hover:block 
-                    bg-black text-white text-lg px-2 py-1 rounded shadow-lg z-10 whitespace-nowrap">
-                        {item.name}
+            <div className="grid grid-cols-1 space-y-1">
+                <div className="relative flex items-center gap-4 w-full">
+                    <div className="group max-w-full rounded"> 
+                        <div className="truncate text-lg md:text-xl">
+                            {item.name}
+                        </div>
+                        <div className="absolute left-0 top-full mt-1 hidden group-hover:block 
+                        bg-black text-white text-lg px-2 py-1 rounded shadow-lg z-10 whitespace-nowrap">
+                            {item.name}
+                        </div>  
                     </div>
                 </div>
-            </div>
                 
-            {/* <div className="col-span-2 text-2xl">
-            <p>{item.name}</p>
-            </div> */}
-        </div>
-            
-        <div className="grid grid-cols-2">
-            <div className="flex items-center text-sm md:text-lg text-gray-600 gap-2">
-                <p className="">คงเหลือ</p>
-            </div>
-                
-            <div className="flex justify-end items-center text-sm md:text-lg text-gray-600 gap-2">
-                <p className="">{item.amount}</p>
-                <p className="">ชิ้น</p>
-            </div>
-        </div>
-            
-        <div className="mt-3 bg-gray-300 rounded-xl">
-            <div className="flex items-center">
-                <hr className={`rounded-xl border-4 ${color}`} style={{ width: `${amountPercent}%` }}></hr>
+                <div className="grid grid-cols-2">
+                    <div className="flex items-center text-sm 2xl:text-lg text-gray-600 gap-2">
+                        <p className="">คงเหลือ</p>
+                    </div>
+                        
+                    <div className="flex justify-end items-center text-sm 2xl:text-lg text-gray-600 gap-1">
+                        <p className="">{item.amount}</p>
+                        <p className="">ชิ้น</p>
+                    </div>
+                </div>
+
+                <div className="mt-1 bg-gray-300 rounded-xl">
+                    <div className="flex items-center">
+                        <hr className={`rounded-xl border-4 ${color}`} style={{ width: `${amountPercent}%` }}></hr>
                 {/* <hr className={`border-4 border-green-500`} style={{ width: `${amountPercent}%` }}></hr> */}
+                    </div>
+                </div>
+
+                <div className="mt-1 text-gray-500 text-[80%] flex justify-end">
+                    {item.exp}
+                </div>
+
+                    
+                {/* <div className="col-span-2 text-2xl">
+                <p>{item.name}</p>
+                </div> */}
             </div>
-        </div>
+            
+  
+            
+ 
     </div>
 </div>
 );
