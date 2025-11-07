@@ -25,8 +25,8 @@ const menu = [
 ];
 
 export default function Sidebar (
-    { sidebarOpen, setSidebarOpen, setLoading }: 
-    { sidebarOpen: boolean; setSidebarOpen: React.Dispatch<React.SetStateAction<boolean>>; setLoading: React.Dispatch<React.SetStateAction<boolean>>;}) {
+    { sidebarOpen, setSidebarOpen, setLoading, loading }: 
+    { sidebarOpen: boolean; setSidebarOpen: React.Dispatch<React.SetStateAction<boolean>>; setLoading: React.Dispatch<React.SetStateAction<boolean>>; loading: boolean;}) {
     // const [sidebarOpen, setSidebarOpen] = useState<boolean>(true);
     const { setShow } = useShow();
     const router = useRouter();
@@ -43,6 +43,7 @@ export default function Sidebar (
     }, [isTablet]);
 
     const handleClick = (path: string) => {
+        if (pathname === path) return;
         setActiveClass(path);
         setLoading(true);
         router.push(path);
@@ -95,6 +96,7 @@ export default function Sidebar (
                                 key={item.path}
                                 href={item.path}
                                 onClick={() => handleClick(item.path)}
+                                loading={loading}
                                 className={`${
                                 isActive
                                     ? sidebarListActive
@@ -159,11 +161,14 @@ type SidebarListProps = {
   children: React.ReactNode;
   className?: string;
   onClick?: () => void;
+  loading?: boolean;
 };
 
-function SidebarList({ href, children, className, onClick }: SidebarListProps) {
+function SidebarList({ href, children, className, onClick, loading }: SidebarListProps) {
   return (
-    <li onClick={onClick}>
+    <li onClick={loading ? undefined : onClick}
+      className={loading ? "pointer-events-none opacity-50" : ""}
+    >
       <Link href={href} className={className}>
         {children}
       </Link>

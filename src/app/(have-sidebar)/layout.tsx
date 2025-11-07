@@ -9,9 +9,10 @@ export default function Layout ({ children }: { children: React.ReactNode; }) {
     useEffect(() => {
         setLoading(false);
     }, [pathname]);
+
     return (
         <>
-        <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} setLoading={setLoading}/>
+        <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} setLoading={setLoading} loading={loading}/>
         { loading
         ? <SillyLoading />
         : children
