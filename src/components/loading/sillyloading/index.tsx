@@ -1,6 +1,6 @@
 export default function SillyLoading() {
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-white text-black text-xl font-bold select-none animate-pulse">
+    <div className="text-black text-xl font-bold select-none animate-pulse h-full w-full flex items-center justify-center">
       Loading (เดี๋ยวในอนาคตทำ loading skeleton ของแต่ละ page ให้ ui เนียนๆ)
     </div>
   );

@@ -7,7 +7,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Circle, logoutSuccess, logoutIcon } from "@/components";
 import { useShow } from "@/utils";
-import dtstockIcon from "./dtstockIcon.png";
+import { menu } from "./menu";
+import dtstockIcon from "./img/dtstockIcon.png";
 import popSiam from "../../../public/img/logo.jpg";
 import "./sidebar.css";
 
@@ -17,14 +18,7 @@ const circleActive = "shrink-0 w-4 h-4 text-blue-500";
 const sidebarListClass = "flex items-center p-2 text-black rounded-lg hover:bg-white group hover:shadow-[inset_0_2px_6px_rgba(0,0,0,0.3)]";
 const sidebarListActive = "cursor-default shadow-[inset_0_2px_6px_rgba(0,0,0,0.3)] flex items-center p-2 text-black rounded-lg bg-white group";
 
-const menu = [
-    { name: "หน้าแรก", path: "/home" },
-    { name: "ทดสอบ Alert", path: "/test/alert" },
-    { name: "ทดสอบ Fullscreen Loading", path: "/test/loading" },
-    { name: "ทดสอบหน้าจอ", path: "/test/responsive" },
-];
-
-export default function Sidebar (
+export default function TestSidebar (
     { sidebarOpen, setSidebarOpen, setLoading, loading }: 
     { sidebarOpen: boolean; setSidebarOpen: React.Dispatch<React.SetStateAction<boolean>>; setLoading: React.Dispatch<React.SetStateAction<boolean>>; loading: boolean;}) {
     // const [sidebarOpen, setSidebarOpen] = useState<boolean>(true);
@@ -158,10 +152,10 @@ export default function Sidebar (
 
 type SidebarListProps = {
   href: string;
-  children: React.ReactNode;
+  children?: React.ReactNode;
   className?: string;
-  onClick?: () => void;
-  loading?: boolean;
+  onClick: () => void;
+  loading: boolean;
 };
 
 function SidebarList({ href, children, className, onClick, loading }: SidebarListProps) {

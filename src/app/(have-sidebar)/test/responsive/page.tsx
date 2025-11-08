@@ -17,7 +17,7 @@ export default function TestResponsive () {
         return () => window.removeEventListener("mousemove", handleMouseMove);
     }, []);
     return (
-        <div className="flex flex-col justify-center items-center bg-green-100 h-screen w-screen">
+        <div className="flex flex-col justify-center items-center bg-green-100 h-full max-w-full">
             <div className="text-6xl">
                 ขนาดจอ: {current}
             </div>

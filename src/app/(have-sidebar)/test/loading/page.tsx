@@ -1,8 +1,8 @@
-import { FullScreenLoading } from "@/components";
+import { LoadingAnimation } from "@/components";
 
 function LottieLoadertest () {
-    const fs = <FullScreenLoading />;
-    return fs;
+    const la = <LoadingAnimation />;
+    return <div className="h-full w-full flex items-center justify-center">{la}</div>;
 }
 
 export default LottieLoadertest;

@@ -11,12 +11,13 @@ export default function Layout ({ children }: { children: React.ReactNode; }) {
     }, [pathname]);
 
     return (
-        <>
-        <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} setLoading={setLoading} loading={loading}/>
-        { loading
-        ? <SillyLoading />
-        : children
-        }
-        </>
+        <div className="flex w-dvw h-dvh">
+            <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} setLoading={setLoading} loading={loading}/>
+            <main 
+                className={`flex-1 flex-1 ${sidebarOpen ? "md:ml-64" : "md:ml-3"}`}
+            >
+                { loading ? <SillyLoading /> : children }
+            </main>
+        </div>
     );
 }
