@@ -1,14 +1,26 @@
 "use client";
 import { useState } from "react";
 import { LoadingAnimation, FormInsertItem } from "@/components";
-import { useShow } from "@/utils"
+import { useShow, useCheckScreen } from "@/utils"
 import { useRouter } from "next/navigation";
 
-export default function StockManage () {
+export default function StockManage ({ 
+    switchComponent 
+} : { switchComponent: React.Dispatch<React.SetStateAction<"itemlist" | "barcodescanner">>}
+) {
     const [error, setError] = useState<string | null>(null);
 
     const { setShow } = useShow();
     const router = useRouter();
+
+    const { isMobile } = useCheckScreen();
+    const openBarcodeScanner = () => {
+        if (isMobile) {
+            router.push("/scanbarcode");
+        } else {
+            switchComponent(p => p === "itemlist" ? "barcodescanner" : "itemlist");
+        }
+    }
 
     return (
     <>
@@ -39,7 +51,7 @@ export default function StockManage () {
             <div className="relative h-50 w-[90%] bg-white mx-auto rounded-3xl">
                     <div className="absolute -top-16 left-1/2 -translate-x-1/2 w-34 h-34 
                     bg-white rounded-full flex items-center justify-center border-6 border-sky-200/40"
-                        onClick={() => { router.push("/scanbarcode") }}>
+                        onClick={openBarcodeScanner}>
                         <div className="flex flex-col items-center gap-2">
                             <svg className="border-b-4 border-blue-200 w-14 h-14 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/>

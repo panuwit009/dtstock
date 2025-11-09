@@ -1,6 +1,6 @@
-import { BarcodeScanner } from "@/components";
+import { BarcodeScannerMobile } from "@/components";
 export default function ScanBarcode () {
     return (
-        <BarcodeScanner />
+        <BarcodeScannerMobile />
     );
 }
