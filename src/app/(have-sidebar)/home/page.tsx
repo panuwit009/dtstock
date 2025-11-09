@@ -9,12 +9,9 @@ export default function Home () {
 
     if (openCamera) {
         return (
-            <main>     
-                <BarcodeScanner
-                setOpenCamera={setOpenCamera}
-                cameraResult={cameraResult}
-                setCameraResult={setCameraResult}/>
-            </main>
+            <BarcodeScanner setOpenCamera={setOpenCamera}
+            cameraResult={cameraResult}
+            setCameraResult={setCameraResult}/>
         );
     } else {   
         return (
