@@ -5,18 +5,15 @@ import { Manual, Manage, Afterscan } from "./components";
 import { openCamera, closeCamera, } from "./function/openCamera";
 import type { CameraResult } from "@/type";
 import { useShow } from "@/utils";
+import { useRouter } from "next/navigation";
 import "./css/animation.css";
 
-export default function BarcodeScanner (
-    { setOpenCamera, cameraResult, setCameraResult }:
-    { setOpenCamera: React.Dispatch<React.SetStateAction<boolean>>;
-      cameraResult: CameraResult;
-      setCameraResult: React.Dispatch<React.SetStateAction<CameraResult>>;
-    }
-) {
+export default function BarcodeScanner () {
     const [selected, setSelected] = useState<"scanning" | "manual" | "manage">("scanning");
+    const [cameraResult, setCameraResult] = useState<CameraResult>([]);
     const [shake, setShake] = useState(false);
     const { setShow } = useShow();
+    const router = useRouter();
 
     useEffect( () => {
         const waitScanbarcode = async () => {
@@ -35,7 +32,8 @@ export default function BarcodeScanner (
 
     const stopCamera = (): void => {
         closeCamera();
-        setOpenCamera(false);
+        router.push("/home");
+
     }
     return (
         <div className="flex justify-center items-center w-full h-[100dvh] bg-gray-200">          
