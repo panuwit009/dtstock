@@ -3,8 +3,7 @@ import { StockManage, ItemList, HomeHeader } from "@/components";
 export default function Home () {
     return (
         <div
-            className="grid grid-rows-20 px-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700
-            h-full"
+            className="grid grid-rows-20 p-4 h-full"
         >
             <HomeHeader />
             {/* <hr className="flex self-center"/> */}

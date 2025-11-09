@@ -68,7 +68,7 @@ export default function TestSidebar (
                     </div>
 
                     <div className="w-full flex flex-col items-center mt-4">
-                        <div className="relative w-18 h-18 rounded-full overflow-hidden p-4 bg-white">
+                        <div className="relative w-22 h-22 rounded-full overflow-hidden p-4 bg-white">
                             <Image
                                 src={popSiam}
                                 alt="profile picture"
@@ -109,7 +109,7 @@ export default function TestSidebar (
                     className="p-4
                     text-center text-sm text-gray-700 
                     cursor-pointer flex flex-row items-center justify-center gap-2
-                    hover:text-blue-600 hover:-translate-y-0.5 transition-all duration-200 
+                    hover:text-blue-600
                     group"
                     onClick={logout}
                 >

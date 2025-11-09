@@ -11,7 +11,7 @@ export default function Layout ({ children }: { children: React.ReactNode; }) {
     }, [pathname]);
 
     return (
-        <div className="flex w-dvw h-dvh">
+        <div className="flex w-dvw h-dvh overflow-y-hidden">
             <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} setLoading={setLoading} loading={loading}/>
             <main 
                 className={`flex-1 flex-1 ${sidebarOpen ? "md:ml-64" : "md:ml-3"}`}
