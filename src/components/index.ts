@@ -1,6 +1,7 @@
 export * from "./alert";
 export * from "./barcodescanner";
 export * from "./card";
+export * from "./home";
 export * from "./itemlist";
 export * from "./loading";
 export * from "./login";
