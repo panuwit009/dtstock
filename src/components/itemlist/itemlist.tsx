@@ -35,7 +35,7 @@ export default function ItemList () {
 
     return (
         // Container หลัก
-        <div className="bg-gray-100 px-8 py-6 rounded-2xl">
+        <div className="px-8 py-6">
             {/* Container รอง */}
             <div className="w-[100%]">
                 <header className="flex justify-between items-start p-2">

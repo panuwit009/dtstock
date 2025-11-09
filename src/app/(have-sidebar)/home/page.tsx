@@ -12,7 +12,7 @@ export default function Home () {
             {/* <hr className="flex self-center"/> */}
             <div className="mt-6 row-span-17 flex flex-row gap-10">
                 <div 
-                    className={`h-full flex-70 overflow-hidden rounded-2xl
+                    className={`h-full flex-70 overflow-hidden rounded-2xl bg-gray-100
                     ${component === "barcodescanner"
                         ? "overflow-y-auto"
                         : "hover:overflow-y-auto [scrollbar-gutter:stable]"
