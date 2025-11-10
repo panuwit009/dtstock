@@ -7,7 +7,7 @@ import {
 import { overlayDismiss } from "../overlay";
 
 export const example =
-    <AlertPTB>
+    <AlertPTB className="border-2 border-gray-300">
         <AlertPTBIcon className = "bg-gradient-to-br from-emerald-400 to-green-400">
             ✔
         </AlertPTBIcon>
@@ -24,8 +24,8 @@ export const example =
 export const logoutSuccess =
     <>
     { overlayDismiss }
-    <AlertPTB>
-        <AlertPTBIcon className = "bg-gradient-to-br from-emerald-400 to-green-400">
+    <AlertPTB className="border-t-4 border-emerald-400 drop-shadow-lg/20">
+        <AlertPTBIcon className = "bg-gradient-to-br from-emerald-400 to-green-400 animate-bounce">
             ✔
         </AlertPTBIcon>
         <AlertPTBMessageSection>
