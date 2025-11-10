@@ -24,7 +24,7 @@ return (
 
 <div
     className={`relative rounded-xl shadow-xl
-        hover:shadow-xl transition duration-300 hover:-translate-y-2 hover:cursor-pointer`}
+        hover:shadow-xl transition duration-300  hover:cursor-pointer`}
     onClick={Click}
 >
     {/* <p className="absolute -top-1 -left-4 w-12 h-12 flex justify-center items-center bg-gradient-to-r from-sky-700 to-sky-800
@@ -47,7 +47,7 @@ return (
             <div className="grid grid-cols-1 space-y-1">
                 <div className="relative flex items-center gap-4 w-full">
                     <div className="group max-w-full rounded">
-                        <div className="truncate text-lg md:text-xl">
+                        <div className="mt-1 truncate text-lg md:text-xl">
                             {item.name}
                         </div>
                         <div className="absolute left-0 top-full mt-1 hidden group-hover:block 
@@ -85,9 +85,6 @@ return (
                 </div> */}
             </div>
             
-  
-            
- 
     </div>
 </div>
 );
