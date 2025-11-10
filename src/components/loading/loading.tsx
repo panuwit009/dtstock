@@ -17,7 +17,7 @@ export const FullScreenLoading = () => {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        background: "#fff",
+        // background: "#fff",
         zIndex: 9999
       }}
     >
