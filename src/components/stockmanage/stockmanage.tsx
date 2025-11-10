@@ -89,7 +89,7 @@ export default function StockManage ({
         </div>  
             
             <div className="mt-6 flex flex-row justify-end items-center gap-2">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="26" height="26">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="md:size-5 2xl:size-6">
                     <circle cx="12" cy="12" r="11" fill="none" stroke="#16a34a" strokeWidth="1"/>
                     
                     <path d="M7 12.5 L10.5 16 L17 9" 
@@ -98,7 +98,7 @@ export default function StockManage ({
                             strokeWidth="2.5" 
                             strokeLinecap="round" 
                             strokeLinejoin="round"/>
-                    </svg>
+                </svg>
                 <div className="lg:text-xs 2xl:text-lg text-[#16a34a]">ระบบพร้อมใช้งาน</div>
             </div>
 
