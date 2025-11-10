@@ -36,7 +36,7 @@ export default function StockManage ({
             <div className="lg:text-sm 2xl:text-lg text-gray-700">การจัดการสินค้าอย่างมืออาชีพ</div>
         </div>            
         
-        <div className="bg-white lg:w-[70%] xl:w-[75%] 2xl:w-[75%] mx-auto my-6 rounded-2xl">
+        <div className="bg-white lg:w-[70%] xl:w-[75%] 2xl:w-[65%] mx-auto my-6 rounded-2xl">
             <LoadingAnimation className="md:h-[150px] md:w-[150px] 2xl:h-[230px] 2xl:w-[230px]" />
         </div>
                {/* <AddOrDecreaseStock 
