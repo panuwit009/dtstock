@@ -21,7 +21,7 @@ export default function Home () {
                     {component === "itemlist" && <ItemList />}
                     {component === "barcodescanner" && <BarcodeScanner />}
                 </div>
-                <div className="bg-sky-200/40 flex-30 overflow-y-auto rounded-2xl">
+                <div className="flex-30 overflow-y-auto rounded-2xl">
                     <StockManage switchComponent={switchComponent}/>
                 </div>
             </div>
