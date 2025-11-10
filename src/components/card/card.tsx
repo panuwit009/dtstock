@@ -20,8 +20,6 @@ function Click () {
 
 return (
 
-
-
 <div
     className={`relative rounded-xl shadow-xl
         hover:shadow-xl transition duration-300  hover:cursor-pointer`}
