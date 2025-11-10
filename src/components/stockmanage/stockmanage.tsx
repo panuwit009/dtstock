@@ -9,6 +9,12 @@ export default function StockManage ({
 } : { switchComponent: React.Dispatch<React.SetStateAction<"itemlist" | "barcodescanner">>}
 ) {
     const [error, setError] = useState<string | null>(null);
+    const [active, setActive] = useState(false)
+
+    const handleClick = () => {
+    setActive(!active); // สลับค่า true <-> false
+    openBarcodeScanner(); // เรียกฟังก์ชันเปิดกล้อง
+  };
 
     const { setShow } = useShow();
     const router = useRouter();
@@ -24,14 +30,14 @@ export default function StockManage ({
 
     return (
     <>
-    <div className="p-6 w-full h-full">
+    <div className="bg-sky-200/40 p-6 rounded-2xl">
         <div className="space-y-2">
-            <div className="text-3xl font-bold text-gray-800">จัดการสต็อคสินค้า</div>
-            <div className="text-sm text-gray-700">การจัดการสินค้าอย่างมืออาชีพ</div>
+            <div className="lg:text-2xl 2xl:text-3xl font-bold text-gray-800">จัดการสต็อคสินค้า</div>
+            <div className="lg:text-sm 2xl:text-lg text-gray-700">การจัดการสินค้าอย่างมืออาชีพ</div>
         </div>            
         
-        <div className="bg-white max-w-2xs mx-auto my-6 rounded-2xl">
-            <LoadingAnimation />
+        <div className="bg-white w-[80%] mx-auto my-6 rounded-2xl">
+            <LoadingAnimation className="md:h-[150px] md:w-[150px] 2xl:h-[230px] 2xl:w-[230px]" />
         </div>
                {/* <AddOrDecreaseStock 
                stocktype={stocktype}
@@ -41,35 +47,33 @@ export default function StockManage ({
             {error && <div className="text-red-500 hover:cursor-pointer" onClick={() => setError("")}>{error}</div>}
         </div>
                
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-3">
             <hr className="flex-1 border-gray-800"></hr>
-                <span className="text-lg">หากเครื่องสแกน barcode ใช้งานไม่ได้</span>   
+                <span className="lg:text-sm 2xl:text-lg">หากเครื่องสแกน barcode ใช้งานไม่ได้</span>   
             <hr className="flex-1 border-gray-800"></hr>
         </div>
 
-        <div className="mt-20">  
-            <div className="relative h-50 w-[90%] bg-white mx-auto rounded-3xl">
-                    <div className="absolute -top-16 left-1/2 -translate-x-1/2 w-34 h-34 
-                    bg-white rounded-full flex items-center justify-center border-6 border-sky-200/40"
-                        onClick={openBarcodeScanner}>
+        <div className="lg:mt-13 2xl:mt-20">  
+            <div className="relative lg:h-32 2xl:h-50 w-[90%] bg-white mx-auto rounded-3xl">
+                    <div className="group absolute 2xL:-1/3 md:-top-1/3 left-1/2 -translate-x-1/2 md:size-26 2xl:size-34
+                    bg-white rounded-full flex items-center justify-center border-6 border-sky-200/40
+                    hover:bg-gray-100 hover:border-transparent group:text-white transition duration-300 cursor-pointer"
+                        onClick={handleClick}>
                         <div className="flex flex-col items-center gap-2">
-                            <svg className="border-b-4 border-blue-200 w-14 h-14 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg className="border-b-4 border-blue-200 md:size-10 2xl:size-14 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/>
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"/>
                             </svg>
-                            <span className="text-sm text-gray-700">เปิดกล้อง</span>
+                            <span className="lg:text-xs 2xl:text-sm text-black">เปิดกล้อง</span>
                         </div>
                     </div>                    
                     
-                    <div className="absolute bottom-0 left-0 w-full p-4">
-                        <div className="flex items-center justify-between mt-auto">
-                            <div className="bg-sky-200 p-4 rounded-2xl shadow-lg hover:scale-110 transition-transform cursor-pointer" onClick={()=> setShow(<FormInsertItem />)}>
-                                <svg className="w-7 h-7 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div className="absolute bottom-0 left-0 p-4">
+                            <div className="bg-sky-200 md:p-3 2xl:p-4 rounded-2xl shadow-lg hover:scale-110 transition-transform cursor-pointer" onClick={()=> setShow(<FormInsertItem />)}>
+                                <svg className="md:size-4 2xl:size-7 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 20h9M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z"/>
                                 </svg>
                             </div>
-
-                        </div>
                     </div>
                     
                     {/* <div
@@ -95,7 +99,7 @@ export default function StockManage ({
                             strokeLinecap="round" 
                             strokeLinejoin="round"/>
                     </svg>
-                <div className="text-[#16a34a]">ระบบพร้อมใช้งาน</div>
+                <div className="lg:text-xs 2xl:text-lg text-[#16a34a]">ระบบพร้อมใช้งาน</div>
             </div>
 
         </div>
