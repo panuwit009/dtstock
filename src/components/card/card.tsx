@@ -22,7 +22,10 @@ return (
 
 <div
     className={`relative rounded-xl shadow-xl
-        hover:shadow-xl transition duration-300  hover:cursor-pointer`}
+        hover:shadow-2xl transition-all duration-150 hover:cursor-pointer
+        ring-0 hover:ring-2 hover:ring-emerald-400/50
+        before:absolute before:inset-0 before:rounded-xl
+        before:opacity-0 hover:before:opacity-100 before:transition-opacity`}
     onClick={Click}
 >
     {/* <p className="absolute -top-1 -left-4 w-12 h-12 flex justify-center items-center bg-gradient-to-r from-sky-700 to-sky-800
