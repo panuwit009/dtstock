@@ -35,7 +35,7 @@ return (
             <div className="bg-gray-200 pulse h-full w-full"></div>
         }
         <img onLoad={() => {
-            setTimeout(() => setimgloading(false), 1000); 
+            setimgloading(false); 
             }}
         src={item.image}
         alt={item.name}
