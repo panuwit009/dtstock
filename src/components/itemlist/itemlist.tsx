@@ -1,5 +1,5 @@
 "use client";
-import { useState, useMemo } from "react";
+import { useState, useMemo, useRef } from "react";
 import { Card } from "@/components";
 import ItemSort from "./components/itemsort";
 import { mockupdata } from "@/utils";
@@ -8,6 +8,7 @@ export default function ItemList () {
     const [itemList, setItemList] = useState(mockupdata);
     const [sort, setSort] = useState<"asc" | "desc" | null>(null);
     const [searchValue, setSearchValue] = useState<string | null>(null);
+    
 
     const displayList = useMemo(() => {
         let filteredList = [...itemList];
@@ -31,7 +32,17 @@ export default function ItemList () {
     const searchInput = (e: React.ChangeEvent<HTMLInputElement>) => {
         const value = e.target.value;
         setSearchValue(value);
-    } 
+    };
+    const imgCount = displayList.length;
+    const loadedCount = useRef(0);
+    const [allImgLoaded, setAllImgLoaded] = useState(false);
+
+    function handleImgLoad() {
+        loadedCount.current += 1;
+        if (loadedCount.current === imgCount) {
+            setAllImgLoaded(true);
+        }
+    }
 
     return (
         // Container หลัก
@@ -80,7 +91,7 @@ export default function ItemList () {
                     <div className="p-4 grid grid-cols-2 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-3 gap-4 md:gap-10">
                         {
                             displayList && displayList.length > 0
-                            ? displayList.map((item) => <Card item={item} key={item.id}/>)
+                            ? displayList.map((item) => <Card item={item} key={item.id} handleImgLoad={handleImgLoad} allImgLoaded={allImgLoaded}/>)
                             : <NotFoundDisplayList searchValue={searchValue}/>
                         }
                     </div>
