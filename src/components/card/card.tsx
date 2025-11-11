@@ -20,7 +20,7 @@ return (
 
 <div
     className={`relative rounded-xl shadow-xl
-        hover:shadow-2xl transition-all duration-150 hover:cursor-pointer
+        hover:shadow-2xl transition-all hover:cursor-pointer
         ring-0 hover:ring-2 hover:ring-emerald-400/50
         before:absolute before:inset-0 before:rounded-xl
         before:opacity-0 hover:before:opacity-100 before:transition-opacity`}
