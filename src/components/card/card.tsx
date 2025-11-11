@@ -3,13 +3,11 @@ import { switchcolorbypercent } from "./function/switchcolorbypercent";
 import { useShow } from "@/utils";
 import type { Item } from "@/utils";
 import { Modal } from "@/components";
-import { useState } from "react";
 import "./card.css"
 
-function Card ({item}: {item: Item}) {
+function Card ({item, handleImgLoad, allImgLoaded}: {item: Item; handleImgLoad: () => void; allImgLoaded:boolean;}) {
 const max: number = 100;
 const amountPercent: number = (item.amount * 100) / max;
-const [imgloading, setimgloading] = useState(true);
 
 const color = switchcolorbypercent(amountPercent);
 const { setShow } = useShow();
@@ -32,12 +30,11 @@ return (
     text-white font-bold p-4 text-2xl rounded-full">{item.id}</p> */}
         
     <div className="w-full aspect-square overflow-hidden rounded-t-xl">
-        { imgloading &&
+        { !allImgLoaded &&
             <div className="bg-gray-200 pulse h-full w-full"></div>
         }
-        <img onLoad={() => {
-            setimgloading(false); 
-            }}
+        <img onLoad={handleImgLoad}
+        onError={handleImgLoad}
         src={item.image}
         alt={item.name}
         className="w-full h-full object-cover"/>
