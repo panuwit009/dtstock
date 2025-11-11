@@ -87,7 +87,4 @@ return (
 </div>
 );
 }
-
-import CardSkeleton from "./skeleton";
-Card.Skeleton = CardSkeleton;
 export default Card;

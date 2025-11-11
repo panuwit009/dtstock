@@ -8,16 +8,7 @@ export default function ItemList () {
     const [itemList, setItemList] = useState(mockupdata);
     const [sort, setSort] = useState<"asc" | "desc" | null>(null);
     const [searchValue, setSearchValue] = useState<string | null>(null);
-    const imgCount = mockupdata.length;
-    const loadedCount = useRef(0);
-    const [allImgLoaded, setAllImgLoaded] = useState(false);
-
-    function handleImgLoad() {
-        loadedCount.current += 1;
-        if (loadedCount.current === imgCount) {
-            setAllImgLoaded(true);
-        }
-    }
+    
 
     const displayList = useMemo(() => {
         let filteredList = [...itemList];
@@ -41,7 +32,17 @@ export default function ItemList () {
     const searchInput = (e: React.ChangeEvent<HTMLInputElement>) => {
         const value = e.target.value;
         setSearchValue(value);
-    } 
+    };
+    const imgCount = displayList.length;
+    const loadedCount = useRef(0);
+    const [allImgLoaded, setAllImgLoaded] = useState(false);
+
+    function handleImgLoad() {
+        loadedCount.current += 1;
+        if (loadedCount.current === imgCount) {
+            setAllImgLoaded(true);
+        }
+    }
 
     return (
         // Container หลัก
