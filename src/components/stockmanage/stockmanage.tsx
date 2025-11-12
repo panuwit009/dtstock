@@ -30,7 +30,7 @@ export default function StockManage ({
 
     return (
     <>
-    <div className="bg-sky-200/40 p-6 rounded-2xl h-full">
+    <div className="bg-sky-200/40 pt-4 pb-2 px-6 rounded-2xl h-full">
 
         <div className="flex flex-col gap-2 h-full">
                 <div className="lg:text-2xl 2xl:text-3xl font-bold text-gray-800">จัดการสต็อคสินค้า</div>
@@ -46,20 +46,25 @@ export default function StockManage ({
                 {error && <div className="text-red-500 hover:cursor-pointer" onClick={() => setError("")}>{error}</div>}
             </div>
                 
-            <div className="flex items-center gap-3">
-                <hr className="flex-1 border-gray-800"></hr>
-                    <span className="lg:text-sm 2xl:text-lg">หากเครื่องสแกน barcode ใช้งานไม่ได้</span>   
-                <hr className="flex-1 border-gray-800"></hr>
+            <div className="flex items-center gap-3 lg:mb-11 2xl:mb-15">
+                <hr className="flex-1 border-gray-800" />
+                <span className="lg:text-sm 2xl:text-lg">
+                    หากเครื่องสแกน barcode ใช้งานไม่ได้
+                </span>
+                <hr className="flex-1 border-gray-800" />
             </div>
+
             
             {/* เปิดกล้อง */}
             <div className="relative flex-1 w-full bg-white mx-auto rounded-3xl">
-                        <div className="group absolute 2xl:-top-1/3 md:-top-1/3 left-1/2 -translate-x-1/2 md:size-26 2xl:size-34
-                        bg-white rounded-full flex items-center justify-center border-6 border-sky-200/40
+                        <div className="group absolute flex items-center justify-center 
+                        left-1/2 -translate-x-1/2 -translate-y-1/2 
+                        w-[32%] aspect-square min-w-24 max-w-40
+                        bg-white rounded-full border-6 border-sky-200/40
                         hover:bg-gray-100 hover:border-transparent group:text-white transition duration-300 cursor-pointer"
                             onClick={handleClick}>
                             <div className="flex flex-col items-center gap-2">
-                                <svg className="border-b-4 border-blue-200 md:size-10 2xl:size-14 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg className="w-[40%] h-auto border-b-4 border-blue-200 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/>
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"/>
                                 </svg>
@@ -87,17 +92,16 @@ export default function StockManage ({
             </div>
                 
                 <div className="flex flex-row justify-end items-center gap-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="md:size-5 2xl:size-6">
-                        <circle cx="12" cy="12" r="11" fill="none" stroke="#16a34a" strokeWidth="1"/>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="md:size-5 2xl:size-5 stroke-emerald-600">
+                        <circle cx="12" cy="12" r="11" fill="none" strokeWidth="1"/>
                         
                         <path d="M7 12.5 L10.5 16 L17 9" 
                                 fill="none" 
-                                stroke="#16a34a" 
                                 strokeWidth="2.5" 
                                 strokeLinecap="round" 
                                 strokeLinejoin="round"/>
                     </svg>
-                    <div className="lg:text-xs 2xl:text-lg text-[#16a34a]">ระบบพร้อมใช้งาน</div>
+                    <div className="text-lg text-emerald-600">ระบบพร้อมใช้งาน</div>
                 </div>
         </div>
     </div>
