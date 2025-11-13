@@ -63,7 +63,8 @@ export function Form ({ setIslogin }: { setIslogin: React.Dispatch<React.SetStat
                         : 'Login'
                     }
                 </button>
-                <button 
+                <button
+                    type="button"
                     className="text-lg font-semibold w-full h-10 xl:h-12 bg-yellow-500 text-white
                     rounded-lg shadow-lg hover:bg-yellow-600 
                     transform transition active:scale-95
