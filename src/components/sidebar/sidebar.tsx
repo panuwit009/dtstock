@@ -1,12 +1,11 @@
 "use client";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { useMediaQuery } from "react-responsive";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Circle, logoutSuccess, logoutIcon } from "@/components";
-import { useShow } from "@/utils";
+import { useShow, useCheckScreen } from "@/utils";
 import { menu } from "./menu";
 import dtstockIcon from "./img/dtstockIcon.png";
 import popSiam from "../../../public/img/logo.jpg";
@@ -26,8 +25,8 @@ export default function TestSidebar (
     const router = useRouter();
     const pathname = usePathname();
     const [activePath, setActiveClass] = useState(pathname);
+    const { isTablet } = useCheckScreen();
 
-    const isTablet = useMediaQuery({ query: '(max-width: 1024px)' });
     useEffect(() => {
         if (isTablet) {
             setSidebarOpen(false);
