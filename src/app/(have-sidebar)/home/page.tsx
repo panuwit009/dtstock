@@ -1,8 +1,24 @@
 "use client";
 import { useState } from "react";
-import { StockManage, ItemList, HomeHeader, BarcodeScanner } from "@/components";
+import { StockManage, ItemList, HomeHeader, BarcodeScanner, ResponsiveSwitch } from "@/components";
 
 export default function Home () {
+    return (
+        <ResponsiveSwitch 
+            mobile={<MobileView />}
+            tablet={<TabletView />}
+            desktop={<TabletView />}
+        />
+    );
+}
+
+export function MobileView () {
+    return (
+        <>หน้าจอมือถือ</>
+    );
+}
+
+export function TabletView () {
     const [component, switchComponent] = useState<"itemlist" | "barcodescanner">("itemlist");
     return (
         <div
