@@ -4,7 +4,14 @@ import { Tooltip } from "@/components";
 import { useCheckScreen, useShow } from "@/utils";
 
 export default function TestResponsive () {
-    const { current } = useCheckScreen();
+    const { isSm, isMd, isLg, isXl, is2Xl } = useCheckScreen();
+    let current = "มือถือ";
+    if (is2Xl) current = "2xl ขึ้นไป";
+    else if (isXl) current = "xl";
+    else if (isLg) current = "lg";
+    else if (isMd) current = "md";
+    else if (isSm) current = "sm";
+
     const [position, setPosition] = useState({ x: 0, y: 0 });
     const { setShow } = useShow();
 
