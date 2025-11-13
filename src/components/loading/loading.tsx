@@ -32,23 +32,13 @@ export const FullScreenLoading = () => {
   );
 };
 
-export const LoadingAnimation = ({ 
-  children,
-  className = ""
-}: { 
-  children?: React.ReactNode;
-  className?: string;
-}) => {
+export const LoadingAnimation = () => {
   return (
-    <div className="flex flex-col items-center gap-4">
-      <Player
-        autoplay
-        loop
-        speed={1.5}
-        src={animationData}
-        className={className}
-      />
-      {children}
-    </div>
+    <Player
+      autoplay
+      loop
+      speed={1.5}
+      src={animationData}
+    />
   );
 }
