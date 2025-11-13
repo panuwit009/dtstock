@@ -7,6 +7,7 @@ export * from "./loading";
 export * from "./login";
 export * from "./modal";
 export * from "./overlay";
+export * from "./responsiveswitch";
 export * from "./sidebar";
 export * from "./stockmanage";
 export * from "./svg";
