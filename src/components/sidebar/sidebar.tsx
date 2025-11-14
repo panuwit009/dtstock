@@ -17,7 +17,7 @@ const circleActive = "shrink-0 w-4 h-4 text-blue-500";
 const sidebarListClass = "flex items-center p-2 text-black rounded-lg hover:bg-white group hover:shadow-[inset_0_2px_6px_rgba(0,0,0,0.3)]";
 const sidebarListActive = "cursor-default shadow-[inset_0_2px_6px_rgba(0,0,0,0.3)] flex items-center p-2 text-black rounded-lg bg-white group";
 
-export default function TestSidebar (
+export default function Sidebar (
     { sidebarOpen, setSidebarOpen, setLoading, loading }: 
     { sidebarOpen: boolean; setSidebarOpen: React.Dispatch<React.SetStateAction<boolean>>; setLoading: React.Dispatch<React.SetStateAction<boolean>>; loading: boolean;}) {
     // const [sidebarOpen, setSidebarOpen] = useState<boolean>(true);
@@ -25,11 +25,10 @@ export default function TestSidebar (
     const router = useRouter();
     const pathname = usePathname();
     const [activePath, setActiveClass] = useState(pathname);
-    const { isTablet } = useCheckScreen();
-
+    const { isMd } = useCheckScreen();
     useEffect(() => {
-        setSidebarOpen(!isTablet);
-    }, [isTablet]);
+        setSidebarOpen(isMd);
+    }, [isMd])
 
     const handleClick = (path: string) => {
         if (pathname === path) return;
