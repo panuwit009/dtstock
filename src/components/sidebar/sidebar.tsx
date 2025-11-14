@@ -28,11 +28,7 @@ export default function TestSidebar (
     const { isTablet } = useCheckScreen();
 
     useEffect(() => {
-        if (isTablet) {
-            setSidebarOpen(false);
-        } else {
-            setSidebarOpen(true);
-        }
+        setSidebarOpen(!isTablet);
     }, [isTablet]);
 
     const handleClick = (path: string) => {
