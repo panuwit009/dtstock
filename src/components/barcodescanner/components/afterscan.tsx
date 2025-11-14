@@ -17,6 +17,7 @@ export const Afterscan = (
             <img 
                 className="h-50 mx-auto rounded-2xl mb-4"
                 src="https://webtntlprd.blob.core.windows.net/content/1671768873047-2555.webp"
+                alt="ชื่อสินค้า"
             />
             <h2 className="text-lg font-semibold mb-2">น้ำทิพย์ น้ำดื่ม 1500 มล.</h2>
             <p>น้ำทิพย์ น้ำดื่มคุณภาพที่ได้รับการรับรองในระดับสากล ให้คุณมั่นใจในคุณภาพจากทุกขวดที่ดื่ม โดยบรรจุมาในขวด Eco ที่คิดมาเพื่อโลก</p>
