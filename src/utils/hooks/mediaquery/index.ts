@@ -3,7 +3,7 @@ import { useMediaQuery } from "react-responsive";
 
 export function useCheckScreen() {
   // ตาม device
-  const isMobile = useMediaQuery({ query: "(max-width: 639px)" });
+  // const isMobile = useMediaQuery({ query: "(max-width: 639px)" });
   const isTablet = useMediaQuery({ query: "(min-width: 640px)" });
   const isDesktop = useMediaQuery({ query: "(min-width: 1024px)" });
 
@@ -14,5 +14,8 @@ export function useCheckScreen() {
   const isXl = useMediaQuery({ query: "(min-width: 1280px)" });
   const is2Xl = useMediaQuery({ query: "(min-width: 1536px)" });
 
-  return { isMobile, isTablet, isDesktop, isSm, isMd, isLg, isXl, is2Xl };
+  return { 
+    // isMobile,
+    isTablet, isDesktop, isSm, isMd, isLg, isXl, is2Xl 
+  };
 }
