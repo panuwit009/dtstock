@@ -32,6 +32,7 @@ export function Manage({ cameraResult }: { cameraResult: CameraResult; }) {
                                     <img 
                                     className="w-full h-full object-cover"
                                     src="https://webtntlprd.blob.core.windows.net/content/1671768873047-2555.webp"
+                                    alt="ชื่อสินค้า"
                                     />
                                 </div>
                             </div>
