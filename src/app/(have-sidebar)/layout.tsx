@@ -1,44 +1,68 @@
 "use client";
 import { usePathname } from "next/navigation";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Sidebar, SillyLoading, ResponsiveSwitch } from "@/components";
 export default function Layout ({ children }: { children: React.ReactNode; }) {
+    const [sidebarOpen, setSidebarOpen] = useState<boolean>(true);
+    const [loading, setLoading] = useState<boolean>(true);
+    const pathname = usePathname();
+    useEffect(() => {
+        setLoading(false);
+    }, [pathname]);
+
     return (
         <ResponsiveSwitch 
-            mobile={<MobileView />}
-            tablet={<TabletView />}
-            desktop={<TabletView />}
+            mobile={
+                <MobileView>
+                    {children}
+                </MobileView>
+            }
+            tablet={
+                <TabletView
+                    sidebarOpen={sidebarOpen}
+                    setSidebarOpen={setSidebarOpen}
+                    loading={loading}
+                    setLoading={setLoading}
+                >
+                    {children}
+                </TabletView>
+            }
+            desktop={
+                <TabletView
+                    sidebarOpen={sidebarOpen}
+                    setSidebarOpen={setSidebarOpen}
+                    loading={loading}
+                    setLoading={setLoading}
+                >
+                    {children}
+                </TabletView>
+            }
         />
     );
 
-    function TabletView () {
-        const [sidebarOpen, setSidebarOpen] = useState<boolean>(true);
-        const [loading, setLoading] = useState<boolean>(true);
-        const pathname = usePathname();
-        useEffect(() => {
-            setLoading(false);
-        }, [pathname]);
-        return (
-            <div className="flex w-dvw h-dvh overflow-y-hidden">
-                <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} setLoading={setLoading} loading={loading}/>
-                <main 
-                    className={`flex-1 ${sidebarOpen ? "sm:ml-64" : "sm:ml-3"}`}
-                >
-                    { loading ? <SillyLoading /> : children }
-                </main>
-            </div>
-        );
-    }
+    
+}
+function TabletView ({ children, sidebarOpen, setSidebarOpen, loading, setLoading }: { children: React.ReactNode; sidebarOpen: boolean; setSidebarOpen: React.Dispatch<React.SetStateAction<boolean>>; loading: boolean; setLoading: React.Dispatch<React.SetStateAction<boolean>>;}) {
+    return (
+        <div className="flex w-dvw h-dvh overflow-y-hidden">
+            <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} setLoading={setLoading} loading={loading}/>
+            <main 
+                className={`flex-1 flex-1 ${sidebarOpen ? "md:ml-64" : "md:ml-3"}`}
+            >
+                { loading ? <SillyLoading /> : children }
+            </main>
+        </div>
+    );
+}
 
-    function MobileView () {
-        return (
-            <div className="flex w-dvw h-dvh overflow-y-hidden">
-                <main 
-                    className={`flex-1`}
-                >
-                    { children }
-                </main>
-            </div>
-        );
-    }
+function MobileView ({ children }: { children: React.ReactNode; }) {
+    return (
+        <div className="flex w-dvw h-dvh overflow-y-hidden">
+            <main 
+                className={`flex-1`}
+            >
+                { children }
+            </main>
+        </div>
+    );
 }
