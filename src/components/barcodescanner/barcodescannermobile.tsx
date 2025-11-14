@@ -15,7 +15,6 @@ export default function BarcodeScannerMobile () {
     const { setShow } = useShow();
     const router = useRouter();
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     useEffect( () => {
         const waitScanbarcode = async () => {
             const result = await openCamera();

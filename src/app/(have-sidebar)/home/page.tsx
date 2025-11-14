@@ -12,13 +12,13 @@ export default function Home () {
     );
 }
 
-export function MobileView () {
+function MobileView () {
     return (
         <>หน้าจอมือถือ</>
     );
 }
 
-export function TabletView () {
+function TabletView () {
     const [component, switchComponent] = useState<"itemlist" | "barcodescanner">("itemlist");
     return (
         <div
