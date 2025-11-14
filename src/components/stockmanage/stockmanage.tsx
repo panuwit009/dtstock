@@ -19,12 +19,12 @@ export default function StockManage ({
     const { setShow } = useShow();
     const router = useRouter();
 
-    const { isMobile } = useCheckScreen();
+    const { isTablet } = useCheckScreen();
     const openBarcodeScanner = () => {
-        if (isMobile) {
-            router.push("/scanbarcode");
-        } else {
+        if (isTablet) {
             switchComponent(p => p === "itemlist" ? "barcodescanner" : "itemlist");
+        } else {
+            router.push("/scanbarcode");
         }
     }
 
