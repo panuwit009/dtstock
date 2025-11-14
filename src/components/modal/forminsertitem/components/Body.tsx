@@ -3,11 +3,7 @@ import Exp from "./exp";
 import Textarea from "./textarea";
 import Category from "./category";
 
-export default function Body ({
-  children, 
-}: Readonly<{
-  children?: React.ReactNode;
-}>) {
+export default function Body () {
     return (
             <div className="p-10 max-h-[70vh] overflow-y-auto">
                 <div className="grid grid-cols-1 lg:grid-cols-4 space-y-5">
