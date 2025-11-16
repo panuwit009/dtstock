@@ -27,27 +27,16 @@ export default function Layout ({ children }: { children: React.ReactNode; }) {
                     {children}
                 </TabletView>
             }
-            desktop={
-                <TabletView
-                    sidebarOpen={sidebarOpen}
-                    setSidebarOpen={setSidebarOpen}
-                    loading={loading}
-                    setLoading={setLoading}
-                >
-                    {children}
-                </TabletView>
-            }
         />
     );
-
-    
 }
+
 function TabletView ({ children, sidebarOpen, setSidebarOpen, loading, setLoading }: { children: React.ReactNode; sidebarOpen: boolean; setSidebarOpen: React.Dispatch<React.SetStateAction<boolean>>; loading: boolean; setLoading: React.Dispatch<React.SetStateAction<boolean>>;}) {
     return (
         <div className="flex w-dvw h-dvh overflow-y-hidden">
             <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} setLoading={setLoading} loading={loading}/>
             <main 
-                className={`flex-1 flex-1 ${sidebarOpen ? "md:ml-64" : "md:ml-3"}`}
+                className={`flex-1 ml-3 ${sidebarOpen && "md:ml-64"}`}
             >
                 { loading ? <SillyLoading /> : children }
             </main>
