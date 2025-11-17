@@ -11,7 +11,7 @@ export default function HomeHeader () {
                     <div className="flex items-center justify-center gap-4">
                         <div className="rounded-2xl shadow-[0_0_15px_rgba(0,0,0,0.2)]">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="50" height="50">
-                                <rect width="100" height="100" fill="#f5f5f5" rx="15"/>
+                                {/* <rect width="100" height="100" fill="#f5f5f5" rx="15"/> */}
                                 <path d="M 30 35 L 70 35 L 50 60 Z" fill="#e74c3c"/>
                             </svg>
                         </div>
@@ -25,7 +25,7 @@ export default function HomeHeader () {
                     <div className="flex items-center justify-center gap-4">
                         <div className="rounded-2xl shadow-[0_0_15px_rgba(0,0,0,0.2)]">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="50" height="50">
-                                <rect width="100" height="100" fill="#f5f5f5" rx="15"/>
+                                {/* <rect width="100" height="100" fill="#f5f5f5" rx="15"/> */}
                                 <path d="M 50 35 L 70 60 L 30 60 Z" fill="#27ae60"/>
                             </svg>      
                         </div>
