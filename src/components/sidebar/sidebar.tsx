@@ -43,10 +43,10 @@ export default function Sidebar (
     }
     return (   
         <aside
-            className={`fixed top-0 left-0 z-9 w-64 h-dvh
-                transition-transform ${sidebarOpen ? "translate-x-0" : "-translate-x-[95%]"}`}
+            className={`fixed top-0 left-0 bottom-0 z-9 w-64 
+                transition-transform duration-300 ${sidebarOpen ? "translate-x-0" : "-translate-x-[95%]"}`}
         >
-            <div className="flex flex-col h-full bg-blue-100">
+            <div className="flex flex-col h-full bg-blue-100 scroll-area">
                 <header className="flex flex-col shrink-0 justify-center items-start">
                     <div className="w-full flex flex-row justify-center mt-6">
                         <div className="relative w-14 h-14 rounded-full overflow-hidden">
@@ -75,7 +75,7 @@ export default function Sidebar (
                     </div>
                     
                 </header>
-                <nav className="flex-1 px-3 py-4 scroll-area">
+                <nav className="flex-1 px-3 py-4">
                     <ul className="space-y-2 font-medium">
                         {menu.map((item) => {
                             const isActive = activePath === item.path;
