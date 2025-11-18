@@ -1,6 +1,6 @@
 "use client";
 import { usePathname } from "next/navigation";
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Sidebar, SillyLoading, ResponsiveSwitch } from "@/components";
 export default function Layout ({ children }: { children: React.ReactNode; }) {
     const [sidebarOpen, setSidebarOpen] = useState<boolean>(true);
