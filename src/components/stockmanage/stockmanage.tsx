@@ -46,7 +46,7 @@ export default function StockManage ({
                 {error && <div className="text-red-500 hover:cursor-pointer" onClick={() => setError("")}>{error}</div>}
             </div>
                 
-            <div className="flex items-center gap-3 lg:mb-11 2xl:mb-15">
+            <div className="flex items-center gap-3 mb-12">
                 <hr className="flex-1 border-gray-800" />
                 <span className="lg:text-sm 2xl:text-lg">
                     หากเครื่องสแกน barcode ใช้งานไม่ได้
