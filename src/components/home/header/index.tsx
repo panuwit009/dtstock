@@ -1,6 +1,9 @@
 export default function HomeHeader () {
     return (
-        <header className="row-span-3 px-4 flex items-center justify-between border-b border-b-gray-400">
+        <header 
+            className="sticky top-0 left-0 right-0 z-10 bg-white p-2
+            flex items-center justify-between border-b border-b-gray-400"
+        >
             <div className="">
                 <span className="font-bold text-sm xl:text-2xl 2xl:text-4xl">Dashboard</span>
                 <div className="text-lg text-gray-700 font-thin">การจัดการสินค้าอย่างมืออาชีพ</div>
