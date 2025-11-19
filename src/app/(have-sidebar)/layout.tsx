@@ -33,10 +33,12 @@ export default function Layout ({ children }: { children: React.ReactNode; }) {
 
 function TabletView ({ children, sidebarOpen, setSidebarOpen, loading, setLoading }: { children: React.ReactNode; sidebarOpen: boolean; setSidebarOpen: React.Dispatch<React.SetStateAction<boolean>>; loading: boolean; setLoading: React.Dispatch<React.SetStateAction<boolean>>;}) {
     return (
-        <div className="flex w-dvw h-dvh overflow-y-auto">
+        <div className="flex w-dvw h-dvh">
             <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} setLoading={setLoading} loading={loading}/>
             <main 
-                className={`flex-1 ml-3 ${sidebarOpen && "md:ml-64"} transition-all duration-300 `}
+                className={`flex-1 relative overflow-y-auto px-4
+                ml-3 ${sidebarOpen && "md:ml-64"}
+                transition-all duration-300 `}
             >
                 { loading ? <SillyLoading /> : children }
             </main>

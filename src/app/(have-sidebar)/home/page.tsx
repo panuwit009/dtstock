@@ -20,26 +20,21 @@ function MobileView () {
 function TabletView () {
     const [component, switchComponent] = useState<"itemlist" | "barcodescanner">("itemlist");
     return (
-        <div
-            className="grid grid-rows-20 p-4 h-full"
-        >
+        <>
             <HomeHeader />
             {/* <hr className="flex self-center"/> */}
-            <div className="mt-6 row-span-17 flex flex-row gap-10">
+            <div className="relative mt-4">
+                สแกนบาร์โค๊ดดิ: ปุ่ม1 ปุ่ม2 
                 <div 
-                    className={`h-full flex-70 overflow-hidden rounded-2xl bg-gray-100
-                    ${component === "barcodescanner"
-                        ? "overflow-y-auto"
-                        : "hover:overflow-y-auto [scrollbar-gutter:stable]"
-                    }`}
+                    className={`rounded-2xl bg-gray-100`}
                 >
                     {component === "itemlist" && <ItemList />}
                     {component === "barcodescanner" && <BarcodeScanner />}
                 </div>
-                <div className="flex-30 overflow-y-auto rounded-2xl max-h-screen">
+                {/* <div className="w-80 h-fit sticky rounded-2xl">
                     <StockManage switchComponent={switchComponent}/>
-                </div>
+                </div> */}
             </div>
-        </div>
+        </>
     );
 }
