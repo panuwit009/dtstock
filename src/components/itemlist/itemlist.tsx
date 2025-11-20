@@ -1,6 +1,6 @@
 "use client";
 import { useState, useMemo, useRef } from "react";
-import { Card } from "@/components";
+import { Card, magnify } from "@/components";
 import ItemSort from "./components/itemsort";
 import { mockupdata } from "@/utils";
 
@@ -45,57 +45,35 @@ export default function ItemList () {
     }
 
     return (
-        // Container หลัก
-        <div className="px-8 py-6">
-            {/* Container รอง */}
-            <div className="w-[100%]">
-                <header className="flex justify-between items-start p-2">
-                    <div className="flex flex-col space-y-2">
-                        {/* <svg className="w-10 h-10 md:w-12 md:h-12 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-label="product-checklist">
-                            <rect x="4" y="6" width="16" height="14" rx="2" strokeWidth="2" />
-                            <path d="M9 6V5a3 3 0 0 1 6 0v1" strokeWidth="2" strokeLinecap="round" />
-                            <path d="M8 11l1.5 1.5L12 10" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                            <path d="M14 11h4" strokeWidth="2" strokeLinecap="round" />
-                            <path d="M8 16l1.5 1.5L12 15" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                            <path d="M14 16h4" strokeWidth="2" strokeLinecap="round" />
-                        </svg> */}
-                        <p className="text-3xl font-bold text-black">รายการสินค้า</p>
-                        <div className="text-sm text-gray-700">ตรวจสอบสินค้า ณ ปัจจุบัน</div>
-                    </div>
-                    <div className="flex flex-col items-center space-y-2">
-                        <div className="relative">
-                            <input
-                            type="text"
-                            onChange={searchInput}
-                            placeholder="ค้นหาสินค้า..."
-                            className="w-auto text-sm pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                            />
-                            <svg
-                            className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5"
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                            >
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 1010.5 3a7.5 7.5 0 006.15 13.65z" />
-                            </svg>
-                        </div>                        
-                        <ItemSort sort={sort} setSort={setSort}/>
-                    </div>
-                </header>
-
-
-
-                <div className="md:rounded-b-xl">
-
-                    <div className="p-4 grid grid-cols-2 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-3 gap-4 md:gap-10">
-                        {
-                            displayList && displayList.length > 0
-                            ? displayList.map((item) => <Card item={item} key={item.id} handleImgLoad={handleImgLoad} allImgLoaded={allImgLoaded}/>)
-                            : <NotFoundDisplayList searchValue={searchValue}/>
-                        }
-                    </div>
+        <div className="px-8 py-6 bg-red-100 my-4 @container rounded-xl">
+            <header className="flex justify-between items-start p-2">
+                <div className="flex flex-col space-y-2">
+                    <p className="text-3xl font-bold text-black">รายการสินค้า</p>
+                    <div className="text-sm text-gray-700">ตรวจสอบสินค้า ณ ปัจจุบัน</div>
                 </div>
+                <div className="flex flex-col items-center space-y-2">
+                    <div className="relative">
+                        <input
+                        type="text"
+                        onChange={searchInput}
+                        placeholder="ค้นหาสินค้า..."
+                        className="w-auto text-sm pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        />
+                        { magnify }
+                    </div>                        
+                    <ItemSort sort={sort} setSort={setSort}/>
+                </div>
+            </header>
+
+            <div 
+                className="grid grid-cols-3 @2xl:grid-cols-4 @4xl:grid-cols-5 @6xl:grid-cols-6
+                gap-4"
+            >
+                {
+                    displayList && displayList.length > 0
+                    ? displayList.map((item) => <Card item={item} key={item.id} handleImgLoad={handleImgLoad} allImgLoaded={allImgLoaded}/>)
+                    : <NotFoundDisplayList searchValue={searchValue}/>
+                }
             </div>
         </div>
     );
