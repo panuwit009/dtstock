@@ -3,6 +3,10 @@ z-index
 
 40
 
+36 - modal, alert
+
+35 - overlay
+
 30 - sidebar
 
 20

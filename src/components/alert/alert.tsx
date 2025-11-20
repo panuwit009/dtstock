@@ -5,7 +5,7 @@ export function AlertPTB ( { children, className }: { children: React.ReactNode;
     
     return (
         // animation ค่อยๆเฟดขึ้นมา "fadeInUpOnce" 
-        <div className={`fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-11
+        <div className={`fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-36
         bg-white rounded-2xl w-xs sm:w-sm flex flex-col items-center px-10 py-6 
         ${className}`}>   
             <div className='text-black absolute top-2 right-3 rounded-full hover:cursor-pointer'
