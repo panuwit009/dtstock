@@ -43,7 +43,7 @@ export default function Sidebar (
     }
     return (   
         <aside
-            className={`fixed top-0 left-0 bottom-0 z-9 w-64 
+            className={`fixed top-0 left-0 bottom-0 z-30 w-64 
                 transition-transform duration-300 ${sidebarOpen ? "translate-x-0" : "-translate-x-[95%]"}`}
         >
             <div className="flex flex-col h-full bg-blue-100 scroll-area">
