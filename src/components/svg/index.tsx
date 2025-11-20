@@ -98,3 +98,15 @@ export const logoutIcon = (
     20 3 18.6569 3 17V7C3 5.34315 4.34315 4 6 4H10C11.6569 4 13 5.34315 13 7V8"
     stroke="#374151" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"/>
 </svg> );
+
+export const magnify = (
+    <svg
+        className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+    >
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 1010.5 3a7.5 7.5 0 006.15 13.65z" />
+    </svg>
+);
