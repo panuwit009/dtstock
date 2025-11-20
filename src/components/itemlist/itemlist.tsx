@@ -68,7 +68,7 @@ export default function ItemList () {
             <div 
                 className="grid grid-cols-3 @2xl/itemlist:grid-cols-4
                 @4xl/itemlist:grid-cols-5 @6xl/itemlist:grid-cols-6
-                gap-4"
+                gap-4 @2xl/itemlist:gap-5 @4xl/itemlist:gap-6"
             >
                 {
                     displayList && displayList.length > 0
