@@ -45,7 +45,7 @@ export default function ItemList () {
     }
 
     return (
-        <div className="px-8 py-6 bg-red-100 my-4 @container rounded-xl">
+        <div className="px-8 py-6 bg-red-100 my-4 @container/itemlist rounded-xl">
             <header className="flex justify-between items-start p-2">
                 <div className="flex flex-col space-y-2">
                     <p className="text-3xl font-bold text-black">รายการสินค้า</p>
@@ -66,7 +66,8 @@ export default function ItemList () {
             </header>
 
             <div 
-                className="grid grid-cols-3 @2xl:grid-cols-4 @4xl:grid-cols-5 @6xl:grid-cols-6
+                className="grid grid-cols-3 @2xl/itemlist:grid-cols-4
+                @4xl/itemlist:grid-cols-5 @6xl/itemlist:grid-cols-6
                 gap-4"
             >
                 {
