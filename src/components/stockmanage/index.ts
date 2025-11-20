@@ -1,1 +1,1 @@
-export { default as StockManage } from "./stockmanage";
+// export { default as StockManage } from "./stockmanage";

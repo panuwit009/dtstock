@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { StockManage, ItemList, HomeHeader, BarcodeScanner, ResponsiveSwitch } from "@/components";
+import { ItemList, HomeHeader, BarcodeScanner, ResponsiveSwitch } from "@/components";
 
 export default function Home () {
     return (
@@ -31,9 +31,6 @@ function TabletView () {
                     {component === "itemlist" && <ItemList />}
                     {component === "barcodescanner" && <BarcodeScanner />}
                 </div>
-                {/* <div className="w-80 h-fit sticky rounded-2xl">
-                    <StockManage switchComponent={switchComponent}/>
-                </div> */}
             </div>
         </>
     );
