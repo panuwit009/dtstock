@@ -19,19 +19,18 @@ function Click () {
 return (
 
 <div
-    className={`relative rounded-xl shadow-xl
+    className={`
+        relative rounded-xl shadow-xl bg-white
         hover:shadow-2xl transition-all hover:cursor-pointer
         ring-0 hover:ring-2 hover:ring-emerald-400/50
         before:absolute before:inset-0 before:rounded-xl
-        before:opacity-0 hover:before:opacity-100 before:transition-opacity`}
+        before:opacity-0 hover:before:opacity-100 before:transition-opacity`
+    }
     onClick={Click}
->
-    {/* <p className="absolute -top-1 -left-4 w-12 h-12 flex justify-center items-center bg-gradient-to-r from-sky-700 to-sky-800
-    text-white font-bold p-4 text-2xl rounded-full">{item.id}</p> */}
-        
+>     
     <div className="w-full aspect-square overflow-hidden rounded-t-xl">
         { !allImgLoaded &&
-            <div className="bg-gray-200 pulse h-full w-full"></div>
+            <div className="bg-gray-200 pulse h-full w-full" />
         }
         <img onLoad={handleImgLoad}
         onError={handleImgLoad}
@@ -42,47 +41,48 @@ return (
     </div>
         
     <div className="px-4 pb-4">
-            <div className="grid grid-cols-1 space-y-1">
-                <div className="relative flex items-center gap-4 w-full">
-                    <div className="group max-w-full rounded">
-                        <div className="mt-1 truncate text-lg md:text-xl">
-                            {item.name}
-                        </div>
-                        <div className="absolute left-0 top-full mt-1 hidden group-hover:block 
-                        bg-black text-white text-lg px-2 py-1 rounded shadow-lg z-10 whitespace-nowrap">
-                            {item.name}
-                        </div>  
-                    </div>
+        <div className="grid grid-cols-1 space-y-1">
+            <div className="relative flex items-center gap-4 w-full">
+                <div className="w-full rounded">
+                    { !allImgLoaded 
+                        ? <div className="mt-1 w-full text-lg md:text-xl bg-gray-200 rounded-md pulse text-transparent">skeleton</div>
+                        : <div className="mt-1 truncate text-lg md:text-xl">{item.name}</div>
+                    }
                 </div>
-                
-                <div className="grid grid-cols-2">
-                    <div className="flex items-center text-sm 2xl:text-lg text-gray-600 gap-2">
-                        <p className="">คงเหลือ</p>
-                    </div>
-                        
-                    <div className="flex justify-end items-center text-sm 2xl:text-lg text-gray-600 gap-1">
-                        <p className="">{item.amount}</p>
-                        <p className="">ชิ้น</p>
-                    </div>
-                </div>
-
-                <div className="mt-1 bg-gray-300 rounded-xl">
-                    <div className="flex items-center">
-                        <hr className={`rounded-xl border-4 ${color}`} style={{ width: `${amountPercent}%` }}></hr>
-                {/* <hr className={`border-4 border-green-500`} style={{ width: `${amountPercent}%` }}></hr> */}
-                    </div>
-                </div>
-
-                <div className="mt-1 text-gray-500 text-[80%] flex justify-end">
-                    {item.exp}
-                </div>
-
-                    
-                {/* <div className="col-span-2 text-2xl">
-                <p>{item.name}</p>
-                </div> */}
             </div>
             
+            <div className="grid grid-cols-2">
+                <div className="flex items-center text-sm 2xl:text-lg text-gray-600 gap-2">
+                    { !allImgLoaded 
+                        ? <span className="bg-gray-200 rounded-md pulse text-transparent">คงเหลือ</span>
+                        : <span className="">คงเหลือ</span>
+                    }
+                </div>
+                    
+                <div className="flex justify-end items-center text-sm 2xl:text-lg text-gray-600 gap-1">
+                    { !allImgLoaded 
+                        ? <span className="bg-gray-200 rounded-md pulse text-transparent">99999 ชิ้น</span>
+                        : <span className="">{item.amount} ชิ้น</span>
+                    }
+                </div>
+            </div>
+
+            { !allImgLoaded 
+                ? (
+                <div className="mt-1 bg-gray-200 rounded-xl pulse">
+                    <hr className="rounded-xl border-4 border-transparent w-full"/>
+                </div> )
+                : (
+                <div className="mt-1 bg-gray-300 rounded-xl">
+                    <hr className={`rounded-xl border-4 ${color}`} style={{ width: `${amountPercent}%` }} />
+                </div> )
+            }
+
+            { !allImgLoaded 
+                ? <div className={`mt-1 text-transparent text-[80%] flex justify-end bg-gray-200 rounded-xl pulse`}>00/00/0000</div>
+                : <div className={`mt-1 text-gray-500 text-[80%] flex justify-end`}>{item.exp}</div>
+            }
+        </div>  
     </div>
 </div>
 );
