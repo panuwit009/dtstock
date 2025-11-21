@@ -14,7 +14,7 @@ export default function ItemSort (
     return (
         <>
         <div className="flex gap-2">
-            <div>เรียงลำดับจากจำนวน :</div>
+            <span>เรียงลำดับจากจำนวน :</span>
             <button
                 className={`cursor-pointer ${sort === "desc" ? 'text-gray-900 underline font-semibold' : null}`}
                 onClick={()=> toggleSort("desc")}
