@@ -8,7 +8,6 @@ export default function ItemList () {
     const [itemList, setItemList] = useState(mockupdata);
     const [sort, setSort] = useState<"asc" | "desc" | null>(null);
     const [searchValue, setSearchValue] = useState<string | null>(null);
-    
 
     const displayList = useMemo(() => {
         let filteredList = [...itemList];
@@ -45,13 +44,13 @@ export default function ItemList () {
     }
 
     return (
-        <div className="px-8 py-6 bg-red-100 my-4 @container/itemlist rounded-xl">
-            <header className="flex justify-between items-start p-2">
-                <div className="flex flex-col space-y-2">
-                    <p className="text-3xl font-bold text-black">รายการสินค้า</p>
-                    <div className="text-sm text-gray-700">ตรวจสอบสินค้า ณ ปัจจุบัน</div>
+        <div className="px-8 py-6 bg-gray-100 my-4 @container/itemlist rounded-xl">
+            <header className="flex justify-between p-2">
+                <div className="flex flex-col flex-1 space-y-2">
+                    <h2 className="text-3xl font-bold text-black">รายการสินค้า</h2>
+                    <p className="text-sm text-gray-700">ตรวจสอบสินค้า ณ ปัจจุบัน</p>
                 </div>
-                <div className="flex flex-col items-center space-y-2">
+                <div className="flex flex-col flex-1 items-end space-y-2">
                     <div className="relative">
                         <input
                         type="text"
@@ -66,13 +65,17 @@ export default function ItemList () {
             </header>
 
             <div 
-                className="grid grid-cols-3 @2xl/itemlist:grid-cols-4
+                className="mt-4 grid grid-cols-3 @2xl/itemlist:grid-cols-4
                 @4xl/itemlist:grid-cols-5 @6xl/itemlist:grid-cols-6
-                gap-4"
+                gap-4 @2xl/itemlist:gap-5 @4xl/itemlist:gap-6"
             >
                 {
                     displayList && displayList.length > 0
-                    ? displayList.map((item) => <Card item={item} key={item.id} handleImgLoad={handleImgLoad} allImgLoaded={allImgLoaded}/>)
+                    ? displayList.map((item) => (
+                        <Card key={item.id} item={item} 
+                            handleImgLoad={handleImgLoad} allImgLoaded={allImgLoaded}
+                        />
+                    ))
                     : <NotFoundDisplayList searchValue={searchValue}/>
                 }
             </div>

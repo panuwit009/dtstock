@@ -6,6 +6,7 @@ export * from "./itemlist";
 export * from "./loading";
 export * from "./login";
 export * from "./modal";
+export * from "./noscript";
 export * from "./overlay";
 export * from "./responsiveswitch";
 export * from "./sidebar";
