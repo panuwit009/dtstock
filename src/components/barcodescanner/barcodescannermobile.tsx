@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-import { qrCode, leftArrow } from "@/components";
+import { qrCode, leftArrow } from "../svg";
 import { Manual, Manage, Afterscan } from "./components";
 import { openCamera, closeCamera, } from "./function/openCamera";
 import type { CameraResult } from "@/type";

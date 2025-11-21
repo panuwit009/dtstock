@@ -1,4 +1,4 @@
-import { useShow } from "../../utils/showcontext"
+import { useShow } from "@/utils"
 
 export default function Modal () {
     const { setShow } = useShow();

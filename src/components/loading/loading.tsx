@@ -1,6 +1,5 @@
 "use client";
 import dynamic from "next/dynamic";
-import React from "react";
 import animationData from "../../../public/lottie/Loading-DTstock.json";
 
 const Player = dynamic(

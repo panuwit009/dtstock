@@ -1,5 +1,5 @@
 import type { CameraResult } from "@/type";
-import { overlayBlur } from "@/components";
+import { overlayBlur } from "../../overlay";
 export const Afterscan = (
     { data, setShow, waitScanbarcode, setCameraResult }:
     { 

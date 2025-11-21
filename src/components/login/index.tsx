@@ -1,7 +1,7 @@
 import { Header } from "./components/header";
 import { Form } from "./components/form";
 
-export default function Login ({ setIslogin }: { setIslogin: React.Dispatch<React.SetStateAction<boolean>>}) {
+export function Login ({ setIslogin }: { setIslogin: React.Dispatch<React.SetStateAction<boolean>>}) {
   return (
     <div
       className="min-h-dvh max-w-dvw flex justify-center items-center

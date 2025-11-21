@@ -4,7 +4,8 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Circle, logoutSuccess, logoutIcon } from "@/components";
+import { Circle, logoutIcon } from "../svg";
+import { logoutSuccess } from "../alert";
 import { useShow, useCheckScreen } from "@/utils";
 import { menu } from "./menu";
 import dtstockIcon from "./img/dtstockIcon.png";
@@ -17,7 +18,7 @@ const circleActive = "shrink-0 w-4 h-4 text-blue-500";
 const sidebarListClass = "flex items-center p-2 text-black rounded-lg hover:bg-white group hover:shadow-[inset_0_2px_6px_rgba(0,0,0,0.3)]";
 const sidebarListActive = "cursor-default shadow-[inset_0_2px_6px_rgba(0,0,0,0.3)] flex items-center p-2 text-black rounded-lg bg-white group";
 
-export default function Sidebar (
+export function Sidebar (
     { sidebarOpen, setSidebarOpen, setLoading, loading }: 
     { sidebarOpen: boolean; setSidebarOpen: React.Dispatch<React.SetStateAction<boolean>>; setLoading: React.Dispatch<React.SetStateAction<boolean>>; loading: boolean;}) {
     // const [sidebarOpen, setSidebarOpen] = useState<boolean>(true);
@@ -62,7 +63,7 @@ export default function Sidebar (
                     </div>
 
                     <div className="w-full flex flex-col items-center mt-4">
-                        <div className="relative w-22 h-22 rounded-full overflow-hidden p-4 bg-white">
+                        <div className="relative w-22 h-22 rounded-full overflow-hidden p-4 bg-white shadow-lg/30">
                             <Image
                                 src={popSiam}
                                 alt="profile picture"
@@ -108,8 +109,7 @@ export default function Sidebar (
                     onClick={logout}
                 >
                     <div
-                        className="w-10 h-10 bg-gray-100 flex items-center justify-center rounded-full
-                        group-hover:bg-red-300 transition-colors duration-200"
+                        className="w-10 h-10 flex items-center justify-center rounded-full bg-red-400"
                     >
                         {logoutIcon}
                     </div>   
