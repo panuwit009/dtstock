@@ -1,6 +1,7 @@
 "use client";
 import { useState, useMemo, useRef } from "react";
-import { Card, magnify } from "@/components";
+import { Card } from "@/components/card";
+import { magnify } from "@/components/svg";
 import ItemSort from "./components/itemsort";
 import { mockupdata } from "@/utils";
 

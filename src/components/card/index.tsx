@@ -2,10 +2,10 @@
 import { switchcolorbypercent } from "./function/switchcolorbypercent";
 import { useShow } from "@/utils";
 import type { Item } from "@/utils";
-import { Modal } from "@/components";
+import { Modal } from "../modal";
 import "./card.css"
 
-function Card ({item, handleImgLoad, allImgLoaded}: {item: Item; handleImgLoad: () => void; allImgLoaded:boolean;}) {
+export function Card ({item, handleImgLoad, allImgLoaded}: {item: Item; handleImgLoad: () => void; allImgLoaded:boolean;}) {
 const max: number = 100;
 const amountPercent: number = (item.amount * 100) / max;
 
@@ -61,7 +61,7 @@ return (
                     
                 <div className="flex justify-end items-center text-sm 2xl:text-lg text-gray-600 gap-1">
                     { !allImgLoaded 
-                        ? <span className="bg-gray-200 rounded-md pulse text-transparent">99999 ชิ้น</span>
+                        ? <span className="bg-gray-200 rounded-md pulse text-transparent">00 ชิ้น</span>
                         : <span className="">{item.amount} ชิ้น</span>
                     }
                 </div>
@@ -87,4 +87,3 @@ return (
 </div>
 );
 }
-export default Card;

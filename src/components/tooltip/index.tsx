@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 
-export default function Tooltip({ message }: { message: string }) {
+export function Tooltip({ message }: { message: string }) {
   const [pos, setPos] = useState<{ x: number; y: number } | null>(null);
   const [ready, setReady] = useState(false);
 

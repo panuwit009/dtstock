@@ -1,10 +1,11 @@
 // "use client";
 // import { useState } from "react";
-// import { LoadingAnimation, FormInsertItem } from "@/components";
-// import { useShow, useCheckScreen } from "@/utils"
+// import { LoadingAnimation } from "../loading";
+// import { FormInsertItem } from "../modal";
+// import { useShow, useCheckScreen } from "@/utils";
 // import { useRouter } from "next/navigation";
 
-// export default function StockManage ({ 
+// export function StockManage ({ 
 //     switchComponent 
 // } : { switchComponent: React.Dispatch<React.SetStateAction<"itemlist" | "barcodescanner">>}
 // ) {
