@@ -13,7 +13,7 @@ const color = switchcolorbypercent(amountPercent);
 const { setShow } = useShow();
     
 function Click () {
-    setShow(<Modal />) 
+    setShow(<Modal item={item} />) 
 }
 
 return (
