@@ -8,6 +8,7 @@ z-index
 35 - overlay
 
 30 - sidebar
+29 - sidebar overlay
 
 20
 
