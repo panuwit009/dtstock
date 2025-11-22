@@ -11,10 +11,6 @@ const amountPercent: number = (item.amount * 100) / max;
 
 const color = switchcolorbypercent(amountPercent);
 const { setShow } = useShow();
-    
-function Click () {
-    setShow(<Modal />) 
-}
 
 return (
 
@@ -26,7 +22,7 @@ return (
         before:absolute before:inset-0 before:rounded-xl
         before:opacity-0 hover:before:opacity-100 before:transition-opacity`
     }
-    onClick={Click}
+    onClick={()=> setShow(<Modal />) }
 >     
     <div className="w-full aspect-square overflow-hidden rounded-t-xl">
         { !allImgLoaded &&

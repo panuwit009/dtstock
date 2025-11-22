@@ -13,6 +13,6 @@ export { ResponsiveSwitch } from "./responsiveswitch";
 export { Sidebar } from "./sidebar";
 // export { StockManage } from "./stockmanage";
 export { qrCode, leftArrow, Dashboard, Kanban, Inbox, Users, Products, SignIn, SignUp,
-    Circle, logoutIcon, magnify
+    Circle, logoutIcon, magnify, info
 } from "./svg";
 export { Tooltip } from "./tooltip";
