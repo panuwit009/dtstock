@@ -6,6 +6,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Circle, logoutIcon } from "../svg";
 import { logoutSuccess } from "../alert";
+import { SidebarOverlayDissmiss } from "../overlay";
 import { useShow, useCheckScreen } from "@/utils";
 import { menu } from "./menu";
 import dtstockIcon from "./img/dtstockIcon.png";
@@ -42,7 +43,9 @@ export function Sidebar (
         setShow(logoutSuccess);
         router.push('/');
     }
-    return (   
+    return (
+        <>
+        { sidebarOpen && <SidebarOverlayDissmiss setSidebarOpen={setSidebarOpen}/>}
         <aside
             className={`fixed top-0 left-0 bottom-0 z-30 w-64 
                 transition-transform duration-300 ${sidebarOpen ? "translate-x-0" : "-translate-x-[95%]"}`}
@@ -141,6 +144,7 @@ export function Sidebar (
                 </button>
             </div>
         </aside>
+        </>
     );
 }
 

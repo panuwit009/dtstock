@@ -18,6 +18,13 @@ export const OverlayBlur = () => {
         <div className="fixed backdrop-blur-md inset-0 z-35" />
     );
 };
+
+export const SidebarOverlayDissmiss = ({ setSidebarOpen }: { setSidebarOpen: React.Dispatch<React.SetStateAction<boolean>>; }) => {
+    return (
+        <div className="fixed bg-black/40 inset-0 z-29 md:hidden" onClick={()=>setSidebarOpen(false)} />
+    );
+};
+
 export const overlay = <Overlay />;
 export const overlayDismiss = <OverlayDismiss />;
 export const overlayBlur = <OverlayBlur />;
