@@ -12,7 +12,7 @@ export { overlay, overlayDismiss, overlayBlur } from "./overlay";
 export { ResponsiveSwitch } from "./responsiveswitch";
 export { Sidebar } from "./sidebar";
 // export { StockManage } from "./stockmanage";
-export { qrCode, leftArrow, Dashboard, Kanban, Inbox, Users, Products, SignIn, SignUp,
-    Circle, logoutIcon, magnify, info
+export { qrCode, leftArrow, Circle, logoutIcon, magnify, Info, Camera, Plus
+    // Dashboard, Kanban, Inbox, Users, Products, SignIn, SignUp,
 } from "./svg";
 export { Tooltip } from "./tooltip";
