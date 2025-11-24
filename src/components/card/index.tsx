@@ -22,7 +22,14 @@ return (
         before:absolute before:inset-0 before:rounded-xl
         before:opacity-0 hover:before:opacity-100 before:transition-opacity`
     }
-    onClick={()=> setShow(<Modal item={item}/>) }
+    onClick={()=> setShow(
+    <Modal 
+        item={item} 
+        color={color} 
+        amountPercent={amountPercent} 
+    />
+      )   
+    }
 >     
     <div className="w-full aspect-square overflow-hidden rounded-t-xl">
         { !allImgLoaded &&

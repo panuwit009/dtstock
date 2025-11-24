@@ -63,18 +63,25 @@ export const Info = ({ className }: { className?: string }) => {
 
 export const PackageIcon = ({ className }: { className?: string }) => {
     return (
-        <svg className={className || "w-6 h-6"}
-            xmlns="http://www.w3.org/2000/svg" 
-            viewBox="0 0 24 24" 
-            fill="none" 
-            stroke="currentColor" 
-            strokeWidth="2" 
-            strokeLinecap="round" 
-            strokeLinejoin="round"
+        <svg
+            className={className}
+            viewBox="0 0 21 21"
+            fill="currentColor"
+            xmlns="http://www.w3.org/2000/svg"
         >
-            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
-            <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
-            <line x1="12" y1="22.08" x2="12" y2="12"/>
+            <g
+            fill="none"
+            stroke="currentColor"
+            strokeWidth={1}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            transform="translate(3 3)"
+            >
+            <path d="m8.492 1.067 5 2.857c.623.356 1.008 1.019 1.008 1.736v4.679c0 .718-.385 1.38-1.008 1.736l-5 2.857c-.615.351-1.37.351-1.985 0l-5-2.857c-.623-.356-1.008-1.019-1.008-1.736v-4.679c0-.718.385-1.38 1.008-1.736l5-2.857c.615-.351 1.37-.351 1.985 0z"/>
+            <path d="m11 6.5-7-4"/>
+            <path d="m1 5 5.552 2.989c.592.319 1.304.319 1.896 0l5.552-2.989"/>
+            <path d="m7.5 8.5v6.5"/>
+            </g>
         </svg>
     );
 };
@@ -89,29 +96,49 @@ export const CalendarIcon = ({ className }: { className?: string }) => {
 
 export const ChartIcon = ({ className }: { className?: string }) => {
     return (
-        <svg 
-            className={className || "w-6 h-6"}
-            xmlns="http://www.w3.org/2000/svg" 
-            viewBox="0 0 24 24" 
-            fill="none" 
-            stroke="currentColor" 
-            strokeWidth="2" 
-            strokeLinecap="round" 
-            strokeLinejoin="round"
+        <svg
+            className={className}
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
         >
-            <line x1="6" y1="20" x2="6" y2="10"/>
-            <line x1="12" y1="20" x2="12" y2="4"/>
-            <line x1="18" y1="20" x2="18" y2="14"/>
+            <path
+                d="M21 21H7.8C6.11984 21 5.27976 21 4.63803 20.673C4.07354 20.3854 3.6146 19.9265 3.32698 19.362C3 18.7202 3 17.8802 3 16.2V3M15 10V17M7 13V17M19 5V17M11 7V17"
+                stroke="currentColor"
+                strokeWidth={2}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+            />
         </svg>
     );
 };
 
 export const EditIcon = ({ className }: { className?: string }) => {
     return (
-        <svg className={className || "w-5 h-5 text-white"} 
-            fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} 
-                d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+        <svg
+            className={className}
+            viewBox="0 0 32 32"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="currentColor"
+        >
+            <g fill="none" fillRule="evenodd">
+                <path d="M0 0h32v32H0z" />
+                <path
+                    d="M17.0058746 2c.5522848 0 1 .44771525 1 1 0 .51283584-.3860402.93550716-.8833788.99327227l-.1166212.00672773H7
+                    c-1.59768088 0-2.90366088 1.24891996-2.99490731 2.82372721L4 6v18c0 1.5976809 1.24891996 2.9036609 
+                    2.82372721 2.9949073L7 27h18c1.5976809 0 2.9036609-1.24892 2.9949073-2.8237272L28 24v-9.9962769c0-.5522847.4477153-1 
+                    1-1 .5128358 0 .9355072.3860402.9932723.8833789L30 14v9.9962769c0 2.6887547-2.1223067 4.8818181-4.7831104 
+                    4.9953805L25 29H7c-2.6887547 0-4.88181811-2.1223067-4.99538049-4.7831104L2 24V6c0-2.6887547 
+                    2.12230671-4.88181811 4.78311038-4.99538049L7 1h10.0058746zm11.6814522 1.99910108c1.1715728 
+                    1.17157287 1.1715728 3.07106781 0 4.24264069l-9.6830326 9.68303263c-.5243715.5243714-1.1588178.9255367-1.8573747 
+                    1.1744323l-3.6013076 1.2831446c-.5202485.1853643-1.0922608-.0861129-1.2776251-.6063614-.0795311-.2232142-.0772135-.4674177.0065399-.6890821l1.4674833-3.8838907c.2006363-.5310108.5119964-1.0132364.9133862-1.4146261l9.7892899-9.78928992c1.1715729-1.17157288 3.0710678-1.17157288 4.2426407 0zm-2.7412063 1.3365072-.0872209.07770636-9.7892899 
+                    9.78928996c-.1605559.1605559-.2923023.3469792-.3899415.5510651l-.0667516.1562479-.7037369 
+                    1.8639532 1.5664761-.5586506c.3492785-.1244478.6718442-.3123413.9517373-.553589l.1626875-.1510704 
+                    9.6830326-9.6830326c.3905243-.39052429.3905243-1.02368927 0-1.41421356-.3626297-.3626297-.9344751-.38853182-1.3269927-.07770636z"
+                    fill="currentColor"
+                    fillRule="nonzero"
+                />
+            </g>
         </svg>
     );
 }
