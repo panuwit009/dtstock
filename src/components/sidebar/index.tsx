@@ -5,9 +5,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Circle, logoutIcon } from "../svg";
-import { logoutSuccess } from "../alert";
 import { SidebarOverlayDissmiss } from "../overlay";
-import { useShow, useCheckScreen } from "@/utils";
+import { useCheckScreen } from "@/utils";
 import { menu } from "./menu";
 import dtstockIcon from "./img/dtstockIcon.png";
 import popSiam from "../../../public/img/logo.jpg";
@@ -23,7 +22,6 @@ export function Sidebar (
     { sidebarOpen, setSidebarOpen, setLoading, loading }: 
     { sidebarOpen: boolean; setSidebarOpen: React.Dispatch<React.SetStateAction<boolean>>; setLoading: React.Dispatch<React.SetStateAction<boolean>>; loading: boolean;}) {
     // const [sidebarOpen, setSidebarOpen] = useState<boolean>(true);
-    const { setShow } = useShow();
     const router = useRouter();
     const pathname = usePathname();
     const [activePath, setActiveClass] = useState(pathname);
@@ -40,7 +38,6 @@ export function Sidebar (
     };
 
     function logout (): void {
-        setShow(logoutSuccess);
         router.push('/');
     }
     return (
