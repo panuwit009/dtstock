@@ -1,6 +1,10 @@
+"use client";
 import { Info, Camera, Plus } from "@/components/svg";
+import { FormInsertItem } from "@/components/modal";
+import { useShow } from "@/utils";
 
 export default function HomeUserGuide () {
+    const { setShow } = useShow();
     return (
         <div 
             className="bg-green-100 rounded-xl min-h-20 
@@ -18,7 +22,11 @@ export default function HomeUserGuide () {
                             <Camera />
                             <span className="hidden @xl/homeUserGuide:block">เปิดกล้อง</span>
                         </button>
-                        <button className="bg-white p-2 rounded-md cursor-pointer hover:bg-blue-100 flex items-center gap-2">
+                        <button 
+                            className="bg-white hover:bg-blue-100 
+                            p-2 rounded-md cursor-pointer  flex items-center gap-2"
+                            onClick={() => setShow(<FormInsertItem />)}
+                        >
                             <Plus />
                             <span className="hidden @xl/homeUserGuide:block">เพิ่มรายการใหม่</span>
                         </button>
