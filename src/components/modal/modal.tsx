@@ -3,7 +3,7 @@ import { overlay, overlayDismiss, overlayBlur } from "@/components";
 import { PackageIcon, CalendarIcon, ChartIcon, QrCodeIcon, CloseTab, EditIcon } from "../svg"
 import { Item } from "@/utils";
 
-export default function Modal ({item} : {item: Item;}) {
+export default function Modal ({item, color, amountPercent} : {item: Item; color: string | null; amountPercent: number; }) {
     const { setShow } = useShow();
 
     return (
@@ -125,7 +125,7 @@ export default function Modal ({item} : {item: Item;}) {
                                             </div>
                                             <div className="bg-gray-300 rounded-xl">
                                                 <div className="flex items-center">
-                                                    <hr className="rounded-xl border-4 border-[#AEF05E] w-full" />
+                                                    <hr className={`rounded-xl border-4 ${color}`} style={{ width: `${amountPercent}%` }} />
                                                 </div>
                                             </div>
                                             <div className="flex items-center justify-between">
@@ -144,10 +144,10 @@ export default function Modal ({item} : {item: Item;}) {
 
                                             <div className="flex items-center gap-1">
                                                 <CalendarIcon className="w-4 h-4 text-blue-500"/>
-                                                <span className="font-light text-gray-700">วันหมดอายุฉฉ</span>
+                                                <span className="font-light text-gray-700">วันหมดอายุ</span>
                                             </div>
 
-                                            <span className="font-bold text-xl">19/01/2568</span>
+                                            <span className="font-bold text-xl">{item.exp}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -234,8 +234,6 @@ export default function Modal ({item} : {item: Item;}) {
 
                                     </div>
                                 </div>
-
-
                             </div>
                         </div>
                     </div>
