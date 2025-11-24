@@ -1,6 +1,6 @@
 import { useShow } from "../../utils/showcontext"
 import { overlay, overlayDismiss, overlayBlur } from "@/components";
-import { PackageIcon, CalendarIcon, ChartIcon, QrCodeIcon, CloseTab } from "../svg"
+import { PackageIcon, CalendarIcon, ChartIcon, QrCodeIcon, CloseTab, EditIcon } from "../svg"
 import { Item } from "@/utils";
 
 export default function Modal ({item} : {item: Item;}) {
@@ -169,7 +169,7 @@ export default function Modal ({item} : {item: Item;}) {
                                             
                                             <div className="flex items-center gap-3">
                                                 <div className="flex bg-gray-200 rounded-xl p-2">
-                                                    <PackageIcon className="w-6 h-6 text-gray-700" />
+                                                    <PackageIcon className="w-7 h-7 text-gray-600" />
                                                 </div>
                                                 <div className="flex flex-col min-w-0">
                                                     <span className="text-sm text-gray-500">ชื่อสินค้า</span>
@@ -181,7 +181,7 @@ export default function Modal ({item} : {item: Item;}) {
 
                                             <div className="flex items-center gap-3">
                                                 <div className="flex bg-gray-200 rounded-xl p-2">
-                                                    <ChartIcon className="w-6 h-6 text-gray-700" />
+                                                    <ChartIcon className="w-6 h-6 text-gray-500" />
                                                 </div>
                                                 <div className="flex flex-col min-w-0">
                                                     <span className="text-sm text-gray-500">หมวดหมู่</span>
@@ -194,32 +194,42 @@ export default function Modal ({item} : {item: Item;}) {
                                         </div>
 
                                         {/* right */}
-                                        <div className="flex flex-col sm:flex-row items-start gap-4">
-                                                
-                                            <button 
-                                                className="w-full
-                                                bg-gradient-to-r from-cyan-400 to-blue-500 rounded-lg shadow-md
-                                                text-white font-thin
-                                                py-2 sm:py-1
-                                                "
-                                            >แก้ไขข้อมูล</button>
+                                        <div className="flex flex-col sm:flex-row items-center gap-4">
 
-                                            <button 
-                                                className="w-full
-                                                bg-whit shadow-md rounded-lg
-                                                border border-gray-400/55 
-                                                text-gray-900/70 font-thin
-                                                py-2 sm:py-1"
-                                            >เพิ่มสต๊อก</button>
-
-                                            <button 
-                                                className="w-full sm:w-auto
-                                                bg-white shadow-md rounded-lg
-                                                border border-gray-400/55 
+                                            <div 
+                                                className="
+                                                bg-gradient-to-r from-cyan-400 to-blue-500 rounded-lg shadow-md 
                                                 flex items-center justify-center
-                                                text-black font-thin
-                                                py-2 sm:p-1 "
-                                            ><QrCodeIcon /> </button>
+                                                gap-1 py-2 sm:py-1
+                                                w-full"
+                                            >
+                                                <EditIcon className="w-5 h-5 text-white"/>
+                                                <button className="text-white">แก้ไขข้อมูล</button>
+                                             </div>          
+
+                                            <div 
+                                                className="
+                                                bg-white shadow-md rounded-lg
+                                                flex items-center justify-center
+                                                border border-gray-400/55 
+                                                gap-1 py-2 sm:py-1
+                                                w-full"
+                                            >
+                                                <PackageIcon className="w-6.5 h-6.5 text-gray-700"/> 
+                                                <button className="w-fulltext-gray-900/70 font-thin">เพิ่มสต๊อก</button>
+                                            </div>
+
+                                            <div className="">
+                                                <button 
+                                                    className="w-full sm:w-auto
+                                                    bg-white shadow-md rounded-lg
+                                                    border border-gray-400/55 
+                                                    flex items-center justify-center
+                                                    text-black font-thin
+                                                    py-2 sm:p-1 "
+                                                ><QrCodeIcon /> </button>
+                                            </div>
+
                                         </div>
 
                                     </div>
