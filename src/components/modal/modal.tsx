@@ -266,7 +266,7 @@ export function Card ( { label, value, unit, icon, className }:  Card ) {
     <div 
         className={`${className} 
             flex flex-col justify-center 
-            rounded-3xl shadow-md
+            rounded-3xl shadow-[0_0_10px_rgba(0,0,0,0.1)]
             border border-gray-400/55 
             gap-8 px-4 py-2`}
     >
