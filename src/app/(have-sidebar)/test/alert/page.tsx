@@ -1,5 +1,5 @@
 "use client";
-import { example } from "@/components";
+import { example } from "@/components/alert";
 import { useShow } from "@/utils";
 
 export default function TestAlert () {

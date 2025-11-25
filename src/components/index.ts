@@ -1,9 +1,5 @@
-export { AlertPTB, AlertPTBIcon, AlertPTBMessageSection, AlertPTBHeaderMessage,
-    AlertPTBMessage, AlertPTBConfirmButton, example, logoutSuccess
-} from "./alert";
 export { BarcodeScanner, BarcodeScannerMobile } from "./barcodescanner";
-export { Card } from "./card";
-export { HomeHeader, ItemList } from "./home";
+export { HomeHeader, HomeUserGuide, ItemList } from "./home";
 export { FullScreenLoading, LoadingAnimation, SillyLoading } from "./loading";
 export { Login } from "./login";
 export { Modal, FormInsertItem } from "./modal";
@@ -11,8 +7,4 @@ export { NoScript } from "./noscript";
 export { overlay, overlayDismiss, overlayBlur } from "./overlay";
 export { ResponsiveSwitch } from "./responsiveswitch";
 export { Sidebar } from "./sidebar";
-// export { StockManage } from "./stockmanage";
-export { qrCode, leftArrow, Circle, logoutIcon, magnify, Info, Camera, Plus
-    // Dashboard, Kanban, Inbox, Users, Products, SignIn, SignUp,
-} from "./svg";
 export { Tooltip } from "./tooltip";

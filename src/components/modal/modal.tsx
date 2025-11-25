@@ -1,4 +1,4 @@
-import { useShow } from "../../utils/showcontext"
+import { useShow } from "@/utils"
 import { overlay, overlayDismiss, overlayBlur } from "@/components";
 import { PackageIcon, CalendarIcon, ChartIcon, QrCodeIcon, CloseTab, EditIcon } from "../svg"
 import { Item } from "@/utils";
