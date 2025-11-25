@@ -3,4 +3,5 @@ export const menu = [
     { name: "ทดสอบ Alert", path: "/test/alert" },
     { name: "ทดสอบ Fullscreen Loading", path: "/test/loading" },
     { name: "ทดสอบหน้าจอ", path: "/test/responsive" },
+    { name: "ลองฝึกเขียนโค้ด", path: "/test/try" },
 ];
