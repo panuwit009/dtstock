@@ -7,7 +7,7 @@ export interface Item {
 }
 
 export const mockupdata: Item[] = [
-    { id: 4, name: "ยาพารา", amount: 50, exp: "16/4/2561", image:"https://get.pxhere.com/photo/tree-horizon-road-field-prairie-highway-driving-asphalt-dirt-road-open-road-lane-plain-road-trip-grassland-infrastructure-rural-area-road-surface-nonbuilding-structure-controlled-access-highway-1456.jpg" },
+    // { id: 4, name: "ยาพารา", amount: 50, exp: "16/4/2561", image:"https://get.pxhere.com/photo/tree-horizon-road-field-prairie-highway-driving-asphalt-dirt-road-open-road-lane-plain-road-trip-grassland-infrastructure-rural-area-road-surface-nonbuilding-structure-controlled-access-highway-1456.jpg" },
     { id: 1, name: "ที่ขูดหินปูน", amount: 6, exp: "31/1/2561", image:"https://thaigroomingworld.com/cdn/shop/files/1_0c089071-3919-4233-ab7f-150f0ad59afe.jpg?v=1701003675&width=600"},
     { id: 2, name: "ไหมขัดฟัน", amount: 83, exp: "12/2/2561", image:"https://www.willdentdentalclinic.com/wp-content/uploads/2022/11/image2-6.png"},
     { id: 3, name: "แปรงสีฟันแปรงสีฟันแปรงสีฟันแปรงสีฟันแปรงสีฟันแปรงสีฟันแปรงสีฟันแปรงสีฟัน", amount: 22, exp: "1/3/2561", image:"https://dragcura.com/wp-content/uploads/2024/09/edelwhite-cleancurl-1.webp"},
