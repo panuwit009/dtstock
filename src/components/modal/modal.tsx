@@ -3,13 +3,18 @@ import { overlay, overlayDismiss, overlayBlur } from "@/components";
 import { PackageIcon, CalendarIcon, ChartIcon, QrCodeIcon, CloseTab, EditIcon } from "../svg"
 import { Item } from "@/utils";
 
-export default function Modal ({item, color, amountPercent} : {item: Item; color: string | null; amountPercent: number; }) {
+export default function Modal ({item, color, amountPercent} : {
+    item: Item; 
+    color: string | null; 
+    amountPercent: number; 
+}) {
     const { setShow } = useShow();
 
     return (
-        <>{overlayDismiss}
-
-            <div id="myModal" 
+        <>
+            {overlayDismiss}
+            <div 
+                id="myModal" 
                 className="
                     fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-36 
                     w-[calc(100%-4rem)] lg:max-w-5xl max-h-[90vh]
@@ -146,7 +151,6 @@ export default function Modal ({item, color, amountPercent} : {item: Item; color
                                                 <CalendarIcon className="w-4 h-4 text-blue-500"/>
                                                 <span className="font-light text-gray-700">วันหมดอายุ</span>
                                             </div>
-
                                             <span className="font-bold text-xl">{item.exp}</span>
                                         </div>
                                     </div>
