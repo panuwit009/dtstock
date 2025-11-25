@@ -156,7 +156,7 @@ export default function Modal ({item, color, amountPercent} : {
                                     </div>
                                 </div>
 
-                                <div className="col-span-3">
+                                <footer className="col-span-3">
                                     <header className="text-center md:text-left text-lg font-semibold text-gray-800 mb-4">
                                         ข้อมูลทั่วไป
                                     </header>
@@ -198,46 +198,53 @@ export default function Modal ({item, color, amountPercent} : {
                                         </div>
 
                                         {/* right */}
-                                        <div className="flex flex-col sm:flex-row items-center gap-4">
+                                        <div className="flex flex-col sm:flex-row items-center gap-3 md:gap-4">
 
                                             <div 
                                                 className="
-                                                bg-gradient-to-r from-cyan-400 to-blue-500 rounded-lg shadow-md 
+                                                w-full
+                                                bg-gradient-to-r from-cyan-400 to-blue-500 rounded-lg shadow-md
+                                                hover:from-sky-500 hover:to-blue-700 transition duration-150
                                                 flex items-center justify-center
-                                                gap-1 py-2 sm:py-1
-                                                w-full"
+                                                cursor-pointer
+                                                gap-1 py-2 sm:py-1"
                                             >
                                                 <EditIcon className="w-5 h-5 text-white"/>
-                                                <button className="text-white">แก้ไขข้อมูล</button>
+                                                <button 
+                                                    className="text-white ">แก้ไขข้อมูล</button>
                                              </div>          
 
                                             <div 
                                                 className="
+                                                w-full
                                                 bg-white shadow-md rounded-lg
+                                                hover:bg-gray-200 transition duration-150
                                                 flex items-center justify-center
+                                                cursor-pointer
                                                 border border-gray-400/55 
-                                                gap-1 py-2 sm:py-1
-                                                w-full"
+                                                gap-1 py-2 sm:py-1"
                                             >
                                                 <PackageIcon className="w-6.5 h-6.5 text-gray-700"/> 
                                                 <button className="w-fulltext-gray-900/70 font-thin">เพิ่มสต๊อก</button>
                                             </div>
 
-                                            <div className="">
-                                                <button 
-                                                    className="w-full sm:w-auto
-                                                    bg-white shadow-md rounded-lg
-                                                    border border-gray-400/55 
-                                                    flex items-center justify-center
-                                                    text-black font-thin
-                                                    py-2 sm:p-1 "
-                                                ><QrCodeIcon /> </button>
+                                            <div 
+                                                className="
+                                                w-full sm:w-auto
+                                                bg-white shadow-md rounded-lg
+                                                hover:bg-gray-200 transition duration-150
+                                                border border-gray-400/55 
+                                                flex items-center justify-center
+                                                cursor-pointer
+                                                py-2 sm:p-1"
+                                            >
+                                                <button className="text-black font-thin"><QrCodeIcon /> </button>
                                             </div>
 
                                         </div>
 
                                     </div>
-                                </div>
+                                </footer>
                             </div>
                         </div>
                     </div>
@@ -246,7 +253,15 @@ export default function Modal ({item, color, amountPercent} : {
     )
 }
 
-export function Card ( { label, value, unit, icon, className }: { label: string; value: number | string; unit: string; icon?: string; className?: string } ) {
+type Card = {
+    label: string;
+    value: number | string;
+    unit: string;
+    icon?: string;
+    className?: string;
+}
+
+export function Card ( { label, value, unit, icon, className }:  Card ) {
     return (
     <div 
         className={`${className} 
