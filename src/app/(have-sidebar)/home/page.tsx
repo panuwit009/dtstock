@@ -5,7 +5,7 @@ export default function Home () {
         <ResponsiveSwitch 
             mobile={<MobileView />}
             tablet={<TabletView />}
-        />
+        /> 
     );
 }
 
