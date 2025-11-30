@@ -49,7 +49,7 @@ function TabletView ({ children, sidebarOpen, setSidebarOpen, loading, setLoadin
 function MobileView ({ children }: { children: React.ReactNode; }) {
     return (
         <main 
-            className={`relative flex w-dvw h-dvh bg-yellow-100 overflow-auto`}
+            className={`flex flex-col w-dvw max-h-dvh bg-yellow-100`}
         >
             { children }
         </main>

@@ -12,7 +12,7 @@ export default function Home () {
 function MobileView () {
     return (
         <>
-            <div className="bg-blue-200">
+            <div className="bg-blue-200 flex-1 scroll-area">
                 <p className="text-4xl">asdasd</p>
                 <p className="text-4xl">asdasd</p>
                 <p className="text-4xl">asdasd</p>
@@ -29,10 +29,11 @@ function MobileView () {
                 <p className="text-4xl">asdasd</p>
                 <p className="text-4xl">asdasd</p>
                 <p className="text-4xl">asdasd</p>
+                <p className="text-4xl">ฟหกฟหก</p>
             </div>
             <nav
-                className="absolute bottom-0 left-0 right-0 h-20
-                flex justify-center items-center bg-green-100"
+                className="h-20
+                flex shrink-0 justify-center items-center bg-green-100"
             >
                 asd
             </nav>
