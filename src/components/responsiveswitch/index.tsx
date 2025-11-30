@@ -12,8 +12,9 @@ export function ResponsiveSwitch({ mobile, tablet, desktop }: Props) {
   
   if (isTablet && tablet) {
     return <>{tablet}</>;
-    } else if (isDesktop && desktop) {
-        return <>{desktop}</>;
-    }
-    return <>{mobile}</>;
+  } else if (isDesktop && desktop) {
+    return <>{desktop}</>;
+  }
+  
+  return <>{mobile}</>;
 }
