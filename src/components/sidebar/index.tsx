@@ -101,9 +101,9 @@ export function Sidebar (
                 </nav>
                 <hr className="text-blue-300 w-56 border-1 self-center" />
                 <footer
-                    className="p-4
+                    className="p-2
                     text-center text-sm text-gray-700 
-                    cursor-pointer flex flex-row items-center justify-center gap-2
+                    cursor-pointer flex items-center justify-center gap-2
                     hover:text-blue-600
                     group"
                     onClick={logout}
