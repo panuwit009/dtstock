@@ -18,7 +18,7 @@ export default function Modal ({item, color, amountPercent} : {
                 className="
                     fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-36 
                     w-[calc(100%-4rem)] lg:max-w-5xl max-h-[90vh]
-                    overflow-y-auto"
+                    overflow-y-auto rounded-xl"
             >
 
                     <div 
@@ -69,7 +69,9 @@ export default function Modal ({item, color, amountPercent} : {
                                 absolute top-4 right-4 
                                 bg-white rounded-full shadow-md
                                 w-10 h-10 
-                                flex items-center justify-center"
+                                flex items-center justify-center
+                                cursor-pointer
+                                hover:bg-gray-100 transition-colors"
                             >
                                 <CloseTab/>
                             </button>
@@ -163,13 +165,13 @@ export default function Modal ({item, color, amountPercent} : {
 
                                     <div 
                                         className="
-                                        grid grid-cols-1 md:grid-cols-[45%_55%]
+                                        grid grid-cols-1 md:grid-cols-2
                                         items-center
-                                        gap-4 md:gap-0
+                                        gap-4
                                     "> 
 
                                         {/* left */}
-                                        <div className="flex justify-center md:justify-start gap-12">
+                                        <div className="flex justify-center md:justify-start gap-6">
                                             
                                             <div className="flex items-center gap-3">
                                                 <div className="flex bg-gray-200 rounded-xl p-2">
@@ -177,7 +179,7 @@ export default function Modal ({item, color, amountPercent} : {
                                                 </div>
                                                 <div className="flex flex-col min-w-0">
                                                     <span className="text-sm text-gray-500">ชื่อสินค้า</span>
-                                                    <span className="text-base font-medium text-gray-900 truncate">
+                                                    <span className="text-base font-medium text-gray-900 break-words">
                                                         {item.name}
                                                     </span>
                                                 </div>
@@ -189,7 +191,7 @@ export default function Modal ({item, color, amountPercent} : {
                                                 </div>
                                                 <div className="flex flex-col min-w-0">
                                                     <span className="text-sm text-gray-500">หมวดหมู่</span>
-                                                    <span className="text-base font-medium text-gray-900 truncate">
+                                                    <span className="text-base font-medium text-gray-900 break-words">
                                                         ครุภัณฑ์
                                                     </span>
                                                 </div>
