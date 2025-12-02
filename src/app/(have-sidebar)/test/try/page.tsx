@@ -6,6 +6,14 @@ export default function Try() {
   const [message, setMessage] = useState("");
   const [feedback, setFeedback] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [chatType, setChatType] = useState<"private" | "group">("private");
+
+    // ใส่ chat_id ของคุณตรงนี้
+  const chatIds = {
+    private: "5822680961",
+    group: "-5092396893",
+  };
+
 
   const sendMessage = async () => {
     if (!message.trim()) {
@@ -19,7 +27,7 @@ export default function Try() {
     try {
       // ใช้ fetch POST ไปที่ Telegram API โดยตรง
       const botToken = "8334450831:AAEVSf7ZstwdjrHKu4R8Ogj3gfotLSDZYjw"; // ใส่ token ของคุณ
-      const chatId = "5822680961";
+      const chatId = chatIds[chatType];
       const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
 
       const res = await fetch(url, {
@@ -91,6 +99,27 @@ export default function Try() {
 
                     <h1 className="text-center text-2xl font-bold text-gray-800 mb-2">ทดสอบส่งข้อความ Telegram</h1>
                     <p className="text-center text-sm text-gray-500 mb-6">พิมพ์ข้อความและกดส่งเพื่อทดสอบ</p>
+
+                    <div className="mb-4 flex gap-4">
+                        <label>
+                            <input
+                            type="radio"
+                            value="private"
+                            checked={chatType === "private"}
+                            onChange={() => setChatType("private")}
+                            />{" "}
+                            ส่วนตัว
+                        </label>
+                        <label>
+                            <input
+                            type="radio"
+                            value="group"
+                            checked={chatType === "group"}
+                            onChange={() => setChatType("group")}
+                            />{" "}
+                            กลุ่ม
+                        </label>
+                    </div>
 
                     <input
                         className="w-full px-4 py-3 bg-gray-50 border-2 border-gray-200 rounded-xl placeholder:text-center focus:outline-none focus:border-sky-400 focus:bg-white transition-all duration-200"
