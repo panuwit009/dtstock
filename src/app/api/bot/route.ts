@@ -1,9 +1,11 @@
-export async function POST(req: Request) {
+import { NextRequest, NextResponse } from "next/server";
+
+export async function POST(req: NextRequest) {
   const body = await req.json();
   const botToken = "8334450831:AAEVSf7ZstwdjrHKu4R8Ogj3gfotLSDZYjw";
 
   const message = body.message;
-  if (!message) return Response.json({ ok: true });
+  if (!message) return NextResponse.json({ ok: true });
 
   const chatId = message.chat.id;
   const text = message.text || "";
@@ -17,5 +19,5 @@ export async function POST(req: Request) {
     });
   }
 
-  return Response.json({ ok: true });
+  return NextResponse.json({ ok: true });
 }
