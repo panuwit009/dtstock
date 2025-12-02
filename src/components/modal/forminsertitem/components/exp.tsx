@@ -23,8 +23,8 @@ export default function Exp () {
                                 <label htmlFor="exp">
                                     <div className={`h-8 w-15 rounded-full relative p-1 transition-all duration-300 inline-block
                                                     ${exp
-                                                        ? 'bg-amber-400'
-                                                        : 'bg-gray-200'
+                                                        ? 'bg-green-600'
+                                                        : 'bg-red-600'
                                                     }
                                                     `}>
                                         <div className={`h-6 w-6 bg-white rounded-full absolute top-1 transition-all duration-300
