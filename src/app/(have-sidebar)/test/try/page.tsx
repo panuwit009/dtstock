@@ -1,5 +1,5 @@
 "use client";
-import Moveable from "react-moveable";
+import Moveable, { OnDrag } from "react-moveable";
 
 export default function Try () {
 
