@@ -49,8 +49,9 @@ export default function Try() {
       } else {
         setFeedback("เกิดข้อผิดพลาด: " + data.description);
       }
-    } catch (err: any) {
-      setFeedback("Error: " + err.message);
+    } catch (err) {
+      const errmessage = err instanceof Error ? err.message : "Unknown error."
+      setFeedback("Error: " + errmessage);
     } finally {
       setIsLoading(false);
     }
