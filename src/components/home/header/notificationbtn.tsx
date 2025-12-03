@@ -124,8 +124,8 @@ export default function NotificationButton() {
 
         {newNotificationsCount > 0 && (
           <>
-            <span className="absolute top-0 right-0 w-4 h-4 rounded-full bg-green-400 animate-ping"></span>
-            <span className="absolute top-0 right-0 w-4 h-4 rounded-full bg-green-400"></span>
+            <span className="absolute top-0 right-0 w-4 h-4 rounded-full bg-red-500 animate-ping"></span>
+            <span className="absolute top-0 right-0 w-4 h-4 rounded-full bg-red-500"></span>
           </>
         )}
       </button>
