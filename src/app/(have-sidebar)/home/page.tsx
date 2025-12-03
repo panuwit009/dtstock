@@ -12,44 +12,36 @@ export default function Home () {
 function MobileView () {
     return (
         <>
-            <div className="bg-blue-200 flex-1 scroll-area">
-                <p className="text-4xl">asdasd</p>
-                <p className="text-4xl">asdasd</p>
-                <p className="text-4xl">asdasd</p>
-                <p className="text-4xl">asdasd</p>
-                <p className="text-4xl">asdasd</p>
-                <p className="text-4xl">asdasd</p>
-                <p className="text-4xl">asdasd</p>
-                <p className="text-4xl">asdasd</p>
-                <p className="text-4xl">asdasd</p>
-                <p className="text-4xl">asdasd</p>
-                <p className="text-4xl">asdasd</p>
-                <p className="text-4xl">asdasd</p>
-                <p className="text-4xl">asdasd</p>
-                <p className="text-4xl">asdasd</p>
-                <p className="text-4xl">asdasd</p>
-                <p className="text-4xl">asdasd</p>
-                <p className="text-4xl">ฟหกฟหก</p>
-            </div>
-            <nav
-                className="h-20
-                flex shrink-0 justify-center items-center bg-green-100"
-            >
-                asd
-            </nav>
+            <p className="text-4xl">asdasd</p>
+            <p className="text-4xl">asdasd</p>
+            <p className="text-4xl">asdasd</p>
+            <p className="text-4xl">asdasd</p>
+            <p className="text-4xl">asdasd</p>
+            <p className="text-4xl">asdasd</p>
+            <p className="text-4xl">asdasd</p>
+            <p className="text-4xl">asdasd</p>
+            <p className="text-4xl">asdasd</p>
+            <p className="text-4xl">asdasd</p>
+            <p className="text-4xl">asdasd</p>
+            <p className="text-4xl">asdasd</p>
+            <p className="text-4xl">asdasd</p>
+            <p className="text-4xl">asdasd</p>
+            <p className="text-4xl">asdasd</p>
+            <p className="text-4xl">asdasd</p>
+            <p className="text-4xl">ฟหกฟหก</p>   
         </>
     );
 }
 
 function TabletView () {
     return (
-        <>
+        <div className="px-4">
             <HomeHeader />
             {/* <hr className="flex self-center"/> */}
             <div className="relative mt-4">
                 <HomeUserGuide />
                 <ItemList />
             </div>
-        </>
+        </div>
     );
 }
