@@ -7,7 +7,6 @@ export default function Try() {
   const [isLoading, setIsLoading] = useState(false);
   const [chatType, setChatType] = useState<"private" | "group">("private");
 
-  
     // ใส่ chat_id ของคุณตรงนี้
   const chatIds = {
     private: "5822680961",
@@ -22,7 +21,6 @@ export default function Try() {
     }
 
     setIsLoading(true);
-    setFeedback("");
 
     try {
       // ใช้ fetch POST ไปที่ Telegram API โดยตรง
@@ -106,20 +104,20 @@ export default function Try() {
                         disabled={isLoading}
                     >
                         {isLoading 
-                            ? (
+                            ? 
                                 <>
                                     <div className="w-5 h-5 border-[3px] border-white border-t-transparent rounded-full animate-spin" />
                                     <span>กำลังส่ง...</span>
                                 </>
-                            )
-                            : (
+                            
+                            : 
                                 <>
                                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
                                     </svg>
                                     <span>ส่งข้อความ</span>
                                 </>
-                            )
+                            
                         }
                     </button>
 
