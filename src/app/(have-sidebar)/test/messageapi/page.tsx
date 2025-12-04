@@ -6,6 +6,7 @@ export default function Try() {
   const [feedback, setFeedback] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [chatType, setChatType] = useState<"private" | "group">("private");
+  const method = "POST";
 
     // ใส่ chat_id ของคุณตรงนี้
   const chatIds = {
@@ -15,10 +16,17 @@ export default function Try() {
 
 
   const sendMessage = async () => {
+
     if (!message.trim()) {
+      console.log("ข้อความว่างป่าว");
       setFeedback("กรุณาพิมพ์ข้อความก่อน");
       return;
     }
+
+      console.log("ข้อความที่ส่ง : ", message)
+      console.log("ส่งไปที่ไหน : ", chatType)
+      console.log( { method })
+
 
     setIsLoading(true);
 
@@ -38,6 +46,7 @@ export default function Try() {
           text: message,
         }),
       });
+
 
       const data = await res.json();
 
