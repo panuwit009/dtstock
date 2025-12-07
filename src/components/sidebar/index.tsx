@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 import { Circle, logoutIcon } from "../svg";
 import { SidebarOverlayDissmiss } from "../overlay";
 import { useCheckScreen } from "@/utils";
+import { useUiState } from "@/state";
 import { menu } from "./menu";
 import dtstockIcon from "./img/dtstockIcon.png";
 import popSiam from "../../../public/img/logo.jpg";
@@ -18,9 +19,11 @@ const sidebarListClass = "flex items-center p-2 text-black rounded-lg hover:bg-w
 const sidebarListActive = "cursor-default shadow-[inset_0_2px_6px_rgba(0,0,0,0.3)] flex items-center p-2 text-black rounded-lg bg-white group";
 
 export function Sidebar (
-    { sidebarOpen, setSidebarOpen, setLoading, loading }: 
-    { sidebarOpen: boolean; setSidebarOpen: React.Dispatch<React.SetStateAction<boolean>>; setLoading: React.Dispatch<React.SetStateAction<boolean>>; loading: boolean;}) {
-    // const [sidebarOpen, setSidebarOpen] = useState<boolean>(true);
+    { setLoading, loading }: 
+    { setLoading: React.Dispatch<React.SetStateAction<boolean>>; loading: boolean;}) {
+
+    const sidebarOpen = useUiState((s) => (s.sidebarOpen));
+    const setSidebarOpen = useUiState((s) => (s.setSidebarOpen));
     const router = useRouter();
     const pathname = usePathname();
     const [activePath, setActiveClass] = useState(pathname);
@@ -41,7 +44,7 @@ export function Sidebar (
     }
     return (
         <>
-        { sidebarOpen && <SidebarOverlayDissmiss setSidebarOpen={setSidebarOpen}/>}
+        { sidebarOpen && <SidebarOverlayDissmiss />}
         <aside
             className={`fixed top-0 left-0 bottom-0 z-30 w-64 
                 transition-transform duration-300 ${sidebarOpen ? "translate-x-0" : "-translate-x-[95%]"}`}

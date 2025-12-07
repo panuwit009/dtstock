@@ -2,8 +2,9 @@
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { Sidebar, SillyLoading, ResponsiveSwitch } from "@/components";
+import { useUiState } from "@/state";
+
 export default function Layout ({ children }: { children: React.ReactNode; }) {
-    const [sidebarOpen, setSidebarOpen] = useState<boolean>(true);
     const [loading, setLoading] = useState<boolean>(true);
     const pathname = usePathname();
     useEffect(() => {
@@ -18,12 +19,7 @@ export default function Layout ({ children }: { children: React.ReactNode; }) {
                 </MobileView>
             }
             tablet={
-                <TabletView
-                    sidebarOpen={sidebarOpen}
-                    setSidebarOpen={setSidebarOpen}
-                    loading={loading}
-                    setLoading={setLoading}
-                >
+                <TabletView loading={loading} setLoading={setLoading}>
                     {children}
                 </TabletView>
             }
@@ -31,10 +27,11 @@ export default function Layout ({ children }: { children: React.ReactNode; }) {
     );
 }
 
-function TabletView ({ children, sidebarOpen, setSidebarOpen, loading, setLoading }: { children: React.ReactNode; sidebarOpen: boolean; setSidebarOpen: React.Dispatch<React.SetStateAction<boolean>>; loading: boolean; setLoading: React.Dispatch<React.SetStateAction<boolean>>;}) {
+function TabletView ({ children, loading, setLoading }: { children: React.ReactNode; loading: boolean; setLoading: React.Dispatch<React.SetStateAction<boolean>>;}) {
+    const sidebarOpen = useUiState((s) => (s.sidebarOpen));
     return (
         <div className="flex w-dvw h-dvh">
-            <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} setLoading={setLoading} loading={loading} />
+            <Sidebar setLoading={setLoading} loading={loading} />
             <main 
                 className={`flex-1 relative overflow-y-auto
                 ml-3 ${sidebarOpen && "md:ml-64"}

@@ -1,4 +1,5 @@
 import { useShow } from '@/utils';
+import { useUiState } from "@/state";
 
 export const Overlay = () => {
     return (
@@ -19,7 +20,8 @@ export const OverlayBlur = () => {
     );
 };
 
-export const SidebarOverlayDissmiss = ({ setSidebarOpen }: { setSidebarOpen: React.Dispatch<React.SetStateAction<boolean>>; }) => {
+export const SidebarOverlayDissmiss = () => {
+    const setSidebarOpen = useUiState((s) => (s.setSidebarOpen));
     return (
         <div className="fixed bg-black/40 inset-0 z-29 md:hidden" onClick={()=>setSidebarOpen(false)} />
     );
