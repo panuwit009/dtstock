@@ -31,8 +31,10 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({ ok: true });
 
-  } catch (err: any) {
-    return NextResponse.json({ ok: false, error: err.message });
+  } catch (err) {
+    if (err instanceof Error) {
+      return NextResponse.json({ ok: false, error: err.message });
+    } else return NextResponse.json({ ok: false, error: "Unknown error" });
   }
 }
 
