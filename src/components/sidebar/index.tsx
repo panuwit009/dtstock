@@ -18,10 +18,7 @@ const circleActive = "shrink-0 w-4 h-4 text-blue-500";
 const sidebarListClass = "flex items-center p-2 text-black rounded-lg hover:bg-white group hover:shadow-[inset_0_2px_6px_rgba(0,0,0,0.3)]";
 const sidebarListActive = "cursor-default shadow-[inset_0_2px_6px_rgba(0,0,0,0.3)] flex items-center p-2 text-black rounded-lg bg-white group";
 
-export function Sidebar (
-    { setLoading, loading }: 
-    { setLoading: React.Dispatch<React.SetStateAction<boolean>>; loading: boolean;}) {
-
+export function Sidebar () {
     const sidebarOpen = useUiState((s) => (s.sidebarOpen));
     const setSidebarOpen = useUiState((s) => (s.setSidebarOpen));
     const router = useRouter();
@@ -35,7 +32,6 @@ export function Sidebar (
     const handleClick = (path: string) => {
         if (pathname === path) return;
         setActiveClass(path);
-        setLoading(true);
         router.push(path);
     };
 
@@ -87,7 +83,6 @@ export function Sidebar (
                                 key={item.path}
                                 href={item.path}
                                 onClick={() => handleClick(item.path)}
-                                loading={loading}
                                 className={`${
                                 isActive
                                     ? sidebarListActive
@@ -152,13 +147,12 @@ type SidebarListProps = {
   children?: React.ReactNode;
   className?: string;
   onClick: () => void;
-  loading: boolean;
 };
 
-function SidebarList({ href, children, className, onClick, loading }: SidebarListProps) {
+function SidebarList({ href, children, className, onClick }: SidebarListProps) {
   return (
-    <li onClick={loading ? undefined : onClick}
-      className={loading ? "pointer-events-none opacity-50" : ""}
+    <li onClick={onClick}
+      className=""
     >
       <Link href={href} className={className}>
         {children}

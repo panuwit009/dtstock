@@ -12,6 +12,7 @@ export default function Home () {
 function MobileView () {
     return (
         <>
+            <hr className="text-blue-100 my-1 border-1 rounded-lg" />
             <p className="text-4xl">asdasd</p>
             <p className="text-4xl">asdasd</p>
             <p className="text-4xl">asdasd</p>

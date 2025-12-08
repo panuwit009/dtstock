@@ -1,6 +1,6 @@
 export { BarcodeScanner, BarcodeScannerMobile } from "./barcodescanner";
 export { HomeHeader, HomeUserGuide, ItemList } from "./home";
-export { FullScreenLoading, LoadingAnimation, SillyLoading } from "./loading";
+export { FullScreenLoading, LoadingAnimation } from "./loading";
 export { Login } from "./login";
 export { Modal, FormInsertItem } from "./modal";
 export { NoScript } from "./noscript";
