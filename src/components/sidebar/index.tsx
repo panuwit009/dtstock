@@ -8,7 +8,7 @@ import { Circle, logoutIcon } from "../svg";
 import { SidebarOverlayDissmiss } from "../overlay";
 import { useCheckScreen } from "@/utils";
 import { useUiState } from "@/state";
-import { menu } from "./menu";
+import { menu, type Menu } from "./menu";
 import dtstockIcon from "./img/dtstockIcon.png";
 import popSiam from "../../../public/img/logo.jpg";
 
@@ -73,15 +73,7 @@ export function Sidebar () {
                         {menu.map((item) => {
                             const isActive = pathname === item.path;
                             return (
-                            <SidebarList
-                                key={item.path}
-                                href={item.path}
-                                className={`${
-                                isActive
-                                    ? sidebarListActive
-                                    : sidebarListClass
-                                }`}
-                            >
+                            <SidebarList key={item.path} item={item} isActive={isActive} >
                                 <Circle className={isActive ? circleActive : circleClass} />
                                 <span className="flex-1 ms-3 whitespace-nowrap">{item.name}</span>
                             </SidebarList>
@@ -137,18 +129,12 @@ export function Sidebar () {
     );
 }
 
-type SidebarListProps = {
-  href: string;
-  children?: React.ReactNode;
-  className?: string;
-};
-
-function SidebarList({ href, children, className }: SidebarListProps) {
+function SidebarList({ children, item, isActive }: { children: React.ReactNode; item: Menu; isActive: boolean;}) {
   return (
-    <li
-      className=""
+    <li className=""
+        // title={item.name} tooltip เอาไว้ค่อยว่ากันว่าควรมีมั้ย
     >
-      <Link href={href} className={className}>
+      <Link href={item.path} className={`${ isActive ? sidebarListActive : sidebarListClass }`}>
         {children}
       </Link>
     </li>
