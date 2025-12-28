@@ -49,7 +49,7 @@ return (
                 <div className="w-full rounded">
                     { !allImgLoaded 
                         ? <div className="mt-1 w-full text-lg md:text-xl bg-gray-200 rounded-md pulse text-transparent">skeleton</div>
-                        : <div className="mt-1 truncate text-lg md:text-xl">{item.name}</div>
+                        : <div className="mt-1 truncate text-lg md:text-xl" title={item.name}>{item.name}</div>
                     }
                 </div>
             </div>

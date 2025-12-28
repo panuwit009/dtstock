@@ -32,22 +32,16 @@ export default function TestResponsive () {
             <p>ตำแหน่งเมาส์</p>
             <p>X: {position.x} | Y: {position.y}</p>
             <p className="absolute left-100 top-5 cursor-pointer"
-                onMouseEnter={() => setShow(<Tooltip message="ทดสอบ"/>)}
+                onMouseEnter={() => setShow(<Tooltip message="ทดสอบ custom Tooltip"/>)}
                 onMouseLeave={() => setShow(null)}
             >
-                test Tooltip
+                test custom Tooltip
             </p>
-            <p className="absolute left-250 top-40 cursor-pointer"
-                onMouseEnter={() => setShow(<Tooltip message="ทดสอบ"/>)}
-                onMouseLeave={() => setShow(null)}
-            >
-                test Tooltip
+            <p className="absolute left-50 top-40 cursor-pointer" title="normal tooltip">
+                test normal Tooltip
             </p>
-            <p className="absolute left-50 top-130 cursor-pointer"
-                onMouseEnter={() => setShow(<Tooltip message="ทดสอบ"/>)}
-                onMouseLeave={() => setShow(null)}
-            >
-                test Tooltip
+            <p className="absolute left-50 top-130 cursor-pointer" title="normal tooltip">
+                test normal Tooltip
             </p>
         </div>
     );
