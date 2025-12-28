@@ -1,6 +1,7 @@
 import { ResponsiveSwitch, HomeHeader, HomeUserGuide, ItemList } from "@/components";
 
-export default function Home () {
+export default async function Home () {
+    await new Promise(res => setTimeout(res, 2000));
     return (
         <ResponsiveSwitch 
             mobile={<MobileView />}

@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
@@ -15,25 +15,19 @@ import popSiam from "../../../public/img/logo.jpg";
 // const iconClass2 = "shrink-0 w-5 h-5 text-blue-500 transition duration-75 dark:text-blue-400 group-hover:text-blue-900 dark:group-hover:text-white";
 const circleClass = "shrink-0 w-4 h-4 text-transparent";
 const circleActive = "shrink-0 w-4 h-4 text-blue-500";
-const sidebarListClass = "flex items-center p-2 text-black rounded-lg hover:bg-white group hover:shadow-[inset_0_2px_6px_rgba(0,0,0,0.3)]";
-const sidebarListActive = "cursor-default shadow-[inset_0_2px_6px_rgba(0,0,0,0.3)] flex items-center p-2 text-black rounded-lg bg-white group";
+const sidebarListClass = "flex items-center p-2 text-black rounded-lg hover:bg-white group hover:shadow-[inset_0_2px_6px_rgba(0,0,0,0.3)] active:scale-96";
+const sidebarListActive = "cursor-default shadow-[inset_0_2px_6px_rgba(0,0,0,0.3)] flex items-center p-2 text-black rounded-lg bg-white group active:scale-96";
 
 export function Sidebar () {
     const sidebarOpen = useUiState((s) => (s.sidebarOpen));
     const setSidebarOpen = useUiState((s) => (s.setSidebarOpen));
     const router = useRouter();
     const pathname = usePathname();
-    const [activePath, setActiveClass] = useState(pathname);
+    
     const { isMd } = useCheckScreen();
     useEffect(() => {
         setSidebarOpen(isMd);
     }, [isMd])
-
-    const handleClick = (path: string) => {
-        if (pathname === path) return;
-        setActiveClass(path);
-        router.push(path);
-    };
 
     function logout (): void {
         router.push('/');
@@ -77,12 +71,11 @@ export function Sidebar () {
                 <nav className="flex-1 px-3 py-4">
                     <ul className="space-y-2 font-medium">
                         {menu.map((item) => {
-                            const isActive = activePath === item.path;
+                            const isActive = pathname === item.path;
                             return (
                             <SidebarList
                                 key={item.path}
                                 href={item.path}
-                                onClick={() => handleClick(item.path)}
                                 className={`${
                                 isActive
                                     ? sidebarListActive
@@ -100,17 +93,19 @@ export function Sidebar () {
                 <footer
                     className="p-2
                     text-center text-sm text-gray-700 
-                    cursor-pointer flex items-center justify-center gap-2
+                    cursor-pointer flex items-center justify-center
                     hover:text-blue-600
                     group"
                     onClick={logout}
                 >
-                    <div
-                        className="w-10 h-10 flex items-center justify-center rounded-full bg-red-400"
-                    >
-                        {logoutIcon}
-                    </div>   
-                    <span>ออกจากระบบ</span>
+                    <Link href="/" className="flex items-center justify-center gap-2">
+                        <div
+                            className="w-10 h-10 flex items-center justify-center rounded-full bg-red-400"
+                        >
+                            {logoutIcon}
+                        </div>   
+                        <span>ออกจากระบบ</span>
+                    </Link>
                 </footer>
                 <button
                     onClick={() => setSidebarOpen(!sidebarOpen)}
@@ -146,12 +141,11 @@ type SidebarListProps = {
   href: string;
   children?: React.ReactNode;
   className?: string;
-  onClick: () => void;
 };
 
-function SidebarList({ href, children, className, onClick }: SidebarListProps) {
+function SidebarList({ href, children, className }: SidebarListProps) {
   return (
-    <li onClick={onClick}
+    <li
       className=""
     >
       <Link href={href} className={className}>
